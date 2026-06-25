@@ -60,11 +60,13 @@ const faqs = [
   },
 ];
 
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const certificates = [
-  "/cert-1.png",
-  "/cert-2.png",
-  "/cert-3.png",
-  "/cert-4.png",
+  `${bp}/cert-1.png`,
+  `${bp}/cert-2.png`,
+  `${bp}/cert-3.png`,
+  `${bp}/cert-4.png`,
 ];
 
 function FaqItem({

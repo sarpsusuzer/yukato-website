@@ -29,14 +29,14 @@ export default function Footer() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <Image
-              src="/logo-icon.svg"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo-icon.svg`}
               alt=""
               width={44}
               height={45}
               className="h-[45px] w-auto"
             />
             <Image
-              src="/logo-text.svg"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo-text.svg`}
               alt="Yukato"
               width={155}
               height={33}

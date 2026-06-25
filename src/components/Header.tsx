@@ -132,14 +132,14 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image
-            src="/logo-icon.svg"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo-icon.svg`}
             alt=""
             width={30}
             height={31}
             className="h-[31px] w-auto"
           />
           <Image
-            src="/logo-text.svg"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo-text.svg`}
             alt="Yukato"
             width={105}
             height={22}

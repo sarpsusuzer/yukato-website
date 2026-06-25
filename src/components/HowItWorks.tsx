@@ -4,36 +4,38 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const steps = [
   {
     title: "Sevkiyat Başlatılır",
     description:
       "Yeni sipariş depoya ulaşır. Yukato üzerinden rampa ve yükleme hazırlığı otomatik planlanır.",
-    image: "/hiw-1.jpg",
+    image: `${bp}/hiw-1.jpg`,
   },
   {
     title: "Yükleme Yapılır",
     description:
       "Sürücü, uygulama üzerinden depoya giriş yapar, yükünü alır ve yola çıkar.",
-    image: "/hiw-1.jpg",
+    image: `${bp}/hiw-1.jpg`,
   },
   {
     title: "Sürücü Takip Edilir",
     description:
       "Sürücünün anlık konum bilgisi ile TVZ bilgileri hesaplanır ve depo randevuları buna göre verilir.",
-    image: "/hiw-2.jpg",
+    image: `${bp}/hiw-2.jpg`,
   },
   {
     title: "Teslimat Yapılır",
     description:
       "Araç teslimat noktasına ulaşır. Sürücü mobil uygulaması ile teslimat gerçekleşir.",
-    image: "/hiw-3.jpg",
+    image: `${bp}/hiw-3.jpg`,
   },
   {
     title: "Anında İşlemler Tamamlanır",
     description:
       "Teslimat yapıldığı anda belgeler üzerinde saniyeler içersinde işlemler tamamlanır.",
-    image: "/hiw-4.jpg",
+    image: `${bp}/hiw-4.jpg`,
   },
 ];
 
@@ -107,7 +109,7 @@ export default function HowItWorks() {
           {/* Background decoration */}
           <div className="absolute -left-[200px] -top-[100px] w-[970px] h-[955px] opacity-60 pointer-events-none animate-[spin_60s_linear_infinite]">
             <Image
-              src="/hiw-bg.svg"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hiw-bg.svg`}
               alt=""
               fill
               className="object-contain"

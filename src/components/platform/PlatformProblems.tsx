@@ -27,7 +27,7 @@ export default function PlatformProblems({
       </svg>
     <section className="relative py-24 md:py-32 px-6 bg-[#1a4d4d] overflow-hidden rounded-[32px] rounded-tr-none rounded-bl-none">
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[970px] h-[955px] opacity-30 pointer-events-none animate-[spin_60s_linear_infinite]">
-        <Image src="/hiw-bg.svg" alt="" fill className="object-contain" />
+        <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hiw-bg.svg`} alt="" fill className="object-contain" />
       </div>
       <div className="relative z-10 max-w-[1160px] mx-auto">
         <motion.div

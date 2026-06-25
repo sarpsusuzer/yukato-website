@@ -4,10 +4,12 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const sections = [
   {
     step: 0,
-    image: "/nexus-hero.png",
+    image: `${bp}/nexus-hero.png`,
     name: "Nexus",
     nameSup: "™",
     subtitle: "Perakendeci ve Tedarikçi için Operasyon Yönetim Platformu",
@@ -18,7 +20,7 @@ const sections = [
   },
   {
     step: 1,
-    image: "/lighthouse-hero.png",
+    image: `${bp}/lighthouse-hero.png`,
     name: "Lighthouse",
     nameSup: "™",
     subtitle: "Nakliye Firmaları ve Üreticiler için Sevkiyat Takip Platformu",
@@ -28,7 +30,7 @@ const sections = [
   },
   {
     step: 2,
-    image: "/yard-hero.png",
+    image: `${bp}/yard-hero.png`,
     name: "Yard Management",
     nameSup: "",
     subtitle: "Başlangıçtan Sona\nTam Kontrol Süreci",
