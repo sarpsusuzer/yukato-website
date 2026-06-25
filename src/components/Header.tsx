@@ -32,22 +32,22 @@ const dropdownMenus: Record<string, DropdownItem[]> = {
     {
       title: "Tedarikçiler için Yukato",
       desc: "Sürecinizi dijitalleştirin, ürünlerinizi güvenle sevk edin.",
-      href: "/platform/tedarikci",
+      href: "/platform/tedarikci/",
     },
     {
       title: "Perakendeciler için Yukato",
       desc: "Tedarik zincirinizi kesintisiz yönetin.",
-      href: "/platform/perakendeci",
+      href: "/platform/perakendeci/",
     },
     {
       title: "Nakliyeciler için Yukato",
       desc: "Taşıma operasyonlarınızda verimliliğinizi artırın.",
-      href: "/platform/nakliyeci",
+      href: "/platform/nakliyeci/",
     },
     {
       title: "Sürücüler için Yukato",
       desc: "Teslimatları güvenle ve zamanında tamamlayın.",
-      href: "/platform/surucu",
+      href: "/platform/surucu/",
     },
   ],
   Ürünler: [
@@ -79,7 +79,7 @@ function DropdownMenu({ items }: { items: DropdownItem[] }) {
       className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[520px] bg-white rounded-2xl shadow-[0_12px_48px_rgba(0,0,0,0.15)] border border-neutral-100 p-6 grid grid-cols-2 gap-4"
     >
       {items.map((item) => (
-        <a
+        <Link
           key={item.title}
           href={item.href}
           className="p-4 rounded-xl hover:bg-[#faf8f6] transition-colors duration-150 group"
@@ -90,7 +90,7 @@ function DropdownMenu({ items }: { items: DropdownItem[] }) {
           <p className="text-[14px] text-neutral-500 leading-[1.5] mt-1">
             {item.desc}
           </p>
-        </a>
+        </Link>
       ))}
     </motion.div>
   );
