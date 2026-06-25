@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 function ChevronDown({ flipped }: { flipped?: boolean }) {
   return (
@@ -129,7 +130,7 @@ export default function Header() {
         }`}
       >
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 shrink-0">
+        <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image
             src="/logo-icon.svg"
             alt=""
@@ -144,7 +145,7 @@ export default function Header() {
             height={22}
             className="h-[22px] w-auto"
           />
-        </a>
+        </Link>
 
         {/* Nav links — center */}
         <div className="hidden md:flex items-center">

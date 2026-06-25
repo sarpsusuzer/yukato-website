@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 function ArrowUpRight() {
   return (
@@ -26,7 +27,7 @@ export default function Footer() {
         {/* Top row: Logo + Nav */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-10 mb-16">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 shrink-0">
+          <Link href="/" className="flex items-center gap-2 shrink-0">
             <Image
               src="/logo-icon.svg"
               alt=""
@@ -41,7 +42,7 @@ export default function Footer() {
               height={33}
               className="h-[33px] w-auto"
             />
-          </a>
+          </Link>
 
           {/* Nav links */}
           <div className="flex gap-8 text-[16px] text-white">
