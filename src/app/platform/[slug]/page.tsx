@@ -27,6 +27,7 @@ export default async function PlatformPage({
         <PlatformHero
           label={page.label}
           title={page.title}
+          variant="light"
         />
         <PlatformProblems
           sectionLabel={page.problemsLabel}
