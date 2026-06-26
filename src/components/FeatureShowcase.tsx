@@ -152,7 +152,7 @@ export default function FeatureShowcase() {
               key={feature.label}
               ref={(el) => { sectionRefs.current[i] = el; }}
               data-index={i}
-              className="py-20 md:py-28 flex items-center"
+              className="h-screen flex items-center"
             >
               <div>
                 <span
@@ -173,7 +173,7 @@ export default function FeatureShowcase() {
         </div>
 
         {/* Right — sticky image */}
-        <div className="hidden md:block w-1/2">
+        <div className="hidden md:block w-1/2 h-screen sticky top-0">
           <div className="relative h-full p-5">
             <div className="absolute inset-5">
               <div className="relative w-full h-full">
