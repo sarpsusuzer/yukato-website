@@ -89,6 +89,34 @@ export const platformPages: Record<string, PlatformPageData> = {
       { title: "Boş Dönüş Eşleştirme", desc: "Geri dönüş rotalarında uygun yükleri eşleştirerek verimliliği artırın." },
     ],
   },
+  surucu: {
+    label: "Sürücüler için Yukato",
+    title: "Teslimatları güvenle ve zamanında tamamlayın.",
+    problemsLabel: "Sürücülerin Günlük Zorlukları",
+    problemsTitle: "Belirsiz Rotalar, Kağıt Belgeler, İletişim Kopukluğu",
+    problems: [
+      { title: "Rota Belirsizliği", desc: "Teslimat noktalarına en verimli rotanın bilinmemesi." },
+      { title: "Kağıt İş Yükü", desc: "Her teslimatta doldurulan formlar ve imza süreçleri." },
+      { title: "Bekleme Süreleri", desc: "Depo ve teslimat noktalarında uzun bekleme süreleri." },
+      { title: "İletişim Zorlukları", desc: "Merkez ofis ile anlık iletişim kuramamak." },
+      { title: "Randevu Takibi", desc: "Hangi saatte nerede olunması gerektiğinin takibi." },
+      { title: "Belge Kayıpları", desc: "Kağıt bazlı belgelerin kaybolma veya hasar görme riski." },
+    ],
+    featuresLabel: "Çözüm Yaklaşımı",
+    featuresTitle:
+      "Sürücü Deneyimindeki Zorluklara Yukato'dan Yeni Bir Bakış Açısı",
+    features: [
+      { title: "Mobil Teslimat Uygulaması", desc: "Tüm teslimat sürecini cebinizden yönetin." },
+      { title: "Dijital İmza ve POD", desc: "Teslimat kanıtını dijital olarak alın, kağıda son verin." },
+      { title: "Anlık Navigasyon", desc: "Optimize edilmiş rotalarla teslimat noktalarına hızla ulaşın." },
+      { title: "Randevu Bildirimleri", desc: "Yaklaşan randevular ve değişiklikler için anlık bildirim alın." },
+      { title: "Merkez İletişim", desc: "Uygulama üzerinden merkez ofis ile anlık mesajlaşın." },
+      { title: "Görev Listesi", desc: "Günlük teslimatlarınızı önceliklendirin ve takip edin." },
+    ],
+  },
+};
+
+export const productPages: Record<string, PlatformPageData> = {
   nexus: {
     label: "Nexus",
     title: "Sipariş, sevkiyat ve teslimat süreçlerini uçtan uca yönetin.",
@@ -174,31 +202,6 @@ export const platformPages: Record<string, PlatformPageData> = {
       { title: "Operasyonel Dashboard", desc: "Anlık saha durumunu, doluluk oranlarını ve performans metriklerini görüntüleyin." },
       { title: "Otomatik Bildirimler", desc: "Randevu değişiklikleri, gecikmeler ve rampa hazırlığı için anlık uyarı alın." },
       { title: "Raporlama ve Analiz", desc: "Ortalama bekleme süreleri, rampa kullanım oranları ve verimlilik metriklerini analiz edin." },
-    ],
-  },
-  surucu: {
-    label: "Sürücüler için Yukato",
-    title: "Teslimatları güvenle ve zamanında tamamlayın.",
-    problemsLabel: "Sürücülerin Günlük Zorlukları",
-    problemsTitle: "Belirsiz Rotalar, Kağıt Belgeler, İletişim Kopukluğu",
-    problems: [
-      { title: "Rota Belirsizliği", desc: "Teslimat noktalarına en verimli rotanın bilinmemesi." },
-      { title: "Kağıt İş Yükü", desc: "Her teslimatta doldurulan formlar ve imza süreçleri." },
-      { title: "Bekleme Süreleri", desc: "Depo ve teslimat noktalarında uzun bekleme süreleri." },
-      { title: "İletişim Zorlukları", desc: "Merkez ofis ile anlık iletişim kuramamak." },
-      { title: "Randevu Takibi", desc: "Hangi saatte nerede olunması gerektiğinin takibi." },
-      { title: "Belge Kayıpları", desc: "Kağıt bazlı belgelerin kaybolma veya hasar görme riski." },
-    ],
-    featuresLabel: "Çözüm Yaklaşımı",
-    featuresTitle:
-      "Sürücü Deneyimindeki Zorluklara Yukato'dan Yeni Bir Bakış Açısı",
-    features: [
-      { title: "Mobil Teslimat Uygulaması", desc: "Tüm teslimat sürecini cebinizden yönetin." },
-      { title: "Dijital İmza ve POD", desc: "Teslimat kanıtını dijital olarak alın, kağıda son verin." },
-      { title: "Anlık Navigasyon", desc: "Optimize edilmiş rotalarla teslimat noktalarına hızla ulaşın." },
-      { title: "Randevu Bildirimleri", desc: "Yaklaşan randevular ve değişiklikler için anlık bildirim alın." },
-      { title: "Merkez İletişim", desc: "Uygulama üzerinden merkez ofis ile anlık mesajlaşın." },
-      { title: "Görev Listesi", desc: "Günlük teslimatlarınızı önceliklendirin ve takip edin." },
     ],
   },
 };
