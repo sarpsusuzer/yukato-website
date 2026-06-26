@@ -141,32 +141,9 @@ export default function FeatureShowcase() {
     return () => observer.disconnect();
   }, []);
 
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const html = document.documentElement;
-    const container = containerRef.current;
-    if (!container) return;
-
-    const onScroll = () => {
-      const rect = container.getBoundingClientRect();
-      const inView = rect.top < window.innerHeight && rect.bottom > 0;
-      if (inView) {
-        html.style.scrollSnapType = "y proximity";
-      } else {
-        html.style.scrollSnapType = "";
-      }
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      html.style.scrollSnapType = "";
-    };
-  }, []);
 
   return (
-    <div ref={containerRef} className="relative bg-white z-[5]">
+    <div className="relative bg-white z-[5]">
       <div className="flex">
         {/* Left — scrolling text panels with 60px padding, full width on mobile, half on desktop */}
         <div className="w-full md:w-1/2 shrink-0" style={{ padding: "0 60px" }}>
@@ -175,7 +152,7 @@ export default function FeatureShowcase() {
               key={feature.label}
               ref={(el) => { sectionRefs.current[i] = el; }}
               data-index={i}
-              className="h-screen flex items-center snap-start"
+              className="py-20 md:py-28 flex items-center"
             >
               <div>
                 <span
@@ -196,7 +173,7 @@ export default function FeatureShowcase() {
         </div>
 
         {/* Right — sticky image */}
-        <div className="hidden md:block w-1/2 h-screen sticky top-0">
+        <div className="hidden md:block w-1/2">
           <div className="relative h-full p-5">
             <div className="absolute inset-5">
               <div className="relative w-full h-full">
