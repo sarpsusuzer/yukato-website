@@ -54,17 +54,17 @@ const dropdownMenus: Record<string, DropdownItem[]> = {
     {
       title: "Nexus",
       desc: "Sipariş, sevkiyat ve teslimat süreçlerini uçtan uca yönetin.",
-      href: "#",
+      href: "/platform/nexus/",
     },
     {
       title: "Lighthouse",
       desc: "Sevkiyatlarınızı anlık takip edin, görünürlüğü artırın.",
-      href: "#",
+      href: "/platform/lighthouse/",
     },
     {
       title: "Yard Management",
       desc: "Depo sahası, rampa ve randevu süreçlerini optimize edin.",
-      href: "#",
+      href: "/platform/yard-management/",
     },
   ],
 };
