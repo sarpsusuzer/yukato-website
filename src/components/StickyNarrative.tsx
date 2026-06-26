@@ -97,7 +97,6 @@ export default function StickyNarrative() {
               );
             })}
 
-            <StepIndicatorsReactive scrollProgress={scrollYProgress} />
           </div>
           <svg
             className="absolute bottom-0 left-0 w-full translate-y-[99%] z-10"
@@ -169,48 +168,3 @@ export default function StickyNarrative() {
   );
 }
 
-function StepIndicatorsReactive({
-  scrollProgress,
-}: {
-  scrollProgress: ReturnType<typeof useScroll>["scrollYProgress"];
-}) {
-  const index = useTransform(scrollProgress, [0, 1], [0, 2.99]);
-  const step0 = useTransform(index, (v) => (Math.floor(v) === 0 ? 1 : 0));
-  const step1 = useTransform(index, (v) => (Math.floor(v) === 1 ? 1 : 0));
-  const step2 = useTransform(index, (v) => (Math.min(2, Math.floor(v)) === 2 ? 1 : 0));
-
-  const dotY = useTransform(index, (v) => Math.min(2, Math.floor(v)) * 56 + 12);
-  const lineHeight = useTransform(index, (v) => `${((Math.min(2, Math.floor(v)) + 1) / 3) * 100}%`);
-
-  const color0 = useTransform(step0, (v) => (v ? "#21beba" : "#a3aab8"));
-  const color1 = useTransform(step1, (v) => (v ? "#21beba" : "#a3aab8"));
-  const color2 = useTransform(step2, (v) => (v ? "#21beba" : "#a3aab8"));
-
-  return (
-    <div className="absolute left-6 md:left-[140px] top-[80px] md:top-[104px] flex flex-col items-end z-10">
-      {[color0, color1, color2].map((color, i) => (
-        <div key={i} className="flex items-center gap-2.5 h-[56px]">
-          <motion.span
-            style={{ color }}
-            className="text-[20px] font-medium tabular-nums"
-          >
-            {String(i + 1).padStart(2, "0")}
-          </motion.span>
-          <div className="w-4 h-4" />
-        </div>
-      ))}
-      {/* Animated dot */}
-      <motion.div
-        style={{ top: dotY }}
-        className="absolute right-0 w-4 h-4 rounded-full bg-[#21beba]"
-      />
-      {/* Progress line */}
-      <div className="absolute left-[calc(100%+14px)] top-[8px] w-[3px] h-[152px] bg-[#d4d8de] rounded-full overflow-hidden">
-        <motion.div
-          style={{ height: lineHeight }}
-          className="w-full bg-[#21beba] rounded-full"
-        />
-      </div>
-    </div>
-  );
-}
