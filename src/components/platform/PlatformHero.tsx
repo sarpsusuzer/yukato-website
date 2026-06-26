@@ -80,7 +80,7 @@ export default function PlatformHero({
   const dotY = useTransform(scrollYProgress, [0, 1], [0, 150]);
 
   return (
-    <section ref={sectionRef} className="relative bg-white overflow-hidden h-[95vh] flex flex-col justify-center">
+    <section ref={sectionRef} className="relative bg-[#1a4d4d] overflow-hidden h-[95vh] flex flex-col justify-center">
       <motion.div style={{ y: dotY }} className="absolute inset-[-15%] pointer-events-none">
         <GlowingDotMatrix />
       </motion.div>
@@ -96,7 +96,7 @@ export default function PlatformHero({
             {label}
           </motion.p>
         </div>
-        <h1 className="text-[clamp(32px,5vw,62px)] font-medium leading-[1.15] tracking-[-1px] text-[#282c34] max-w-[800px] mx-auto">
+        <h1 className="text-[clamp(32px,5vw,62px)] font-medium leading-[1.15] tracking-[-1px] text-white max-w-[800px] mx-auto">
           {title.split(" ").reduce<string[][]>((lines, word) => {
             const last = lines[lines.length - 1];
             if (last && last.join(" ").length + word.length < 30) {
