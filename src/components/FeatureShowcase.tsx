@@ -36,28 +36,15 @@ const features = [
 
 function MockImage({ index, color }: { index: number; color: string }) {
   const patterns = [
-    <div key={0} className="w-full h-full bg-gradient-to-br from-[#f8fafa] to-[#eef4f4] p-8 flex flex-col gap-5">
-      <div className="flex gap-4">
-        {[["2,847", "Aktif Sevkiyat"], ["96.2%", "Zamanında"], ["12", "Bekleyen"]].map(([val, lbl]) => (
-          <div key={lbl} className="flex-1 bg-white rounded-xl p-5 border border-neutral-100">
-            <div className="text-[11px] text-neutral-400 mb-1">{lbl}</div>
-            <div className="text-[26px] font-bold" style={{ color }}>{val}</div>
-          </div>
-        ))}
-      </div>
-      <div className="flex-1 bg-white rounded-xl border border-neutral-100 p-5 relative overflow-hidden">
-        <div className="absolute inset-5 opacity-20">
-          {[...Array(8)].map((_, r) => (
-            <div key={r} className="flex gap-1 mb-1">
-              {[...Array(10)].map((_, c) => (
-                <div key={c} className="flex-1 h-8 rounded" style={{ background: color, opacity: 0.1 + ((r * 10 + c) % 7) * 0.05 }} />
-              ))}
-            </div>
-          ))}
-        </div>
-        <div className="absolute bottom-5 right-5 w-3 h-3 rounded-full animate-pulse" style={{ background: color }} />
-        <div className="text-[12px] font-medium text-neutral-400">Canlı Harita Görünümü</div>
-      </div>
+    <div key={0} className="w-full h-full">
+      <video
+        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/videos/gercek-zamanli-gorunurluk.mp4`}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-full object-cover"
+      />
     </div>,
     <div key={1} className="w-full h-full bg-gradient-to-br from-[#f8fafa] to-[#eef4f4] p-8 flex flex-col gap-5">
       <div className="flex items-center gap-3 mb-2">
