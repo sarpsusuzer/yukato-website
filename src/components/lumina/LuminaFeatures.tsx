@@ -1,113 +1,249 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const features = [
   {
     title: "Belge Doğrulama",
     desc: "Yüklenen dosyaların gerçek belgeler (örneğin, faturalar, teslimat notları) mi yoksa alakasız görüntüler mi olduğunu tespit eder. Yanlış yüklemeleri önler ve temiz, güvenilir veri sağlar.",
-    column: "left",
   },
   {
     title: "Otomatik Veri Çıkartma ve Eşleştirme",
     desc: "Ödeme belgelerini okur ve belgelerdeki ana verileri (ID, şirket, adres) çıkarır. Belgeleri doğru sevkiyata otomatik olarak eşleştirir - manuel kontrolleri tamamen ortadan kaldırır.",
-    column: "right",
   },
   {
     title: "Çok Sayfalı Belge Yönetimi",
     desc: "Büyük PDF'leri otomatik olarak ayrı sevkiyat belgelerine ayırır. Tekrarlayan, hata yapmaya açık manuel çalışmayı ortadan kaldırır.",
-    column: "left",
   },
   {
     title: "Adres ve Şirket Çoğaltma Önleme",
     desc: "Girilen adresleri mevcut kayıtlarla benzerlik analizi kullanarak karşılaştırır. Potansiyel çift şirket kayıtlarını işaretler. Veritabanı bütünlüğünü sağlar ve maliyetli tutarsızlıkları önler.",
-    column: "right",
   },
   {
     title: "AI Destekli Destek",
     desc: "Entegre bir chatbot, kullanıcılara API entegrasyonları, belgeler ve genel ürün desteği konusunda yardımcı olur. Anında yanıtlar sağlar, manuel müşteri desteğine bağımlılığı azaltır.",
-    column: "left",
   },
   {
     title: "Stratejik ve İş Zekası Sistemleri",
     desc: "Karar verme süreçlerini desteklemek için veri toplar ve analiz eder (örneğin, Power BI, Tableau, satış analitiği). BI içgörülerini uzun vadeli stratejileri yönlendirmek ve sürdürülebilir rekabet avantajı yaratmak için kullanır.",
-    column: "right",
   },
 ];
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export default function LuminaFeatures() {
-  const leftFeatures = features.filter((f) => f.column === "left");
-  const rightFeatures = features.filter((f) => f.column === "right");
-
   return (
-    <section className="bg-white py-24 md:py-32 px-6">
-      <div className="max-w-[1160px] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.8, ease }}
-          className="text-center mb-16 md:mb-24"
-        >
-          <h2 className="text-[clamp(28px,4vw,48px)] font-bold leading-[1.15] tracking-[-1px] text-[#282c34]">
-            Yukato&apos;daki Dikey Yapay Zeka
-            <br />
-            Uygulamaları
-          </h2>
-        </motion.div>
+    <section className="bg-[#fafaf8]">
+      <ParallaxHeader />
 
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12">
-          {/* Left column */}
-          <div className="flex-1 flex flex-col gap-8">
-            {leftFeatures.map((feature, i) => (
-              <FeatureCard key={feature.title} feature={feature} index={i} />
-            ))}
-          </div>
+      {features.map((feature, i) => {
+        const isEven = i % 2 === 0;
+        return (
+          <motion.div
+            key={feature.title}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease }}
+            className="h-screen flex items-center px-6 md:px-[60px]"
+          >
+            <div
+              className={`max-w-[1160px] mx-auto w-full flex flex-col ${
+                isEven ? "md:flex-row" : "md:flex-row-reverse"
+              } gap-10 md:gap-16 items-center`}
+            >
+              <div className="flex-1 w-full">
+                <div className="relative">
+                  <svg
+                    className="absolute top-0 left-0 w-full -translate-y-[99%] z-10"
+                    viewBox="0 0 1440 36"
+                    preserveAspectRatio="none"
+                    fill="#1a4d4d"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" />
+                  </svg>
+                  <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] rounded-[36px] rounded-tr-none rounded-bl-none">
+                    <div className="absolute inset-0 dot-matrix opacity-30" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
+                        <span className="text-[32px] font-bold text-white/30">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <svg
+                    className="absolute bottom-0 left-0 w-full translate-y-[99%] z-10"
+                    viewBox="0 0 1440 36"
+                    preserveAspectRatio="none"
+                    fill="#1a4d4d"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M1440 0H760C730 0 720 0 700 8C680 20 660 36 620 36H32C14.3 36 0 21.7 0 4V0H1440Z" />
+                  </svg>
+                </div>
+              </div>
 
-          {/* Right column — offset down */}
-          <div className="flex-1 flex flex-col gap-8 md:mt-32">
-            {rightFeatures.map((feature, i) => (
-              <FeatureCard key={feature.title} feature={feature} index={i + 1} />
-            ))}
-          </div>
-        </div>
-      </div>
+              <div className="flex-1 w-full">
+                <div className={isEven ? "md:pl-4" : "md:pr-4"}>
+                  <ScrollRevealText
+                    number={String(i + 1).padStart(2, "0")}
+                    title={feature.title}
+                    desc={feature.desc}
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        );
+      })}
     </section>
   );
 }
 
-function FeatureCard({
-  feature,
-  index,
+function ScrollRevealText({
+  number,
+  title,
+  desc,
 }: {
-  feature: { title: string; desc: string };
-  index: number;
+  number: string;
+  title: string;
+  desc: string;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.85", "start 0.25"],
+  });
+
+  const clipNumber = useTransform(scrollYProgress, [0, 0.15], [0, 100]);
+  const clipTitle = useTransform(scrollYProgress, [0.1, 0.55], [0, 100]);
+  const clipDesc = useTransform(scrollYProgress, [0.4, 1], [0, 100]);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay: index * 0.1, ease }}
-      className="bg-[#f5f7f7] rounded-2xl overflow-hidden"
-    >
-      <div className="w-full aspect-[4/3] bg-[#e8ecec] flex items-center justify-center">
-        <div className="w-16 h-16 rounded-xl bg-[#21beba]/10 flex items-center justify-center">
-          <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#21beba" strokeWidth="1.5">
-            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-          </svg>
-        </div>
+    <div ref={ref} className="space-y-4">
+      <div className="relative">
+        <span className="text-[13px] font-medium text-[#d4d8de] block">
+          {number}
+        </span>
+        <motion.span
+          style={{ clipPath: useTransform(clipNumber, (v) => `inset(0 ${100 - v}% 0 0)`) }}
+          className="text-[13px] font-medium text-[#21beba] block absolute inset-0"
+        >
+          {number}
+        </motion.span>
       </div>
-      <div className="p-6 md:p-8">
-        <h3 className="text-[20px] font-bold text-[#282c34] mb-3">
-          {feature.title}
+
+      <div className="relative">
+        <h3 className="text-[clamp(22px,3vw,32px)] font-bold leading-[1.2] tracking-[-0.5px] text-[#d4d8de]">
+          {title}
         </h3>
-        <p className="text-[15px] leading-[1.7] text-[#596173]">
-          {feature.desc}
-        </p>
+        <motion.h3
+          style={{ clipPath: useTransform(clipTitle, (v) => `inset(0 ${100 - v}% 0 0)`) }}
+          className="text-[clamp(22px,3vw,32px)] font-bold leading-[1.2] tracking-[-0.5px] text-[#282c34] absolute inset-0"
+        >
+          {title}
+        </motion.h3>
       </div>
-    </motion.div>
+
+      <div className="relative">
+        <p className="text-[16px] text-[#d4d8de] leading-[1.7]">
+          {desc}
+        </p>
+        <motion.p
+          style={{ clipPath: useTransform(clipDesc, (v) => `inset(0 ${100 - v}% 0 0)`) }}
+          className="text-[16px] text-[#596173] leading-[1.7] absolute inset-0"
+        >
+          {desc}
+        </motion.p>
+      </div>
+    </div>
   );
+}
+
+function ParallaxHeader() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const dotY = useTransform(scrollYProgress, [0, 1], [-80, 80]);
+
+  return (
+    <div ref={ref} className="h-screen flex items-center justify-center px-6 relative overflow-hidden">
+      <motion.div style={{ y: dotY }} className="absolute inset-[-10%] pointer-events-none">
+        <GlowingDotMatrix />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7, ease }}
+        className="text-center max-w-[900px] relative z-10"
+      >
+        <p className="text-[14px] font-bold text-[#21beba] uppercase tracking-widest mb-4">
+          Yapay Zeka Uygulamaları
+        </p>
+        <h2 className="text-[clamp(28px,4vw,48px)] font-medium leading-[1.2] tracking-[-1px] text-[#282c34]">
+          Yukato&apos;daki Dikey Yapay Zeka Uygulamaları
+        </h2>
+      </motion.div>
+    </div>
+  );
+}
+
+function GlowingDotMatrix() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
+  const cols = 24;
+  const rows = 16;
+  const dots = [];
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const delay = Math.random() * 8;
+      const duration = 2 + Math.random() * 4;
+      const willGlow = Math.random() > 0.6;
+      dots.push(
+        <motion.div
+          key={`${r}-${c}`}
+          className="absolute rounded-full"
+          style={{
+            left: `${(c / cols) * 100}%`,
+            top: `${(r / rows) * 100}%`,
+            width: 4,
+            height: 4,
+            backgroundColor: willGlow ? "#21beba" : "#282c34",
+          }}
+          animate={
+            willGlow
+              ? {
+                  opacity: [0.08, 0.6, 0.08],
+                  scale: [1, 1.8, 1],
+                  boxShadow: [
+                    "0 0 0px rgba(33,190,186,0)",
+                    "0 0 12px rgba(33,190,186,0.5)",
+                    "0 0 0px rgba(33,190,186,0)",
+                  ],
+                }
+              : { opacity: [0.06, 0.12, 0.06] }
+          }
+          transition={{
+            duration,
+            delay,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      );
+    }
+  }
+
+  return <>{dots}</>;
 }
