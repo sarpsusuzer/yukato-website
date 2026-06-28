@@ -66,20 +66,15 @@ function MockImage({ index, color }: { index: number; color: string }) {
         className="w-full h-full object-cover"
       />
     </div>,
-    <div key={3} className="w-full h-full bg-gradient-to-br from-[#f8fafa] to-[#eef4f4] p-8 flex flex-col gap-5">
-      <div className="text-[15px] font-bold text-neutral-700">Entegrasyon Durumu</div>
-      {["ERP Sistemi", "TMS Platform", "WMS Modülü", "Muhasebe", "CRM"].map((sys, i) => (
-        <div key={sys} className="bg-white rounded-xl p-5 border border-neutral-100 flex items-center gap-4">
-          <div className="w-11 h-11 rounded-xl flex items-center justify-center text-[12px] font-bold text-white" style={{ background: i < 3 ? color : "#a3aab8" }}>
-            {sys.substring(0, 3).toUpperCase()}
-          </div>
-          <div className="flex-1">
-            <div className="text-[14px] font-semibold text-neutral-800">{sys}</div>
-            <div className="text-[12px] text-neutral-400 mt-0.5">{i < 3 ? "Bağlı · Son senkronizasyon 2dk önce" : "Bağlantı bekleniyor"}</div>
-          </div>
-          <div className={`w-3 h-3 rounded-full ${i < 3 ? "bg-emerald-400" : "bg-neutral-300"}`} />
-        </div>
-      ))}
+    <div key={3} className="w-full h-full">
+      <video
+        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/videos/entegrasyon-agi.mp4`}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-full object-cover"
+      />
     </div>,
   ];
   return patterns[index];
