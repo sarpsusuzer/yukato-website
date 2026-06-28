@@ -34,7 +34,7 @@ const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export default function LuminaFeatures() {
   return (
-    <section className="bg-[#fafaf8]">
+    <section className="bg-[#0a2e2e]">
       <ParallaxHeader />
 
       {features.map((feature, i) => {
@@ -125,7 +125,7 @@ function ScrollRevealText({
   return (
     <div ref={ref} className="space-y-4">
       <div className="relative">
-        <span className="text-[13px] font-medium text-[#d4d8de] block">
+        <span className="text-[13px] font-medium text-white/20 block">
           {number}
         </span>
         <motion.span
@@ -137,24 +137,24 @@ function ScrollRevealText({
       </div>
 
       <div className="relative">
-        <h3 className="text-[clamp(22px,3vw,32px)] font-bold leading-[1.2] tracking-[-0.5px] text-[#d4d8de]">
+        <h3 className="text-[clamp(22px,3vw,32px)] font-bold leading-[1.2] tracking-[-0.5px] text-white/20">
           {title}
         </h3>
         <motion.h3
           style={{ clipPath: useTransform(clipTitle, (v) => `inset(0 ${100 - v}% 0 0)`) }}
-          className="text-[clamp(22px,3vw,32px)] font-bold leading-[1.2] tracking-[-0.5px] text-[#282c34] absolute inset-0"
+          className="text-[clamp(22px,3vw,32px)] font-bold leading-[1.2] tracking-[-0.5px] text-white absolute inset-0"
         >
           {title}
         </motion.h3>
       </div>
 
       <div className="relative">
-        <p className="text-[16px] text-[#d4d8de] leading-[1.7]">
+        <p className="text-[16px] text-white/20 leading-[1.7]">
           {desc}
         </p>
         <motion.p
           style={{ clipPath: useTransform(clipDesc, (v) => `inset(0 ${100 - v}% 0 0)`) }}
-          className="text-[16px] text-[#596173] leading-[1.7] absolute inset-0"
+          className="text-[16px] text-white/60 leading-[1.7] absolute inset-0"
         >
           {desc}
         </motion.p>
@@ -188,7 +188,7 @@ function ParallaxHeader() {
         <p className="text-[14px] font-bold text-[#21beba] uppercase tracking-widest mb-4">
           Yapay Zeka Uygulamaları
         </p>
-        <h2 className="text-[clamp(28px,4vw,48px)] font-medium leading-[1.2] tracking-[-1px] text-[#282c34]">
+        <h2 className="text-[clamp(28px,4vw,48px)] font-medium leading-[1.2] tracking-[-1px] text-white">
           Yukato&apos;daki Dikey Yapay Zeka Uygulamaları
         </h2>
       </motion.div>
