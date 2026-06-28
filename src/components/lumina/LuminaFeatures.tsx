@@ -34,7 +34,7 @@ const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export default function LuminaFeatures() {
   return (
-    <section className="bg-[#0a2e2e]">
+    <section className="relative bg-[#0a2e2e]">
       <ParallaxHeader />
 
       {features.map((feature, i) => {
@@ -99,6 +99,16 @@ export default function LuminaFeatures() {
           </motion.div>
         );
       })}
+
+      <svg
+        className="absolute bottom-0 left-0 w-full translate-y-[99%] z-10"
+        viewBox="0 0 1440 36"
+        preserveAspectRatio="none"
+        fill="#0a2e2e"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M1440 0H760C730 0 720 0 700 8C680 20 660 36 620 36H32C14.3 36 0 21.7 0 4V0H1440Z" />
+      </svg>
     </section>
   );
 }
