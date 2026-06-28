@@ -174,13 +174,13 @@ export default function Header() {
                 </AnimatePresence>
               </div>
             ))}
-            {["Yapay Zeka", "Hakkımızda"].map((item) => (
+            {[{ label: "Yapay Zeka", href: "/lumina" }, { label: "Hakkımızda", href: "#" }].map((item) => (
               <a
-                key={item}
-                href="#"
+                key={item.label}
+                href={item.href}
                 className="px-3 py-2 text-[14px] font-bold text-white hover:text-white/80 transition-colors duration-200 whitespace-nowrap"
               >
-                {item}
+                {item.label}
               </a>
             ))}
           </div>
