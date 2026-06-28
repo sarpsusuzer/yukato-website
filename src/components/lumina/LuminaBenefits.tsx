@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const benefits = [
   {
@@ -53,9 +54,28 @@ function GlowDot({ className }: { className?: string }) {
 }
 
 export default function LuminaBenefits() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const dotY = useTransform(scrollYProgress, [0, 1], [-60, 60]);
+
   return (
-    <section className="bg-[#0a2e2e] py-24 md:py-32 px-6">
-      <div className="max-w-[1080px] mx-auto">
+    <section ref={sectionRef} className="relative bg-[#0a2e2e] py-24 md:py-32 px-6 overflow-hidden">
+      <motion.div
+        style={{ y: dotY }}
+        className="absolute inset-[-10%] pointer-events-none"
+      >
+        <div
+          className="w-full h-full opacity-[0.15]"
+          style={{
+            backgroundImage: "radial-gradient(circle, #21beba 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+          }}
+        />
+      </motion.div>
+      <div className="relative max-w-[1080px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
