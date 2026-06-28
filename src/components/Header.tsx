@@ -174,7 +174,7 @@ export default function Header() {
                 </AnimatePresence>
               </div>
             ))}
-            {[{ label: "Yapay Zeka", href: "/lumina" }, { label: "Hakkımızda", href: "#" }].map((item) => (
+            {[{ label: "Yapay Zeka", href: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/lumina` }, { label: "Hakkımızda", href: "#" }].map((item) => (
               <a
                 key={item.label}
                 href={item.href}

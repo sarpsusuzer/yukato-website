@@ -48,7 +48,7 @@ export default function Footer() {
           <div className="flex gap-8 text-[16px] text-white">
             <div className="flex flex-col gap-4">
               <a href="#" className="hover:text-[#6aded3] transition-colors duration-200">Platform</a>
-              <a href="/lumina" className="hover:text-[#6aded3] transition-colors duration-200">Yapay Zeka</a>
+              <a href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/lumina`} className="hover:text-[#6aded3] transition-colors duration-200">Yapay Zeka</a>
             </div>
             <div className="flex flex-col gap-4 text-right">
               <a href="#" className="hover:text-[#6aded3] transition-colors duration-200">Ürünler</a>
