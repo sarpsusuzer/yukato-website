@@ -56,21 +56,15 @@ function MockImage({ index, color }: { index: number; color: string }) {
         className="w-full h-full object-cover"
       />
     </div>,
-    <div key={2} className="w-full h-full bg-gradient-to-br from-[#f8fafa] to-[#eef4f4] p-8 flex flex-col gap-5">
-      <div className="text-[15px] font-bold text-neutral-700">Performans Özeti</div>
-      <div className="flex-1 bg-white rounded-xl border border-neutral-100 p-6 flex items-end gap-2.5">
-        {[35, 52, 45, 78, 62, 85, 70, 90, 55, 75, 88, 95].map((h, i) => (
-          <div key={i} className="flex-1 rounded-t transition-all" style={{ height: `${h}%`, background: i >= 8 ? color : `${color}30` }} />
-        ))}
-      </div>
-      <div className="flex gap-4">
-        {[["Zamanında Teslimat", "96.4%", true], ["Ort. Süre", "2.4 saat", false], ["Verimlilik", "+12%", true]].map(([lbl, val, highlight]) => (
-          <div key={lbl as string} className="flex-1 bg-white rounded-xl p-4 border border-neutral-100">
-            <div className="text-[11px] text-neutral-400">{lbl as string}</div>
-            <div className="text-[20px] font-bold mt-1" style={{ color: highlight ? color : "#282c34" }}>{val as string}</div>
-          </div>
-        ))}
-      </div>
+    <div key={2} className="w-full h-full">
+      <video
+        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/videos/akilli-raporlama.mp4`}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-full object-cover"
+      />
     </div>,
     <div key={3} className="w-full h-full bg-gradient-to-br from-[#f8fafa] to-[#eef4f4] p-8 flex flex-col gap-5">
       <div className="text-[15px] font-bold text-neutral-700">Entegrasyon Durumu</div>
