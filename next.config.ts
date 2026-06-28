@@ -1,10 +1,13 @@
 import type { NextConfig } from "next";
 
+const basePath = "/yukato-website";
+
 const nextConfig: NextConfig = {
   output: "export",
+  basePath,
   trailingSlash: true,
   env: {
-    NEXT_PUBLIC_BASE_PATH: "",
+    NEXT_PUBLIC_BASE_PATH: basePath,
   },
   images: {
     unoptimized: true,
