@@ -32,6 +32,13 @@ const features = [
       "ERP, TMS ve WMS sistemlerinizle kolayca entegre olun. Yukato'nun açık API yapısı sayesinde veri akışınızı kesintisiz sürdürün.",
     color: "#003735",
   },
+  {
+    label: "Fiziksel Teslimat",
+    title: "Placeholder başlık.",
+    description:
+      "Placeholder açıklama metni buraya gelecek.",
+    color: "#21beba",
+  },
 ];
 
 function MockImage({ index, color }: { index: number; color: string }) {
@@ -69,6 +76,16 @@ function MockImage({ index, color }: { index: number; color: string }) {
     <div key={3} className="w-full h-full">
       <video
         src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/videos/entegrasyon-agi.mp4`}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-full object-cover"
+      />
+    </div>,
+    <div key={4} className="w-full h-full">
+      <video
+        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/videos/fiziksel-teslimat.mp4`}
         autoPlay
         loop
         muted
