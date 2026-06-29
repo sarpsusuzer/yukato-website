@@ -76,7 +76,7 @@ export default function Hero() {
   return (
     <section ref={sectionRef} className="relative" style={{ height: "500vh" }}>
       <div className="sticky top-0 w-full z-0" style={{ height: "calc(100vh + 36px)" }}>
-        <div className="absolute inset-0 bottom-[36px] rounded-b-[36px] rounded-bl-none overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
           <canvas
             ref={canvasRef}
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}`}
@@ -92,7 +92,7 @@ export default function Hero() {
 
           <motion.div
             style={{ y: textY, opacity: textOpacity }}
-            className="absolute bottom-12 md:bottom-16 left-0 right-0 z-10 px-6"
+            className="absolute bottom-12 md:bottom-16 left-0 right-0 z-20 px-6"
           >
             <div className="max-w-[1000px] mx-auto">
               <motion.h1
@@ -110,13 +110,15 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
+        {/* Bottom notch — page background cuts into video */}
         <svg
-          className="absolute bottom-[36px] left-0 w-full translate-y-[99%] z-10"
+          className="absolute bottom-0 left-0 w-full z-10"
           viewBox="0 0 1440 36"
           preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
+          style={{ height: "36px" }}
         >
-          <path d="M1440 0H760C730 0 720 0 700 8C680 20 660 36 620 36H32C14.3 36 0 21.7 0 4V0H1440Z" fill="black" />
+          <path d="M1440 36H0V0H620C660 0 680 16 700 28C720 36 730 36 760 36H1408C1425.7 36 1440 21.7 1440 4V36Z" fill="#fafaf8" />
         </svg>
       </div>
     </section>

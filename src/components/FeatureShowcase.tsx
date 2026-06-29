@@ -201,7 +201,7 @@ export default function FeatureShowcase() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.97 }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full h-full overflow-hidden"
+                    className="w-full h-full overflow-hidden rounded-tr-[32px] rounded-bl-[32px]"
                   >
                     <MockImage index={activeIndex} color={features[activeIndex].color} />
                   </motion.div>
