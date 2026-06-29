@@ -101,11 +101,11 @@ export default function Hero() {
                 transition={{ duration: 0.9, ease }}
                 className="text-[clamp(32px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-white"
               >
-                We have rebuilt the way logistics operations move.
+                Tedarik zinciriniz artık şeffaf ve kontrol edilebilir.
               </motion.h1>
               <p className="mt-5 text-[clamp(15px,1.8vw,20px)] leading-[1.6] text-white/60 max-w-[680px]">
-                Every handoff, arrival, document, dock movement and delivery
-                confirmation should be part of the same operational timeline.
+                Her devir teslim, varış, belge, rampa hareketi ve teslimat
+                onayı aynı operasyonel zaman çizelgesinin parçası olmalıdır.
               </p>
             </div>
           </motion.div>
