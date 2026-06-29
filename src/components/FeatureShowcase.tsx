@@ -5,38 +5,33 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 
 const features = [
   {
-    label: "Gerçek Zamanlı Görünürlük",
-    title: "Tüm operasyonlarınızı tek ekrandan takip edin.",
+    title: "Stoğu Belirsizliğe Göre Değil, Veriye Göre Planlayın",
     description:
-      "Sevkiyatlarınızın, araçlarınızın ve teslimatlarınızın anlık durumunu tek bir kontrol panelinden izleyin. Gecikmeleri önceden tespit edin, proaktif aksiyon alın.",
+      "Neyin geldiğini ve ne zaman geleceğini bilin, gereksiz stok tutmayın.",
     color: "#21beba",
   },
   {
-    label: "Dijital Dokümantasyon",
-    title: "Kağıtsız operasyonlara geçiş yapın.",
+    title: "E-posta ve Telefon Trafiğini Azaltın",
     description:
-      "E-irsaliye, dijital teslimat kanıtı ve otomatik belge eşleştirme ile operasyonel süreçlerinizi tamamen dijitalleştirin. Manuel hataları ortadan kaldırın.",
+      "Sevkiyat takibi için süren e-posta ve telefon trafiğine, yüksek personel maliyetlerine ve hata riskine son verin.",
     color: "#00a29d",
   },
   {
-    label: "Akıllı Raporlama",
-    title: "Veriye dayalı kararlar alın.",
+    title: "Mal Kabulden Önce Uyumsuzlukları Yakalayın",
     description:
-      "Operasyonel performansınızı ölçün, darboğazları tespit edin ve süreçlerinizi sürekli iyileştirin. Özelleştirilebilir raporlar ve anlık bildirimler ile tam kontrol sağlayın.",
+      "Sipariş ile sevkiyat arasındaki uyumsuzlukları mal kabul öncesinde kontrol ederek tespit edin ve mal kabulde zaman kazanın.",
     color: "#008582",
   },
   {
-    label: "Entegrasyon Ağı",
-    title: "Mevcut sistemlerinizle sorunsuz çalışın.",
+    title: "Boşaltma Sürecini Öngörülebilir Hale Getirin",
     description:
-      "ERP, TMS ve WMS sistemlerinizle kolayca entegre olun. Yukato'nun açık API yapısı sayesinde veri akışınızı kesintisiz sürdürün.",
+      "Boşaltma zamanının belirsizliği, araçların bir sonraki işinin planlanmasını engeller ve sürücüleri bekletir.",
     color: "#003735",
   },
   {
-    label: "Fiziksel Teslimat",
-    title: "Placeholder başlık.",
+    title: "Kağıt Evrakla Zaman Kaybetmeyin",
     description:
-      "Placeholder açıklama metni buraya gelecek.",
+      "Fiziksel teslimat belgeleri yüzünden kaybettiğiniz zamanı geri kazanın, teslimatları daha hızlı tamamlayın.",
     color: "#21beba",
   },
 ];
@@ -98,15 +93,11 @@ function MockImage({ index, color }: { index: number; color: string }) {
 }
 
 function FeatureRevealText({
-  label,
   title,
   description,
-  color,
 }: {
-  label: string;
   title: string;
   description: string;
-  color: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -114,24 +105,11 @@ function FeatureRevealText({
     offset: ["start 0.85", "start 0.25"],
   });
 
-  const clipLabel = useTransform(scrollYProgress, [0, 0.15], [0, 100]);
-  const clipTitle = useTransform(scrollYProgress, [0.1, 0.55], [0, 100]);
-  const clipDesc = useTransform(scrollYProgress, [0.4, 1], [0, 100]);
+  const clipTitle = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
+  const clipDesc = useTransform(scrollYProgress, [0.35, 1], [0, 100]);
 
   return (
     <div ref={ref} className="space-y-3">
-      <div className="relative">
-        <span className="text-[13px] font-bold uppercase tracking-widest block text-neutral-300">
-          {label}
-        </span>
-        <motion.span
-          style={{ clipPath: useTransform(clipLabel, (v) => `inset(0 ${100 - v}% 0 0)`), color }}
-          className="text-[13px] font-bold uppercase tracking-widest block absolute inset-0"
-        >
-          {label}
-        </motion.span>
-      </div>
-
       <div className="relative">
         <h3 className="text-[clamp(26px,3vw,40px)] font-semibold leading-[1.12] tracking-[-0.02em] text-neutral-300">
           {title}
@@ -191,16 +169,14 @@ export default function FeatureShowcase() {
         <div className="w-full md:w-1/2 shrink-0" style={{ padding: "0 60px" }}>
           {features.map((feature, i) => (
             <div
-              key={feature.label}
+              key={feature.title}
               ref={(el) => { sectionRefs.current[i] = el; }}
               data-index={i}
               className="h-screen flex items-center"
             >
               <FeatureRevealText
-                label={feature.label}
                 title={feature.title}
                 description={feature.description}
-                color={feature.color}
               />
             </div>
           ))}
