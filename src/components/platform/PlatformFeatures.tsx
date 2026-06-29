@@ -39,30 +39,31 @@ export default function PlatformFeatures({
               {/* Image */}
               <div className="flex-1 w-full">
                 {feature.image ? (
-                  <div className="relative overflow-hidden">
+                  <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden rounded-tr-[32px] rounded-bl-[32px]">
                     <img
                       src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${feature.image}`}
                       alt={feature.title}
-                      className="absolute inset-0 w-full h-full object-cover z-0"
+                      className="absolute inset-0 w-full h-full object-cover"
                     />
                     <svg
-                      className="relative w-full z-10"
+                      className="absolute top-0 left-0 w-full z-10"
                       viewBox="0 0 1440 36"
                       preserveAspectRatio="none"
                       fill="#fafaf8"
                       xmlns="http://www.w3.org/2000/svg"
+                      style={{ height: "36px" }}
                     >
-                      <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" />
+                      <path d="M0 0H1440V4C1440 21.7 1425.7 36 1408 36H820C780 36 760 20 740 8C720 0 710 0 680 0H32C14.3 0 0 14.3 0 32V0Z" />
                     </svg>
-                    <div className="relative w-full h-[50vh] md:h-[70vh]" />
                     <svg
-                      className="relative w-full z-10"
+                      className="absolute bottom-0 left-0 w-full z-10"
                       viewBox="0 0 1440 36"
                       preserveAspectRatio="none"
                       fill="#fafaf8"
                       xmlns="http://www.w3.org/2000/svg"
+                      style={{ height: "36px" }}
                     >
-                      <path d="M1440 0H760C730 0 720 0 700 8C680 20 660 36 620 36H32C14.3 36 0 21.7 0 4V0H1440Z" />
+                      <path d="M1440 36H32C14.3 36 0 21.7 0 4V0H620C660 0 680 16 700 28C720 36 730 36 760 36H1408C1425.7 36 1440 21.7 1440 4V36Z" />
                     </svg>
                   </div>
                 ) : (
