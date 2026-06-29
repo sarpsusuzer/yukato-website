@@ -2,14 +2,13 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const sections = [
   {
     step: 0,
-    image: `${bp}/nexus-hero.png`,
+    video: `${bp}/videos/nexus.mp4`,
     name: "Nexus",
     nameSup: "™",
     subtitle: "Perakendeci ve Tedarikçi için Operasyon Yönetim Platformu",
@@ -20,7 +19,7 @@ const sections = [
   },
   {
     step: 1,
-    image: `${bp}/lighthouse-hero.png`,
+    video: `${bp}/videos/lighthouse.mp4`,
     name: "Lighthouse",
     nameSup: "™",
     subtitle: "Nakliye Firmaları ve Üreticiler için Sevkiyat Takip Platformu",
@@ -30,7 +29,7 @@ const sections = [
   },
   {
     step: 2,
-    image: `${bp}/yard-hero.png`,
+    video: `${bp}/videos/yard-management.mp4`,
     name: "Yard Management",
     nameSup: "",
     subtitle: "Başlangıçtan Sona\nTam Kontrol Süreci",
@@ -86,12 +85,13 @@ export default function StickyNarrative() {
                   style={{ opacity }}
                   className="absolute inset-0"
                 >
-                  <Image
-                    src={section.image}
-                    alt={`${section.name} illustration`}
-                    fill
-                    className="object-cover object-center"
-                    priority={i === 0}
+                  <video
+                    src={section.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
                   />
                 </motion.div>
               );
