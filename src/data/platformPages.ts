@@ -6,7 +6,7 @@ export type PlatformPageData = {
   problems: { title: string; desc: string }[];
   featuresLabel: string;
   featuresTitle: string;
-  features: { title: string; desc: string }[];
+  features: { title: string; desc: string; image?: string; bullets?: string[] }[];
 };
 
 export const platformPages: Record<string, PlatformPageData> = {
@@ -27,7 +27,7 @@ export const platformPages: Record<string, PlatformPageData> = {
     featuresTitle:
       "Tedarik Yönetimindeki Zorluklara Yukato'dan Yeni Bir Bakış Açısı",
     features: [
-      { title: "Anlık Teslimat Durum Görüntüleme", desc: "Sevkiyatlarınızın anlık durumunu tek ekrandan takip edin. Gecikmeleri önceden tespit edin." },
+      { title: "Anlık Teslimat Onayı Görüntüleme", desc: "Teslimatlarınızın durumunu gerçek zamanlı takip edin, her siparişin başarıyla tamamlanıp tamamlanmadığını anında görün.", image: "/images/platform/tedarikci-01.jpg", bullets: ["Teslimatlarınızın durumu gerçek zamanlı takip edilir.", "Araç depoya gelmeden önce, irsaliyelerin ve siparişlerin doğruluğu burada kontrol edilir."] },
       { title: "Randevu Atama", desc: "Teslimat randevularını dijital olarak planlayın ve depo operasyonlarınızı optimize edin." },
       { title: "İrsaliye ile Sevkiyat Oluşturma", desc: "E-irsaliye entegrasyonu ile sevkiyatlarınızı anında oluşturun ve takibe alın." },
       { title: "Gelen Sevkiyatları Anlık Görüntüleme", desc: "Depoya yaklaşan tüm sevkiyatları canlı olarak izleyin ve hazırlıklarınızı planlayın." },
