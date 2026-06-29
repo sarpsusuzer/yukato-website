@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useCallback } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -14,17 +14,15 @@ export default function Hero() {
     offset: ["start start", "end end"],
   });
 
-  // Video scrub: map full scroll to full video duration
-  const handleProgress = useCallback((latest: number) => {
+  const targetTimeRef = useRef(0);
+  const currentTimeRef = useRef(0);
+  const rafRef = useRef<number>(0);
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const video = videoRef.current;
     if (!video || !video.duration || isNaN(video.duration)) return;
-    const targetTime = latest * video.duration;
-    if (Math.abs(video.currentTime - targetTime) > 0.05) {
-      video.currentTime = targetTime;
-    }
-  }, []);
-
-  useMotionValueEvent(scrollYProgress, "change", handleProgress);
+    targetTimeRef.current = latest * video.duration;
+  });
 
   useEffect(() => {
     const video = videoRef.current;
@@ -38,6 +36,19 @@ export default function Hero() {
     } else {
       video.addEventListener("loadeddata", initVideo, { once: true });
     }
+
+    const tick = () => {
+      if (video.duration && !isNaN(video.duration)) {
+        const diff = targetTimeRef.current - currentTimeRef.current;
+        if (Math.abs(diff) > 0.01) {
+          currentTimeRef.current += diff * 0.12;
+          video.currentTime = currentTimeRef.current;
+        }
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
   }, []);
 
   // Text reveal: starts hidden below, slides up and fades in during first 40% of scroll
