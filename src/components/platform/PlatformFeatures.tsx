@@ -12,7 +12,7 @@ export default function PlatformFeatures({
 }: {
   sectionLabel: string;
   sectionTitle: string;
-  features: { title: string; desc: string }[];
+  features: { title: string; desc: string; image?: string; bullets?: string[] }[];
 }) {
   return (
     <section className="bg-[#fafaf8]">
@@ -36,33 +36,43 @@ export default function PlatformFeatures({
                 isEven ? "md:flex-row" : "md:flex-row-reverse"
               } gap-10 md:gap-16 items-center`}
             >
-              {/* Image placeholder */}
+              {/* Image */}
               <div className="flex-1 w-full">
                 <div className="relative">
                   <svg
                     className="absolute top-0 left-0 w-full -translate-y-[99%] z-10"
                     viewBox="0 0 1440 36"
                     preserveAspectRatio="none"
-                    fill="#1a4d4d"
+                    fill={feature.image ? "transparent" : "#1a4d4d"}
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" />
                   </svg>
-                  <div className={`relative w-full h-[50vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] rounded-[36px] rounded-tr-none rounded-bl-none`}>
-                    <div className="absolute inset-0 dot-matrix opacity-30" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
-                        <span className="text-[32px] font-bold text-white/30">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                      </div>
-                    </div>
+                  <div className={`relative w-full h-[50vh] md:h-[70vh] overflow-hidden ${feature.image ? "" : "bg-[#1a4d4d]"} rounded-[36px] rounded-tr-none rounded-bl-none`}>
+                    {feature.image ? (
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${feature.image}`}
+                        alt={feature.title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 dot-matrix opacity-30" />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
+                            <span className="text-[32px] font-bold text-white/30">
+                              {String(i + 1).padStart(2, "0")}
+                            </span>
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </div>
                   <svg
                     className="absolute bottom-0 left-0 w-full translate-y-[99%] z-10"
                     viewBox="0 0 1440 36"
                     preserveAspectRatio="none"
-                    fill="#1a4d4d"
+                    fill={feature.image ? "transparent" : "#1a4d4d"}
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path d="M1440 0H760C730 0 720 0 700 8C680 20 660 36 620 36H32C14.3 36 0 21.7 0 4V0H1440Z" />
@@ -77,6 +87,7 @@ export default function PlatformFeatures({
                     number={String(i + 1).padStart(2, "0")}
                     title={feature.title}
                     desc={feature.desc}
+                    bullets={feature.bullets}
                   />
                 </div>
               </div>
@@ -92,10 +103,12 @@ function ScrollRevealText({
   number,
   title,
   desc,
+  bullets,
 }: {
   number: string;
   title: string;
   desc: string;
+  bullets?: string[];
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -147,6 +160,18 @@ function ScrollRevealText({
           {desc}
         </motion.p>
       </div>
+
+      {/* Bullets */}
+      {bullets && bullets.length > 0 && (
+        <ul className="space-y-2 mt-2">
+          {bullets.map((bullet, idx) => (
+            <li key={idx} className="flex items-start gap-2 text-[15px] leading-[1.7] text-[#596173]">
+              <span className="mt-[10px] w-[6px] h-[6px] rounded-full bg-[#21beba] shrink-0" />
+              {bullet}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
