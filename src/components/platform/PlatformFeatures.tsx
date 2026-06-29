@@ -38,46 +38,65 @@ export default function PlatformFeatures({
             >
               {/* Image */}
               <div className="flex-1 w-full">
-                <div className="relative">
-                  <svg
-                    className="absolute top-0 left-0 w-full -translate-y-[99%] z-10"
-                    viewBox="0 0 1440 36"
-                    preserveAspectRatio="none"
-                    fill={feature.image ? "#fafaf8" : "#1a4d4d"}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" />
-                  </svg>
-                  <div className={`relative w-full h-[50vh] md:h-[70vh] overflow-hidden ${feature.image ? "" : "bg-[#1a4d4d]"} rounded-[36px] rounded-tr-none rounded-bl-none`}>
-                    {feature.image ? (
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${feature.image}`}
-                        alt={feature.title}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <>
-                        <div className="absolute inset-0 dot-matrix opacity-30" />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
-                            <span className="text-[32px] font-bold text-white/30">
-                              {String(i + 1).padStart(2, "0")}
-                            </span>
-                          </div>
-                        </div>
-                      </>
-                    )}
+                {feature.image ? (
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${feature.image}`}
+                      alt={feature.title}
+                      className="absolute inset-0 w-full h-full object-cover z-0"
+                    />
+                    <svg
+                      className="relative w-full z-10"
+                      viewBox="0 0 1440 36"
+                      preserveAspectRatio="none"
+                      fill="#fafaf8"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" />
+                    </svg>
+                    <div className="relative w-full h-[50vh] md:h-[70vh]" />
+                    <svg
+                      className="relative w-full z-10"
+                      viewBox="0 0 1440 36"
+                      preserveAspectRatio="none"
+                      fill="#fafaf8"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M1440 0H760C730 0 720 0 700 8C680 20 660 36 620 36H32C14.3 36 0 21.7 0 4V0H1440Z" />
+                    </svg>
                   </div>
-                  <svg
-                    className="absolute bottom-0 left-0 w-full translate-y-[99%] z-10"
-                    viewBox="0 0 1440 36"
-                    preserveAspectRatio="none"
-                    fill={feature.image ? "#fafaf8" : "#1a4d4d"}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M1440 0H760C730 0 720 0 700 8C680 20 660 36 620 36H32C14.3 36 0 21.7 0 4V0H1440Z" />
-                  </svg>
-                </div>
+                ) : (
+                  <div className="relative">
+                    <svg
+                      className="absolute top-0 left-0 w-full -translate-y-[99%] z-10"
+                      viewBox="0 0 1440 36"
+                      preserveAspectRatio="none"
+                      fill="#1a4d4d"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" />
+                    </svg>
+                    <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] rounded-[36px] rounded-tr-none rounded-bl-none">
+                      <div className="absolute inset-0 dot-matrix opacity-30" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
+                          <span className="text-[32px] font-bold text-white/30">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <svg
+                      className="absolute bottom-0 left-0 w-full translate-y-[99%] z-10"
+                      viewBox="0 0 1440 36"
+                      preserveAspectRatio="none"
+                      fill="#1a4d4d"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M1440 0H760C730 0 720 0 700 8C680 20 660 36 620 36H32C14.3 36 0 21.7 0 4V0H1440Z" />
+                    </svg>
+                  </div>
+                )}
               </div>
 
               {/* Text — scroll reveal fill over gray ghost */}
