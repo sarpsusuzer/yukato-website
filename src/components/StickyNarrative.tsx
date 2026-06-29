@@ -145,7 +145,7 @@ export default function StickyNarrative() {
 
                   {/* Right — feature */}
                   <div className="flex-1 min-w-0 relative">
-                    <div className="max-h-[160px] overflow-hidden relative">
+                    <div>
                       <p className="text-[20px] font-bold leading-normal text-[#434956] mb-2">
                         {section.featureTitle}
                       </p>
@@ -154,7 +154,6 @@ export default function StickyNarrative() {
                           {section.featureDesc}
                         </p>
                       )}
-                      <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white to-transparent pointer-events-none" />
                     </div>
                     {/* Teal accent line */}
                     <div className="absolute right-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#21beba] to-transparent rounded-full hidden md:block" />
