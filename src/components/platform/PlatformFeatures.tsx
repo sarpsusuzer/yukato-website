@@ -43,7 +43,7 @@ export default function PlatformFeatures({
                     className="absolute top-0 left-0 w-full -translate-y-[99%] z-10"
                     viewBox="0 0 1440 36"
                     preserveAspectRatio="none"
-                    fill={feature.image ? "transparent" : "#1a4d4d"}
+                    fill={feature.image ? "#fafaf8" : "#1a4d4d"}
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" />
@@ -72,7 +72,7 @@ export default function PlatformFeatures({
                     className="absolute bottom-0 left-0 w-full translate-y-[99%] z-10"
                     viewBox="0 0 1440 36"
                     preserveAspectRatio="none"
-                    fill={feature.image ? "transparent" : "#1a4d4d"}
+                    fill={feature.image ? "#fafaf8" : "#1a4d4d"}
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path d="M1440 0H760C730 0 720 0 700 8C680 20 660 36 620 36H32C14.3 36 0 21.7 0 4V0H1440Z" />
