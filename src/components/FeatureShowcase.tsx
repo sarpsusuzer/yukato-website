@@ -192,7 +192,7 @@ export default function FeatureShowcase() {
         {/* Right — sticky video */}
         <div className="hidden md:block w-1/2 h-screen sticky top-0">
           <div className="relative h-full p-5">
-            <div className="absolute inset-5">
+            <div className="absolute inset-5 overflow-hidden rounded-tr-[32px] rounded-bl-[32px]">
               <div className="relative w-full h-full">
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -201,7 +201,7 @@ export default function FeatureShowcase() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.97 }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full h-full overflow-hidden rounded-tr-[32px] rounded-bl-[32px]"
+                    className="w-full h-full overflow-hidden"
                   >
                     <MockImage index={activeIndex} color={features[activeIndex].color} />
                   </motion.div>
