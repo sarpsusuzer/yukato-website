@@ -189,20 +189,11 @@ export default function FeatureShowcase() {
           ))}
         </div>
 
-        {/* Right — sticky image */}
+        {/* Right — sticky video */}
         <div className="hidden md:block w-1/2 h-screen sticky top-0">
           <div className="relative h-full p-5">
             <div className="absolute inset-5">
               <div className="relative w-full h-full">
-                <svg
-                  className="absolute top-0 left-0 w-full -translate-y-[99%] z-10"
-                  viewBox="0 0 1440 36"
-                  preserveAspectRatio="none"
-                  fill="#f0f2f2"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" />
-                </svg>
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeIndex}
@@ -210,19 +201,32 @@ export default function FeatureShowcase() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.97 }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full h-full rounded-2xl rounded-tr-none rounded-bl-none overflow-hidden"
+                    className="w-full h-full overflow-hidden"
                   >
                     <MockImage index={activeIndex} color={features[activeIndex].color} />
                   </motion.div>
                 </AnimatePresence>
+                {/* Top notch — page background cuts into video */}
                 <svg
-                  className="absolute bottom-0 left-0 w-full translate-y-[99%] z-10"
+                  className="absolute top-0 left-0 w-full z-10"
                   viewBox="0 0 1440 36"
                   preserveAspectRatio="none"
-                  fill="#f0f2f2"
+                  fill="white"
                   xmlns="http://www.w3.org/2000/svg"
+                  style={{ height: "36px" }}
                 >
-                  <path d="M1440 0H760C730 0 720 0 700 8C680 20 660 36 620 36H32C14.3 36 0 21.7 0 4V0H1440Z" />
+                  <path d="M0 0H1440V36H820C780 36 760 20 740 8C720 0 710 0 680 0H32C14.3 0 0 14.3 0 32V0Z" />
+                </svg>
+                {/* Bottom notch — page background cuts into video */}
+                <svg
+                  className="absolute bottom-0 left-0 w-full z-10"
+                  viewBox="0 0 1440 36"
+                  preserveAspectRatio="none"
+                  fill="white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ height: "36px" }}
+                >
+                  <path d="M1440 36H0V0H620C660 0 680 16 700 28C720 36 730 36 760 36H1408C1425.7 36 1440 21.7 1440 4V36Z" />
                 </svg>
               </div>
             </div>
