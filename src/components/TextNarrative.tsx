@@ -32,7 +32,7 @@ export default function TextNarrative() {
           className="absolute max-w-[900px] text-center pointer-events-none px-6"
         >
           <h2 className="text-[clamp(32px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-neutral-900">
-            We have rebuilt the way logistics operations move.
+            Lojistik operasyonların işleyişini yeniden inşa ettik.
           </h2>
         </motion.div>
 
@@ -45,7 +45,7 @@ export default function TextNarrative() {
           className="absolute max-w-[900px] text-center pointer-events-none px-6"
         >
           <h2 className="text-[clamp(32px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-neutral-900">
-            We have connected logistics into one live operating flow.
+            Lojistiği tek bir canlı operasyon akışında birleştirdik.
           </h2>
         </motion.div>
       </div>
