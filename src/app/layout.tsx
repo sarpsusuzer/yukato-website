@@ -23,6 +23,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-[family-name:var(--font-manrope)]">
         <SmoothScroll />
         {children}
+        <div className="fixed bottom-2 right-3 text-[10px] text-black/20 z-[9999] pointer-events-none">
+          v8
+        </div>
       </body>
     </html>
   );
