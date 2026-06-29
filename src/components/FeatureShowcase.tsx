@@ -207,22 +207,22 @@ export default function FeatureShowcase() {
                   </motion.div>
                 </AnimatePresence>
                 <svg
-                  className="absolute top-0 left-0 w-full z-10"
+                  className="absolute top-0 left-0 z-10"
                   viewBox="0 0 1440 36"
                   preserveAspectRatio="none"
                   fill="white"
                   xmlns="http://www.w3.org/2000/svg"
-                  style={{ height: "36px" }}
+                  style={{ height: "36px", width: "calc(100% - 32px)" }}
                 >
                   <path d="M0 0H1440V36H820C780 36 760 20 740 8C720 0 710 0 680 0H32C14.3 0 0 14.3 0 32V0Z" />
                 </svg>
                 <svg
-                  className="absolute bottom-0 left-0 w-full z-10"
+                  className="absolute bottom-0 right-0 z-10"
                   viewBox="0 0 1440 36"
                   preserveAspectRatio="none"
                   fill="white"
                   xmlns="http://www.w3.org/2000/svg"
-                  style={{ height: "36px" }}
+                  style={{ height: "36px", width: "calc(100% - 32px)" }}
                 >
                   <path d="M1440 36H0V0H620C660 0 680 16 700 28C720 36 730 36 760 36H1408C1425.7 36 1440 21.7 1440 4V36Z" />
                 </svg>
