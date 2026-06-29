@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -42,30 +42,25 @@ const sections = [
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-
 export default function StickyNarrative() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [activeStep, setActiveStep] = useState(0);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  // Use pixel-based scroll tracking instead of useScroll for precise control
-  const imageOpacity1 = useTransform(scrollYProgress, [0, 0.18, 0.22], [1, 1, 0]);
-  const imageOpacity2 = useTransform(scrollYProgress, [0.20, 0.24, 0.46, 0.50], [0, 1, 1, 0]);
-  const imageOpacity3 = useTransform(scrollYProgress, [0.48, 0.52, 1], [0, 1, 1]);
-
-  const contentOpacity1 = useTransform(scrollYProgress, [0, 0.18, 0.22], [1, 1, 0]);
-  const contentY1 = useTransform(scrollYProgress, [0.18, 0.22], [0, -40]);
-  const contentOpacity2 = useTransform(scrollYProgress, [0.22, 0.26, 0.46, 0.50], [0, 1, 1, 0]);
-  const contentY2 = useTransform(scrollYProgress, [0.22, 0.26, 0.46, 0.50], [40, 0, 0, -40]);
-  const contentOpacity3 = useTransform(scrollYProgress, [0.50, 0.54, 1], [0, 1, 1]);
-  const contentY3 = useTransform(scrollYProgress, [0.50, 0.54], [40, 0]);
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    if (v < 0.3) setActiveStep(0);
+    else if (v < 0.6) setActiveStep(1);
+    else setActiveStep(2);
+  });
 
   return (
     <div ref={containerRef} className="relative" style={{ height: "600vh" }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-white z-10">
-        {/* Illustration area — top ~64% */}
+        {/* Illustration area */}
         <div className="relative w-full h-[50vh] md:h-[56vh] mt-[36px]">
           <svg
             className="absolute top-0 left-0 w-full -translate-y-[99%] z-10"
@@ -77,26 +72,23 @@ export default function StickyNarrative() {
             <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" />
           </svg>
           <div className="absolute inset-0 bg-[#f0f0ee] overflow-hidden rounded-[36px] rounded-tr-none rounded-bl-none">
-            {sections.map((section, i) => {
-              const opacity = [imageOpacity1, imageOpacity2, imageOpacity3][i];
-              return (
-                <motion.div
-                  key={section.name}
-                  style={{ opacity }}
-                  className="absolute inset-0"
-                >
-                  <video
-                    src={section.video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-              );
-            })}
-
+            {sections.map((section, i) => (
+              <motion.div
+                key={section.name}
+                animate={{ opacity: activeStep === i ? 1 : 0 }}
+                transition={{ duration: 0.5, ease }}
+                className="absolute inset-0"
+              >
+                <video
+                  src={section.video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            ))}
           </div>
           <svg
             className="absolute bottom-0 left-0 w-full translate-y-[99%] z-10"
@@ -109,61 +101,60 @@ export default function StickyNarrative() {
           </svg>
         </div>
 
-        {/* Content area — bottom ~36% */}
+        {/* Content area */}
         <div className="relative h-[45vh] md:h-[36vh] px-6 md:px-[60px] pt-[40px] flex items-center">
-          {sections.map((section, i) => {
-            const opacity = [contentOpacity1, contentOpacity2, contentOpacity3][i];
-            const y = [contentY1, contentY2, contentY3][i];
-            return (
-              <motion.div
-                key={section.name}
-                style={{ opacity, y }}
-                className="absolute inset-x-6 md:inset-x-[60px] top-0 bottom-0 flex items-center"
-              >
-                <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start w-full">
-                  {/* Left — branding */}
-                  <div className="flex-1 min-w-0 md:max-w-[380px]">
-                    <h3 className="text-[32px] font-bold leading-[60px] tracking-[-1px] text-[#008582]">
-                      {section.name}
-                      {section.nameSup && (
-                        <sup className="text-[18px]">{section.nameSup}</sup>
-                      )}
-                    </h3>
-                    <p className="text-[24px] font-bold leading-[32px] tracking-[-1px] text-[#21beba] max-w-[309px] whitespace-pre-line">
-                      {section.subtitle}
-                    </p>
-                    <div className="mt-3">
-                      <a
-                        href="#"
-                        className="inline-flex items-center justify-center h-[40px] px-4 rounded-full border border-[#3bc6bd] text-[14px] font-bold text-[#21beba] hover:bg-[#21beba]/5 transition-colors duration-200"
-                      >
-                        {section.cta}
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Right — feature */}
-                  <div className="flex-1 min-w-0 relative">
-                    <div>
-                      <p className="text-[20px] font-bold leading-normal text-[#434956] mb-2">
-                        {section.featureTitle}
-                      </p>
-                      {section.featureDesc && (
-                        <p className="text-[20px] font-medium leading-normal text-[#596173]">
-                          {section.featureDesc}
-                        </p>
-                      )}
-                    </div>
-                    {/* Teal accent line */}
-                    <div className="absolute right-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#21beba] to-transparent rounded-full hidden md:block" />
+          {sections.map((section, i) => (
+            <motion.div
+              key={section.name}
+              animate={{
+                opacity: activeStep === i ? 1 : 0,
+                y: activeStep === i ? 0 : activeStep > i ? -40 : 40,
+              }}
+              transition={{ duration: 0.5, ease }}
+              className="absolute inset-x-6 md:inset-x-[60px] top-0 bottom-0 flex items-center"
+            >
+              <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start w-full">
+                {/* Left — branding */}
+                <div className="flex-1 min-w-0 md:max-w-[380px]">
+                  <h3 className="text-[32px] font-bold leading-[60px] tracking-[-1px] text-[#008582]">
+                    {section.name}
+                    {section.nameSup && (
+                      <sup className="text-[18px]">{section.nameSup}</sup>
+                    )}
+                  </h3>
+                  <p className="text-[24px] font-bold leading-[32px] tracking-[-1px] text-[#21beba] max-w-[309px] whitespace-pre-line">
+                    {section.subtitle}
+                  </p>
+                  <div className="mt-3">
+                    <a
+                      href="#"
+                      className="inline-flex items-center justify-center h-[40px] px-4 rounded-full border border-[#3bc6bd] text-[14px] font-bold text-[#21beba] hover:bg-[#21beba]/5 transition-colors duration-200"
+                    >
+                      {section.cta}
+                    </a>
                   </div>
                 </div>
-              </motion.div>
-            );
-          })}
+
+                {/* Right — feature */}
+                <div className="flex-1 min-w-0 relative">
+                  <div>
+                    <p className="text-[20px] font-bold leading-normal text-[#434956] mb-2">
+                      {section.featureTitle}
+                    </p>
+                    {section.featureDesc && (
+                      <p className="text-[20px] font-medium leading-normal text-[#596173]">
+                        {section.featureDesc}
+                      </p>
+                    )}
+                  </div>
+                  {/* Teal accent line */}
+                  <div className="absolute right-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#21beba] to-transparent rounded-full hidden md:block" />
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>
   );
 }
-
