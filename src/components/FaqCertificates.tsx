@@ -154,7 +154,7 @@ export default function FaqCertificates() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="relative bg-gradient-to-b from-white from-[23%] to-[#1a4d4d] overflow-hidden">
+    <section className="relative bg-white overflow-hidden">
       <div className="relative z-10 px-6 pt-20 pb-24 md:pt-28 md:pb-32">
         {/* FAQ Header */}
         <div className="text-center max-w-[1088px] mx-auto mb-16">
