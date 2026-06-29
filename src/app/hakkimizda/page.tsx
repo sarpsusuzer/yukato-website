@@ -18,13 +18,16 @@ function RevealText({
     target: ref,
     offset: ["start 0.9", "start 0.4"],
   });
-  const clip = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const clipPath = useTransform(scrollYProgress, [0, 1], [
+    "inset(0 100% 0 0)",
+    "inset(0 0% 0 0)",
+  ]);
 
   return (
     <div ref={ref} className={`relative ${className || ""}`}>
       <div className="text-neutral-300">{children}</div>
       <motion.div
-        style={{ clipPath: useTransform(clip, (v) => `inset(0 ${100 - v}% 0 0)`) }}
+        style={{ clipPath }}
         className="absolute inset-0"
       >
         {children}
