@@ -3,51 +3,19 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 
-const TARGET_FPS = 30;
+const TOTAL_FRAMES = 300;
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-function extractFrames(
-  videoSrc: string,
-  fps: number,
-  onProgress: (pct: number) => void
-): Promise<ImageBitmap[]> {
-  return new Promise((resolve, reject) => {
-    const video = document.createElement("video");
-    video.muted = true;
-    video.playsInline = true;
-    video.preload = "auto";
-    video.crossOrigin = "anonymous";
-    video.src = videoSrc;
-
-    video.addEventListener("error", () => reject(new Error("Video load failed")), { once: true });
-
-    video.addEventListener("loadeddata", async () => {
-      const { duration, videoWidth, videoHeight } = video;
-      const totalFrames = Math.ceil(duration * fps);
-      const offscreen = new OffscreenCanvas(videoWidth, videoHeight);
-      const ctx = offscreen.getContext("2d")!;
-      const frames: ImageBitmap[] = [];
-
-      for (let i = 0; i <= totalFrames; i++) {
-        video.currentTime = (i / totalFrames) * duration;
-        await new Promise<void>((r) => {
-          video.addEventListener("seeked", () => r(), { once: true });
-        });
-        ctx.drawImage(video, 0, 0);
-        const bitmap = await createImageBitmap(offscreen);
-        frames.push(bitmap);
-        onProgress(i / totalFrames);
-      }
-
-      resolve(frames);
-    }, { once: true });
-  });
+function getFrameSrc(index: number) {
+  const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const num = String(index + 1).padStart(3, "0");
+  return `${bp}/hero-frames/frame_${num}.jpg`;
 }
 
 export default function Hero() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const framesRef = useRef<ImageBitmap[]>([]);
+  const imagesRef = useRef<HTMLImageElement[]>([]);
   const [loaded, setLoaded] = useState(false);
   const currentFrameRef = useRef(0);
 
@@ -56,37 +24,45 @@ export default function Hero() {
     offset: ["start start", "end end"],
   });
 
-  // Phase 1: 0–0.7 = video scrub, Phase 2: 0.7–1 = hero scrolls away
   const videoProgress = useTransform(scrollYProgress, [0, 0.7], [0, 1], { clamp: true });
 
   useEffect(() => {
-    const src = `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero-video.mp4`;
-    extractFrames(src, TARGET_FPS, () => {})
-      .then((frames) => {
-        framesRef.current = frames;
-        setLoaded(true);
-        drawFrame(0);
-      })
-      .catch(() => {});
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    let loadedCount = 0;
+    const images: HTMLImageElement[] = [];
+
+    for (let i = 0; i < TOTAL_FRAMES; i++) {
+      const img = new Image();
+      img.src = getFrameSrc(i);
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === TOTAL_FRAMES) {
+          imagesRef.current = images;
+          setLoaded(true);
+          drawFrame(0);
+        }
+      };
+      images.push(img);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function drawFrame(index: number) {
     const canvas = canvasRef.current;
-    const frames = framesRef.current;
-    if (!canvas || !frames.length) return;
-    const frame = frames[Math.min(index, frames.length - 1)];
-    if (canvas.width !== frame.width || canvas.height !== frame.height) {
-      canvas.width = frame.width;
-      canvas.height = frame.height;
+    const images = imagesRef.current;
+    if (!canvas || !images.length) return;
+    const img = images[Math.min(index, images.length - 1)];
+    if (!img.complete) return;
+    if (canvas.width !== img.naturalWidth || canvas.height !== img.naturalHeight) {
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
     }
     const ctx = canvas.getContext("2d");
-    if (ctx) ctx.drawImage(frame, 0, 0);
+    if (ctx) ctx.drawImage(img, 0, 0);
   }
 
   useMotionValueEvent(videoProgress, "change", (latest) => {
-    if (!framesRef.current.length) return;
-    const targetFrame = Math.round(latest * (framesRef.current.length - 1));
+    if (!imagesRef.current.length) return;
+    const targetFrame = Math.round(latest * (TOTAL_FRAMES - 1));
     if (targetFrame !== currentFrameRef.current) {
       currentFrameRef.current = targetFrame;
       drawFrame(targetFrame);
