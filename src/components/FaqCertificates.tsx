@@ -182,7 +182,7 @@ export default function FaqCertificates() {
 
         {/* Certificates */}
         <div className="mt-24 md:mt-32 text-center">
-          <h2 className="text-[clamp(36px,5vw,60px)] font-medium leading-[1.1] tracking-[-1px] text-white mb-10">
+          <h2 className="text-[clamp(36px,5vw,60px)] font-medium leading-[1.1] tracking-[-1px] text-black mb-10">
             Sertifikalar
           </h2>
           <div className="max-w-[909px] mx-auto bg-[rgba(0,32,31,0.5)] rounded-xl p-8 flex items-center justify-between gap-6 flex-wrap md:flex-nowrap">
