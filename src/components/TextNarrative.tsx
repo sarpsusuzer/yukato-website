@@ -10,12 +10,12 @@ export default function TextNarrative() {
     offset: ["start start", "end end"],
   });
 
-  const text1Opacity = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0]);
-  const text1Y = useTransform(scrollYProgress, [0.15, 0.25], [0, -80]);
-  const text1Scale = useTransform(scrollYProgress, [0.15, 0.25], [1, 0.95]);
+  const text1Opacity = useTransform(scrollYProgress, [0, 0.15, 0.25, 0.26], [1, 1, 0, 0], { clamp: true });
+  const text1Y = useTransform(scrollYProgress, [0.15, 0.25], [0, -80], { clamp: true });
+  const text1Scale = useTransform(scrollYProgress, [0.15, 0.25], [1, 0.95], { clamp: true });
 
-  const text2Opacity = useTransform(scrollYProgress, [0.30, 0.40, 0.85, 1], [0, 1, 1, 0]);
-  const text2Y = useTransform(scrollYProgress, [0.30, 0.40], [60, 0]);
+  const text2Opacity = useTransform(scrollYProgress, [0.30, 0.40, 0.85, 0.95], [0, 1, 1, 0], { clamp: true });
+  const text2Y = useTransform(scrollYProgress, [0.30, 0.40], [60, 0], { clamp: true });
 
   return (
     <div ref={containerRef} className="relative" style={{ height: "250vh" }}>
