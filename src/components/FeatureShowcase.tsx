@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 
 const features = [
   {
@@ -80,6 +80,68 @@ function MockImage({ index, color }: { index: number; color: string }) {
   return patterns[index];
 }
 
+function FeatureRevealText({
+  label,
+  title,
+  description,
+  color,
+}: {
+  label: string;
+  title: string;
+  description: string;
+  color: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.85", "start 0.25"],
+  });
+
+  const clipLabel = useTransform(scrollYProgress, [0, 0.15], [0, 100]);
+  const clipTitle = useTransform(scrollYProgress, [0.1, 0.55], [0, 100]);
+  const clipDesc = useTransform(scrollYProgress, [0.4, 1], [0, 100]);
+
+  return (
+    <div ref={ref} className="space-y-3">
+      <div className="relative">
+        <span className="text-[13px] font-bold uppercase tracking-widest block text-neutral-300">
+          {label}
+        </span>
+        <motion.span
+          style={{ clipPath: useTransform(clipLabel, (v) => `inset(0 ${100 - v}% 0 0)`), color }}
+          className="text-[13px] font-bold uppercase tracking-widest block absolute inset-0"
+        >
+          {label}
+        </motion.span>
+      </div>
+
+      <div className="relative">
+        <h3 className="text-[clamp(26px,3vw,40px)] font-semibold leading-[1.12] tracking-[-0.02em] text-neutral-300">
+          {title}
+        </h3>
+        <motion.h3
+          style={{ clipPath: useTransform(clipTitle, (v) => `inset(0 ${100 - v}% 0 0)`) }}
+          className="text-[clamp(26px,3vw,40px)] font-semibold leading-[1.12] tracking-[-0.02em] text-neutral-900 absolute inset-0"
+        >
+          {title}
+        </motion.h3>
+      </div>
+
+      <div className="relative">
+        <p className="text-[17px] leading-[1.7] text-neutral-300">
+          {description}
+        </p>
+        <motion.p
+          style={{ clipPath: useTransform(clipDesc, (v) => `inset(0 ${100 - v}% 0 0)`) }}
+          className="text-[17px] leading-[1.7] text-neutral-500 absolute inset-0"
+        >
+          {description}
+        </motion.p>
+      </div>
+    </div>
+  );
+}
+
 export default function FeatureShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -117,20 +179,12 @@ export default function FeatureShowcase() {
               data-index={i}
               className="h-screen flex items-center"
             >
-              <div>
-                <span
-                  className="text-[13px] font-bold uppercase tracking-widest block"
-                  style={{ color: feature.color }}
-                >
-                  {feature.label}
-                </span>
-                <h3 className="mt-3 text-[clamp(26px,3vw,40px)] font-semibold leading-[1.12] tracking-[-0.02em] text-neutral-900">
-                  {feature.title}
-                </h3>
-                <p className="mt-4 text-[17px] leading-[1.7] text-neutral-500">
-                  {feature.description}
-                </p>
-              </div>
+              <FeatureRevealText
+                label={feature.label}
+                title={feature.title}
+                description={feature.description}
+                color={feature.color}
+              />
             </div>
           ))}
         </div>
