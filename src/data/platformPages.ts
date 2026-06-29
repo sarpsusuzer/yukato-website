@@ -16,12 +16,12 @@ export const platformPages: Record<string, PlatformPageData> = {
     problemsLabel: "Tedarik Yönetiminin Günlük Zorlukları",
     problemsTitle: "Geciken Teslimatlar, Kopuk İletişim, Görünmez Maliyetler",
     problems: [
-      { title: "Zaman Kayıpları", desc: "Sevkiyat süreçlerinde yaşanan gecikmeler ve verimsiz planlama nedeniyle kaybedilen iş saatleri." },
-      { title: "Sevkiyat Takipsizliği", desc: "Ürünlerin nerede olduğunu bilememek ve teslimat süreçlerinde yaşanan belirsizlikler." },
-      { title: "İletişim Trafiği", desc: "Tedarik zincirindeki paydaşlar arasında kopuk ve yavaş iletişim akışı." },
-      { title: "Belge Karmaşası", desc: "Kağıt bazlı irsaliyeler, faturalar ve teslimat belgelerinin yönetim zorluğu." },
-      { title: "Manuel Veri Girişleri", desc: "Tekrarlayan ve hataya açık manuel veri giriş süreçleri." },
-      { title: "Veri Eksikliği", desc: "Operasyonel kararlar için gerekli verilere zamanında ulaşamama." },
+      { title: "Zaman Kayıpları", desc: "Tedarikçiler için en büyük maliyet kalemi zaman kaybıdır. Deponun ne zaman müsait olduğunu bilmeyen sürücüler, depo kapısında saatlerce \"boş rampa\" beklemek zorunda kalır. Bu durum, tedarikçinin araç rotasyonunu bozar." },
+      { title: "Sevkiyat Takipsizliği", desc: "Ürün yola çıktıktan sonra tedarikçi, sevkiyatının kabul edilip edilmediğini veya bir sorun olup olmadığını çok geç öğrenebilir. Gerçek zamanlı veri akışı olmadığı için gecikmelere anında müdahale etme şansı kaybolur." },
+      { title: "İletişim Trafiği", desc: "Sipariş revizeleri, eksik ürün bildirimleri veya randevu değişiklikleri telefon ve e-posta trafiğinde kaybolur. Tedarikçi, hangi bilginin güncel olduğunu anlamaya çalışırken hatalı sevkiyat yapma riskiyle karşı karşıya kalır." },
+      { title: "Belge Karmaşası", desc: "İrsaliye, fatura gibi belgelerin fiziksel olarak taşınması; kaybolmasına veya yanlış eşleşmesine neden olur. Tedarikçi için bu durum, ödeme süreçlerinin aksaması ve mutabakat aşamasında ciddi iş yükü anlamına gelir." },
+      { title: "Manuel Veri Girişleri", desc: "Tedarikçi ekiplerinin her bir sevkiyat bilgisini manuel olarak sistemlere girmesi, Excel tabloları arasında boğulması demektir. İnsan hatasına çok açık olan bu süreç, operasyonun hızını keser ve personelin vakit kaybetmesine yol açar." },
+      { title: "Veri Eksikliği", desc: "Tedarikçi, kendi hizmet kalitesini ölçemediği takdirde gelişim gösteremez. Veriye dayalı olmayan performans değerlendirmeleri, tedarikçi ile alıcı arasındaki güven ilişkisini zedeler ve \"hata kimde?\" tartışmalarına yol açar." },
     ],
     featuresLabel: "Problem Çözümü",
     featuresTitle:
