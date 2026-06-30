@@ -62,7 +62,7 @@ export default function LuminaBenefits() {
   const dotY = useTransform(scrollYProgress, [0, 1], [-60, 60]);
 
   return (
-    <section ref={sectionRef} className="relative bg-[#0a2e2e] py-24 md:py-32 px-6 overflow-hidden">
+    <section ref={sectionRef} className="relative bg-[#0a2e2e] py-24 md:py-32 px-4 md:px-6 overflow-hidden">
       <motion.div
         style={{ y: dotY }}
         className="absolute inset-[-10%] pointer-events-none"
@@ -81,7 +81,7 @@ export default function LuminaBenefits() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, ease }}
-          className="relative rounded-[24px] border border-[#21beba]/20 p-10 md:p-12"
+          className="relative rounded-[24px] border border-[#21beba]/20 p-5 md:p-12"
           style={{
             boxShadow: "0 0 30px rgba(33,190,186,0.06), inset 0 0 30px rgba(33,190,186,0.03)",
           }}
@@ -91,7 +91,7 @@ export default function LuminaBenefits() {
             {benefits.slice(0, 3).map((b, i) => (
               <div
                 key={b.title}
-                className={`px-6 ${i < 2 ? "md:border-r md:border-[#21beba]/15" : ""}`}
+                className={`px-0 md:px-6 ${i < 2 ? "md:border-r md:border-[#21beba]/15" : ""}`}
                 style={i < 2 ? { borderRightStyle: "solid" } : undefined}
               >
                 <h3 className="text-[17px] font-bold text-[#21beba] leading-snug mb-3">
@@ -115,7 +115,7 @@ export default function LuminaBenefits() {
             {benefits.slice(3, 6).map((b, i) => (
               <div
                 key={b.title}
-                className={`px-6 ${i < 2 ? "md:border-r md:border-[#21beba]/15" : ""}`}
+                className={`px-0 md:px-6 ${i < 2 ? "md:border-r md:border-[#21beba]/15" : ""}`}
                 style={i < 2 ? { borderRightStyle: "solid" } : undefined}
               >
                 <h3 className="text-[17px] font-bold text-[#21beba] leading-snug mb-3">
@@ -135,7 +135,7 @@ export default function LuminaBenefits() {
           </div>
 
           {/* Row 3: single item */}
-          <div className="px-6">
+          <div className="px-0 md:px-6">
             <h3 className="text-[17px] font-bold text-[#21beba] leading-snug mb-3">
               {benefits[6].title}
             </h3>
