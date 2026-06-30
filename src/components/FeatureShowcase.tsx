@@ -166,39 +166,42 @@ function MobileFeatureCarousel() {
 
   return (
     <div className="md:hidden">
-      <div
-        ref={scrollRef}
-        onScroll={handleScroll}
-        className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 pb-2 scrollbar-hide"
-        style={{ scrollbarWidth: "none" }}
-      >
-        {features.map((feature, i) => (
-          <div
-            key={feature.title}
-            ref={(el) => { slideRefs.current[i] = el; }}
-            className="snap-center shrink-0 w-[88%]"
-          >
-            <div className="relative h-[60vh] rounded-tr-[32px] rounded-bl-[32px] overflow-hidden">
-              <MockImage index={i} color={feature.color} />
-              <div className="absolute bottom-4 right-4 flex gap-2 z-10">
-                <button
-                  onClick={() => goTo(activeIndex - 1)}
-                  className="w-9 h-9 rounded-full bg-white/90 flex items-center justify-center text-neutral-900"
-                  aria-label="Önceki"
-                >
-                  ‹
-                </button>
-                <button
-                  onClick={() => goTo(activeIndex + 1)}
-                  className="w-9 h-9 rounded-full bg-white/90 flex items-center justify-center text-neutral-900"
-                  aria-label="Sonraki"
-                >
-                  ›
-                </button>
+      <div className="relative px-6">
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="flex overflow-x-auto snap-x snap-mandatory pb-2 scrollbar-hide"
+          style={{ scrollbarWidth: "none" }}
+        >
+          {features.map((feature, i) => (
+            <div
+              key={feature.title}
+              ref={(el) => { slideRefs.current[i] = el; }}
+              className="snap-center shrink-0 w-full"
+            >
+              <div className="relative h-[60vh] rounded-tr-[32px] rounded-bl-[32px] overflow-hidden">
+                <MockImage index={i} color={feature.color} />
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        <div className="absolute bottom-4 right-4 flex gap-2 z-10">
+          <button
+            onClick={() => goTo(activeIndex - 1)}
+            className="w-9 h-9 rounded-full bg-white/90 flex items-center justify-center text-neutral-900"
+            aria-label="Önceki"
+          >
+            ‹
+          </button>
+          <button
+            onClick={() => goTo(activeIndex + 1)}
+            className="w-9 h-9 rounded-full bg-white/90 flex items-center justify-center text-neutral-900"
+            aria-label="Sonraki"
+          >
+            ›
+          </button>
+        </div>
       </div>
 
       <div className="px-6 mt-5">
