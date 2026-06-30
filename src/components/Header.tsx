@@ -98,9 +98,111 @@ function DropdownMenu({ items }: { items: DropdownItem[] }) {
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
+function MenuIcon({ open }: { open: boolean }) {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <motion.path
+        d="M3 5H17"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        animate={open ? { d: "M4 4L16 16" } : { d: "M3 5H17" }}
+        transition={{ duration: 0.2 }}
+      />
+      <motion.path
+        d="M3 10H17"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        animate={open ? { opacity: 0 } : { opacity: 1 }}
+        transition={{ duration: 0.15 }}
+      />
+      <motion.path
+        d="M3 15H17"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        animate={open ? { d: "M4 16L16 4" } : { d: "M3 15H17" }}
+        transition={{ duration: 0.2 }}
+      />
+    </svg>
+  );
+}
+
+function MobileMenu({ onClose }: { onClose: () => void }) {
+  const [openSection, setOpenSection] = useState<string | null>(null);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.2, ease }}
+      className="md:hidden mt-2 bg-[rgba(40,40,40,0.97)] backdrop-blur-xl rounded-3xl shadow-lg p-4 max-h-[75vh] overflow-y-auto"
+    >
+      {Object.entries(dropdownMenus).map(([key, items]) => (
+        <div key={key} className="border-b border-white/10 last:border-b-0">
+          <button
+            onClick={() => setOpenSection(openSection === key ? null : key)}
+            className="w-full flex items-center justify-between px-3 py-3 text-[15px] font-bold text-white"
+          >
+            {key}
+            <ChevronDown flipped={openSection === key} />
+          </button>
+          <AnimatePresence>
+            {openSection === key && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="overflow-hidden"
+              >
+                {items.map((item) => (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    onClick={onClose}
+                    className="block px-3 py-2 mb-1 rounded-xl hover:bg-white/10 transition-colors duration-150"
+                  >
+                    <span className="text-[14px] font-bold text-[#21beba] block">
+                      {item.title}
+                    </span>
+                    <p className="text-[13px] text-white/60 leading-[1.4] mt-0.5">
+                      {item.desc}
+                    </p>
+                  </Link>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      ))}
+      {[{ label: "Yapay Zeka", href: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/lumina` }, { label: "Hakkımızda", href: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hakkimizda` }].map((item) => (
+        <a
+          key={item.label}
+          href={item.href}
+          onClick={onClose}
+          className="block px-3 py-3 text-[15px] font-bold text-white border-b border-white/10 last:border-b-0"
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href="#"
+        onClick={onClose}
+        className="block px-3 py-3 text-[15px] font-bold text-[#21beba]"
+      >
+        Giriş Yap
+      </a>
+    </motion.div>
+  );
+}
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -120,10 +222,10 @@ export default function Header() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-3 animate-[headerIn_0.8s_0.2s_both_cubic-bezier(0.16,1,0.3,1)]"
+      className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center px-4 pt-3 animate-[headerIn_0.8s_0.2s_both_cubic-bezier(0.16,1,0.3,1)]"
     >
       <nav
-        className={`flex w-full max-w-[1320px] items-center justify-between rounded-full px-6 py-2 transition-all duration-500 ${
+        className={`relative flex w-full max-w-[1320px] items-center justify-between rounded-full px-6 py-2 transition-all duration-500 ${
           scrolled
             ? "bg-[rgba(40,40,40,0.85)] backdrop-blur-xl shadow-lg"
             : "bg-[rgba(68,68,68,0.5)] backdrop-blur-md"
@@ -204,8 +306,22 @@ export default function Header() {
             TR
             <ChevronDown />
           </button>
+          <button
+            onClick={() => setMobileOpen((v) => !v)}
+            className="md:hidden flex items-center justify-center w-9 h-9 rounded-full text-white hover:bg-white/15 transition-colors duration-200"
+            aria-label="Menü"
+          >
+            <MenuIcon open={mobileOpen} />
+          </button>
         </div>
       </nav>
+      <AnimatePresence>
+        {mobileOpen && (
+          <div className="w-full max-w-[1320px]">
+            <MobileMenu onClose={() => setMobileOpen(false)} />
+          </div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
