@@ -189,14 +189,14 @@ function MobileFeatureCarousel() {
         <div className="absolute bottom-4 right-4 flex gap-2 z-10 pr-4">
           <button
             onClick={() => goTo(activeIndex - 1)}
-            className="w-12 h-12 rounded-[32px] bg-white/90 flex items-center justify-center text-neutral-900 text-lg"
+            className="w-12 h-12 rounded-[16px] bg-white/90 flex items-center justify-center text-neutral-900 text-lg"
             aria-label="Önceki"
           >
             ‹
           </button>
           <button
             onClick={() => goTo(activeIndex + 1)}
-            className="w-12 h-12 rounded-[32px] bg-white/90 flex items-center justify-center text-neutral-900 text-lg"
+            className="w-12 h-12 rounded-[16px] bg-white/90 flex items-center justify-center text-neutral-900 text-lg"
             aria-label="Sonraki"
           >
             ›
