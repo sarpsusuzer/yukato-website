@@ -136,7 +136,7 @@ export default function HowItWorks() {
 
             {/* Cards row — fixed height container */}
             <div className="mt-auto mb-[5vh] h-[400px]">
-              <div className="md:hidden h-full">
+              <div className="md:hidden h-full pb-10">
                 <MobileHowItWorksCarousel />
               </div>
               <div className="hidden md:block h-full">
@@ -162,15 +162,15 @@ export default function HowItWorks() {
 function MobileHowItWorksCarousel() {
   return (
     <div
-      className="flex gap-3 h-full overflow-x-auto snap-x snap-mandatory pr-6 scrollbar-hide"
+      className="flex items-start gap-3 h-full overflow-x-auto snap-x snap-mandatory pr-6 scrollbar-hide"
       style={{ scrollbarWidth: "none" }}
     >
       {steps.map((step) => (
         <div
           key={step.title}
-          className="snap-center shrink-0 w-[260px] h-full bg-white/[0.12] rounded-lg p-2.5 flex flex-col gap-2.5 overflow-hidden"
+          className="snap-center shrink-0 w-[260px] bg-white/[0.12] rounded-lg p-2.5 flex flex-col gap-2.5 overflow-hidden"
         >
-          <div className="flex flex-col gap-2.5 flex-1">
+          <div className="flex flex-col gap-1.5">
             <p className="text-[16px] font-bold text-white leading-normal whitespace-nowrap">
               {step.title}
             </p>
