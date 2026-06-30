@@ -181,15 +181,15 @@ export default function FaqCertificates() {
         </div>
 
         {/* Certificates */}
-        <div className="mt-24 md:mt-32 text-center">
-          <h2 className="text-[clamp(36px,5vw,60px)] font-medium leading-[1.1] tracking-[-1px] text-black mb-10">
+        <div className="mt-16 md:mt-32 text-center">
+          <h2 className="text-[clamp(28px,5vw,60px)] font-medium leading-[1.1] tracking-[-1px] text-black mb-6 md:mb-10">
             Sertifikalar
           </h2>
-          <div className="max-w-[909px] mx-auto bg-[rgba(0,32,31,0.5)] rounded-xl p-8 flex items-center justify-between gap-6 flex-wrap md:flex-nowrap">
+          <div className="max-w-[909px] mx-auto bg-[rgba(0,32,31,0.5)] rounded-xl p-4 md:p-8 grid grid-cols-2 gap-3 md:flex md:items-center md:justify-between md:gap-6">
             {certificates.map((src, i) => (
               <div
                 key={i}
-                className="relative w-[177px] h-[254px] rounded-lg overflow-hidden shrink-0"
+                className="relative w-full aspect-[177/254] md:w-[177px] md:h-[254px] rounded-lg overflow-hidden md:shrink-0"
               >
                 <Image
                   src={src}
