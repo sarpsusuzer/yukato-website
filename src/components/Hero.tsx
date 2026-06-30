@@ -92,18 +92,18 @@ export default function Hero() {
 
           <motion.div
             style={{ y: textY, opacity: textOpacity }}
-            className="absolute bottom-12 md:bottom-16 left-0 right-0 z-20 px-6"
+            className="absolute bottom-20 md:bottom-16 left-0 right-0 z-20 px-6"
           >
             <div className="max-w-[1000px] mx-auto">
               <motion.h1
                 initial={{ filter: "blur(6px)" }}
                 animate={{ filter: "blur(0px)" }}
                 transition={{ duration: 0.9, ease }}
-                className="text-[clamp(32px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-white"
+                className="text-[40px] md:text-[clamp(32px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-white"
               >
                 Tedarik zinciriniz artık şeffaf ve kontrol edilebilir.
               </motion.h1>
-              <p className="mt-5 text-[clamp(15px,1.8vw,20px)] leading-[1.6] text-white/60 max-w-[680px]">
+              <p className="mt-5 text-[18px] md:text-[clamp(15px,1.8vw,20px)] leading-[1.6] text-white/60 max-w-[680px]">
                 Her devir teslim, varış, belge, rampa hareketi ve teslimat
                 onayı aynı operasyonel zaman çizelgesinin parçası olmalıdır.
               </p>
