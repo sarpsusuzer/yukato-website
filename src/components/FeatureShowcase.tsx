@@ -205,6 +205,9 @@ function MobileFeatureCarousel() {
         <h3 className="text-[22px] font-semibold leading-[1.2] tracking-[-0.02em] text-neutral-900">
           {features[activeIndex].title}
         </h3>
+        <p className="mt-2 text-[15px] leading-[1.6] text-neutral-500">
+          {features[activeIndex].description}
+        </p>
         <div className="flex gap-1.5 mt-4">
           {features.map((_, i) => (
             <div
