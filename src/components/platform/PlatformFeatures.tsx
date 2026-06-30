@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Parallax from "../Parallax";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -40,11 +41,13 @@ export default function PlatformFeatures({
               <div className="flex-1 w-full">
                 {feature.image ? (
                   <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden rounded-tr-[32px] rounded-bl-[32px]">
-                    <img
-                      src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${feature.image}`}
-                      alt={feature.title}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
+                    <Parallax strength={36}>
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${feature.image}`}
+                        alt={feature.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    </Parallax>
                     <svg
                       className="absolute top-0 left-0 w-full z-10"
                       viewBox="0 0 1440 36"
