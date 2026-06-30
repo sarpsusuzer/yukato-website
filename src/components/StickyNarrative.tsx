@@ -11,32 +11,33 @@ const sections = [
     video: `${bp}/videos/nexus.mp4`,
     name: "Nexus",
     nameSup: "™",
-    subtitle: "Perakendeci ve Tedarikçi için Operasyon Yönetim Platformu",
+    subtitle: "Perakendeci, tedarikçi ve nakliyeciyi tek platformda buluşturan operasyon merkezi.",
     cta: "Nexus'u Keşfet →",
-    featureTitle: "Uçtan Uca Dijital İş Akışı",
+    featureTitle: "Siparişten teslimata, tek kağıtsız akış.",
     featureDesc:
-      "Satın alma siparişinden mal kabulüne kadar olan tüm süreçleri dijitalleştirir. E-irsaliye entegrasyonundan dijital teslimat kanıtına (e-POD) kadar tamamen kağıtsız bir akış sunar.",
+      "Satın alma siparişinden mal kabulüne kadar her adımı dijitalleştirir. E-irsaliyeden blokzincirle imzalı e-POD'a kadar tüm akış kağıtsız ilerler.",
   },
   {
     step: 1,
     video: `${bp}/videos/lighthouse.mp4`,
     name: "Lighthouse",
     nameSup: "™",
-    subtitle: "Nakliye Firmaları ve Üreticiler için Sevkiyat Takip Platformu",
+    subtitle: "Nakliyeci ve üreticiler için canlı sevkiyat takip platformu.",
     cta: "Lighthouse'u Keşfet →",
-    featureTitle: "Elektronik Teslimat Fişi Görüntüleme",
-    featureDesc: "",
+    featureTitle: "Canlı sevkiyat takibi ve e-POD görüntüleme.",
+    featureDesc:
+      "Yola çıkan her sevkiyatı gerçek zamanlı izleyin; teslimat tamamlandığında blokzincirle imzalı e-POD'a anında ulaşın.",
   },
   {
     step: 2,
     video: `${bp}/videos/yard-management.mp4`,
     name: "Yard Management",
     nameSup: "",
-    subtitle: "Başlangıçtan Sona\nTam Kontrol Süreci",
+    subtitle: "Randevudan çıkışa, sahanın tam kontrolü.",
     cta: "Yard Management'ı Keşfet →",
-    featureTitle: "Uçtan Uca Dijital Planlama",
+    featureTitle: "Uçtan uca dijital planlama.",
     featureDesc:
-      "Randevu oluşturulmasından rampa tahsisine, sürücü girişinden geri bildirim döngüsüne kadar tüm operasyonu dijitalleştirir.",
+      "Randevu oluşturmadan rampa tahsisine, sürücü girişinden geri bildirim döngüsüne kadar sahadaki tüm operasyonu dijitalleştirir.",
   },
 ];
 
