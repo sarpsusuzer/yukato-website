@@ -155,7 +155,6 @@ export default function HowItWorks() {
 }
 
 const ACTIVE_W = 300;
-const INACTIVE_W = 190;
 const GAP = 12;
 
 function HowItWorksCards({
@@ -163,50 +162,11 @@ function HowItWorksCards({
 }: {
   scrollProgress: ReturnType<typeof useScroll>["scrollYProgress"];
 }) {
-  const activeIndex = useTransform(scrollProgress, [0, 1], [0, 4.99]);
-
   // Smooth slide: interpolate between snap points
   const translateX = useTransform(
     scrollProgress,
     [0, 0.2, 0.4, 0.6, 0.8, 1],
-    [0, 0, -(INACTIVE_W + GAP), -(2 * (INACTIVE_W + GAP)), -(3 * (INACTIVE_W + GAP)), -(4 * (INACTIVE_W + GAP))]
-  );
-
-  const indices = [0, 1, 2, 3, 4];
-
-  // Smooth easing helper: how "active" each card is (0 to 1)
-  // Uses a smooth bell curve centered on the card's index
-  function cardActivity(v: number, i: number): number {
-    const dist = Math.abs(v - i);
-    if (dist >= 1) return 0;
-    return 1 - dist;
-  }
-
-  const opacities = indices.map((i) =>
-    useTransform(activeIndex, (v) => {
-      const t = cardActivity(Math.min(4, v), i);
-      return 0.5 + 0.5 * t;
-    })
-  );
-  const widths = indices.map((i) =>
-    useTransform(activeIndex, (v) => {
-      const t = cardActivity(Math.min(4, v), i);
-      return INACTIVE_W + (ACTIVE_W - INACTIVE_W) * t;
-    })
-  );
-  const fontSizes = indices.map((i) =>
-    useTransform(activeIndex, (v) => {
-      const t = cardActivity(Math.min(4, v), i);
-      return `${12 + 4 * t}px`;
-    })
-  );
-  const ACTIVE_H = 380;
-  const INACTIVE_H = 240;
-  const heights = indices.map((i) =>
-    useTransform(activeIndex, (v) => {
-      const t = cardActivity(Math.min(4, v), i);
-      return INACTIVE_H + (ACTIVE_H - INACTIVE_H) * t;
-    })
+    [0, 0, -(ACTIVE_W + GAP), -(2 * (ACTIVE_W + GAP)), -(3 * (ACTIVE_W + GAP)), -(4 * (ACTIVE_W + GAP))]
   );
 
   return (
@@ -216,25 +176,18 @@ function HowItWorksCards({
         className="flex items-start gap-3"
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
-        {steps.map((step, i) => (
-          <motion.div
+        {steps.map((step) => (
+          <div
             key={step.title}
-            style={{ width: widths[i], opacity: opacities[i], height: heights[i] }}
-            className="bg-white/[0.12] rounded-lg p-2.5 flex flex-col gap-2.5 shrink-0 overflow-hidden"
+            className="w-[300px] h-[380px] bg-white/[0.12] rounded-lg p-2.5 flex flex-col gap-2.5 shrink-0 overflow-hidden"
           >
             <div className="flex flex-col gap-2.5 flex-1">
-              <motion.p
-                style={{ fontSize: fontSizes[i] }}
-                className="font-bold text-white leading-normal whitespace-nowrap"
-              >
+              <p className="text-[16px] font-bold text-white leading-normal whitespace-nowrap">
                 {step.title}
-              </motion.p>
-              <motion.p
-                style={{ fontSize: fontSizes[i] }}
-                className="font-medium text-white leading-normal"
-              >
+              </p>
+              <p className="text-[16px] font-medium text-white leading-normal">
                 {step.description}
-              </motion.p>
+              </p>
             </div>
             <div className="relative w-full aspect-[399/267] rounded-lg overflow-hidden shrink-0">
               <Image
@@ -244,7 +197,7 @@ function HowItWorksCards({
                 className="object-cover"
               />
             </div>
-          </motion.div>
+          </div>
         ))}
       </motion.div>
     </div>
