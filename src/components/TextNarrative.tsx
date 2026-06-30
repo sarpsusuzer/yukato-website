@@ -31,7 +31,7 @@ export default function TextNarrative() {
           transition={{ duration: 0.6, ease }}
           className="absolute max-w-[900px] text-center pointer-events-none px-6"
         >
-          <h2 className="text-[clamp(32px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-neutral-900">
+          <h2 className="text-[clamp(40px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-neutral-900">
             Lojistik operasyonların işleyişini yeniden inşa ettik.
           </h2>
         </motion.div>
@@ -44,7 +44,7 @@ export default function TextNarrative() {
           transition={{ duration: 0.6, ease }}
           className="absolute max-w-[900px] text-center pointer-events-none px-6"
         >
-          <h2 className="text-[clamp(32px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-neutral-900">
+          <h2 className="text-[clamp(40px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-neutral-900">
             Lojistiği tek bir canlı operasyon akışında birleştirdik.
           </h2>
         </motion.div>
