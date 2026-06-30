@@ -24,7 +24,7 @@ export default function RootLayout({
         <SmoothScroll />
         {children}
         <div className="fixed bottom-2 right-3 text-[10px] text-black/20 z-[9999] pointer-events-none">
-          v46
+          v47
         </div>
       </body>
     </html>
