@@ -61,7 +61,7 @@ export default function StickyNarrative() {
     <div ref={containerRef} className="relative" style={{ height: "600vh" }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-white z-10">
         {/* Illustration area — video extends into notch areas */}
-        <div className="relative w-full h-[70vh]">
+        <div className="relative w-full h-[65vh]">
           {/* Video container — full height including notch areas */}
           <div className="absolute inset-0 overflow-hidden">
             {sections.map((section, i) => (
@@ -107,7 +107,7 @@ export default function StickyNarrative() {
         </div>
 
         {/* Content area */}
-        <div className="relative h-[30vh] px-6 md:px-[60px] pt-5 md:pt-[40px] flex items-center">
+        <div className="relative h-[35vh] px-6 md:px-[60px] pt-5 md:pt-[40px] flex items-center">
           {sections.map((section, i) => (
             <motion.div
               key={section.name}
