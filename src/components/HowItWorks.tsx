@@ -9,33 +9,33 @@ const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const steps = [
   {
-    title: "Sevkiyat Başlatılır",
+    title: "Sevkiyat başlar",
     description:
-      "Yeni sipariş depoya ulaşır. Yukato üzerinden rampa ve yükleme hazırlığı otomatik planlanır.",
+      "Yeni sipariş depoya düşer; rampa ve yükleme hazırlığı Yukato'da otomatik planlanır.",
     image: `${bp}/hiw-1.jpg`,
   },
   {
-    title: "Yükleme Yapılır",
+    title: "Yükleme yapılır",
     description:
-      "Sürücü, uygulama üzerinden depoya giriş yapar, yükünü alır ve yola çıkar.",
+      "Sürücü uygulamadan depoya giriş yapar, yükünü alır ve yola çıkar.",
     image: `${bp}/hiw-1.jpg`,
   },
   {
-    title: "Sürücü Takip Edilir",
+    title: "Sürücü canlı takip edilir",
     description:
-      "Sürücünün anlık konum bilgisi ile TVZ bilgileri hesaplanır ve depo randevuları buna göre verilir.",
+      "Anlık konumdan tahmini varış süresi hesaplanır; depo randevuları buna göre güncellenir.",
     image: `${bp}/hiw-2.jpg`,
   },
   {
-    title: "Teslimat Yapılır",
+    title: "Teslimat gerçekleşir",
     description:
-      "Araç teslimat noktasına ulaşır. Sürücü mobil uygulaması ile teslimat gerçekleşir.",
+      "Araç teslimat noktasına varır, teslimat sürücünün mobil uygulamasından tamamlanır.",
     image: `${bp}/hiw-3.jpg`,
   },
   {
-    title: "Anında İşlemler Tamamlanır",
+    title: "e-POD anında oluşur",
     description:
-      "Teslimat yapıldığı anda belgeler üzerinde saniyeler içersinde işlemler tamamlanır.",
+      "Teslimat anında blokzincirle imzalı e-POD saniyeler içinde sisteme işlenir.",
     image: `${bp}/hiw-4.jpg`,
   },
 ];
@@ -125,8 +125,7 @@ export default function HowItWorks() {
                 Sistem Nasıl İşliyor?
               </p>
               <h2 className="text-[clamp(32px,4.5vw,60px)] font-medium leading-[1.2] tracking-[-1px] text-[#fbfbfb] mt-4">
-                Tedarik zincirinizi son teslimat noktasına kadar dijitalleştiren
-                yenilikçi teknoloji.
+                Siparişten teslimat kanıtına kadar her adım tek akışta.
               </h2>
               <div className="mt-4 border-b border-[#3bc6bd] inline-flex items-center h-[40px]">
                 <span className="text-[14px] font-bold text-[#21beba] uppercase tracking-wide">

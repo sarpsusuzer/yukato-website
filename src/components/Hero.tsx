@@ -101,11 +101,12 @@ export default function Hero() {
                 transition={{ duration: 0.9, ease }}
                 className="text-[40px] md:text-[clamp(32px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-white"
               >
-                Tedarik zinciriniz artık şeffaf ve kontrol edilebilir.
+                Tek sevkiyat. Tek akış. Tek gerçek.
               </motion.h1>
               <p className="mt-5 text-[18px] md:text-[clamp(15px,1.8vw,20px)] leading-[1.6] text-white/60 max-w-[680px]">
-                Her devir teslim, varış, belge, rampa hareketi ve teslimat
-                onayı aynı operasyonel zaman çizelgesinin parçası olmalıdır.
+                Her sevkiyat; çıkıştan rampaya, belgeden teslimat onayına
+                kadar gönderenin de teslim alanın da aynı anda gördüğü tek
+                bir akışta ilerler.
               </p>
             </div>
           </motion.div>

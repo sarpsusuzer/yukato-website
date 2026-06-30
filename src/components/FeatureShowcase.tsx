@@ -6,33 +6,33 @@ import Parallax from "./Parallax";
 
 const features = [
   {
-    title: "Stoğu Belirsizliğe Göre Değil, Veriye Göre Planlayın",
+    title: "Tahminle değil, doğru bilgiyle stoğunuzu yönetin.",
     description:
-      "Neyin geldiğini ve ne zaman geleceğini bilin, gereksiz stok tutmayın.",
+      "Hangi sevkiyatın ne zaman geleceğini önceden görün; deponuzda ihtiyacınızdan fazla stok kalmasın.",
     color: "#21beba",
   },
   {
-    title: "E-posta ve Telefon Trafiğini Azaltın",
+    title: "Sevkiyatı telefonla değil, ekrandan takip edin.",
     description:
-      "Sevkiyat takibi için süren e-posta ve telefon trafiğine, yüksek personel maliyetlerine ve hata riskine son verin.",
+      "Sevkiyatı sormak için harcanan saatleri, personel maliyetini ve telefonla gelen hata riskini ortadan kaldırın.",
     color: "#00a29d",
   },
   {
-    title: "Mal Kabulden Önce Uyumsuzlukları Yakalayın",
+    title: "Uyumsuzluğu rampada değil, yoldayken yakalayın.",
     description:
-      "Sipariş ile sevkiyat arasındaki uyumsuzlukları mal kabul öncesinde kontrol ederek tespit edin ve mal kabulde zaman kazanın.",
+      "Sipariş ile sevkiyat arasındaki farkları mal kabulden önce görün; rampada sürprizle karşılaşmayın, kabul süresini kısaltın.",
     color: "#008582",
   },
   {
-    title: "Boşaltma Sürecini Öngörülebilir Hale Getirin",
+    title: "Gerçek zamanlı teslimat öngörüsü. Sonraki işinizi saatler öncesinden planlayın.",
     description:
-      "Boşaltma zamanının belirsizliği, araçların bir sonraki işinin planlanmasını engeller ve sürücüleri bekletir.",
+      "Aracın rampada ne kadar kalacağını önceden bilin; sürücüleri bekletmeyin, filonuzu boşta tutmayın.",
     color: "#003735",
   },
   {
-    title: "Kağıt Evrakla Zaman Kaybetmeyin",
+    title: "Blokzincirle imzalı e-POD, teslimat anında elinizde.",
     description:
-      "Fiziksel teslimat belgeleri yüzünden kaybettiğiniz zamanı geri kazanın, teslimatları daha hızlı tamamlayın.",
+      "Islak imzalı belgenin günler, haftalar sonra geri dönmesini beklemeyin. Teslimat kanıtınız, blokzincirle imzalanmış e-POD olarak teslimat anında oluşur — daha güvenli, daha doğru, anında.",
     color: "#21beba",
   },
 ];
