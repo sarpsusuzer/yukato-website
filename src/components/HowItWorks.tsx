@@ -136,12 +136,7 @@ export default function HowItWorks() {
 
             {/* Cards row — fixed height container */}
             <div className="mt-auto mb-[5vh] h-[400px]">
-              <div className="md:hidden h-full pb-10">
-                <MobileHowItWorksCarousel />
-              </div>
-              <div className="hidden md:block h-full">
-                <HowItWorksCards scrollProgress={scrollYProgress} />
-              </div>
+              <HowItWorksCards scrollProgress={scrollYProgress} />
             </div>
           </div>
         </div>
@@ -155,39 +150,6 @@ export default function HowItWorks() {
           <path d="M1440 0H760C730 0 720 0 700 8C680 20 660 36 620 36H32C14.3 36 0 21.7 0 4V0H1440Z" />
         </svg>
       </div>
-    </div>
-  );
-}
-
-function MobileHowItWorksCarousel() {
-  return (
-    <div
-      className="flex items-stretch gap-3 h-full overflow-x-auto snap-x snap-mandatory pr-6 scrollbar-hide"
-      style={{ scrollbarWidth: "none" }}
-    >
-      {steps.map((step) => (
-        <div
-          key={step.title}
-          className="snap-center shrink-0 w-[260px] bg-white/[0.12] rounded-lg p-2.5 flex flex-col gap-2.5 overflow-hidden"
-        >
-          <div className="flex flex-col gap-1.5 flex-1">
-            <p className="text-[16px] font-bold text-white leading-normal whitespace-nowrap">
-              {step.title}
-            </p>
-            <p className="text-[14px] font-medium text-white leading-normal">
-              {step.description}
-            </p>
-          </div>
-          <div className="relative w-full aspect-[399/267] rounded-lg overflow-hidden shrink-0">
-            <Image
-              src={step.image}
-              alt={step.title}
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-      ))}
     </div>
   );
 }
