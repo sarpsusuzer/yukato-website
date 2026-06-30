@@ -34,12 +34,12 @@ export default function Contact({ variant = "dark" }: { variant?: "dark" | "ligh
           transition={{ duration: 0.7, ease }}
           className="text-center max-w-[1088px] mx-auto mb-12"
         >
-          <h2 className={`text-[clamp(36px,5vw,60px)] font-medium leading-[1.2] tracking-[-1px] ${
+          <h2 className={`text-[clamp(28px,5vw,60px)] font-medium leading-[1.2] tracking-[-1px] ${
             isLight ? "text-[#282c34]" : "text-white"
           }`}>
             Bugün Yukato&apos;ya Geçin!
           </h2>
-          <p className={`mt-4 text-[clamp(20px,3vw,32px)] font-medium leading-[1.5] tracking-[-1px] ${
+          <p className={`mt-4 text-[clamp(16px,3vw,32px)] font-medium leading-[1.5] tracking-[-1px] ${
             isLight ? "text-[#596173]" : "text-white/80"
           }`}>
             Yukato Nexus™ &amp; Lighthouse™&apos;ın gücüyle lojistik
@@ -86,69 +86,69 @@ export default function Contact({ variant = "dark" }: { variant?: "dark" | "ligh
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="bg-[#003735] rounded-xl p-8 flex flex-col gap-5"
+              className="bg-[#003735] rounded-xl p-5 md:p-8 flex flex-col gap-4 md:gap-5"
             >
               {/* Row 1: İsim / Soyisim */}
-              <div className="flex gap-8">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8">
                 <div className="flex-1">
-                  <label className="block text-[16px] font-semibold text-white mb-3">
+                  <label className="block text-[13px] md:text-[16px] font-semibold text-white mb-2 md:mb-3">
                     İsim*
                   </label>
                   <input
                     type="text"
                     required
-                    className="w-full bg-transparent border-b border-[#ced3d3] text-white text-[15px] pb-2 focus:border-[#21beba] transition-colors duration-200 outline-none"
+                    className="w-full bg-transparent border-b border-[#ced3d3] text-white text-[14px] md:text-[15px] pb-2 focus:border-[#21beba] transition-colors duration-200 outline-none"
                   />
                 </div>
                 <div className="flex-1">
-                  <label className="block text-[16px] font-semibold text-white mb-3">
+                  <label className="block text-[13px] md:text-[16px] font-semibold text-white mb-2 md:mb-3">
                     Soyisim*
                   </label>
                   <input
                     type="text"
                     required
-                    className="w-full bg-transparent border-b border-[#ced3d3] text-white text-[15px] pb-2 focus:border-[#21beba] transition-colors duration-200 outline-none"
+                    className="w-full bg-transparent border-b border-[#ced3d3] text-white text-[14px] md:text-[15px] pb-2 focus:border-[#21beba] transition-colors duration-200 outline-none"
                   />
                 </div>
               </div>
 
               {/* Row 2: Email / Telefon */}
-              <div className="flex gap-8">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8">
                 <div className="flex-1">
-                  <label className="block text-[16px] font-semibold text-white mb-3">
+                  <label className="block text-[13px] md:text-[16px] font-semibold text-white mb-2 md:mb-3">
                     E-mail*
                   </label>
                   <input
                     type="email"
                     required
-                    className="w-full bg-transparent border-b border-[#ced3d3] text-white text-[15px] pb-2 focus:border-[#21beba] transition-colors duration-200 outline-none"
+                    className="w-full bg-transparent border-b border-[#ced3d3] text-white text-[14px] md:text-[15px] pb-2 focus:border-[#21beba] transition-colors duration-200 outline-none"
                   />
                 </div>
                 <div className="flex-1">
-                  <label className="block text-[16px] font-semibold text-white mb-3">
+                  <label className="block text-[13px] md:text-[16px] font-semibold text-white mb-2 md:mb-3">
                     Telefon Numarası*
                   </label>
                   <input
                     type="tel"
                     required
-                    className="w-full bg-transparent border-b border-[#ced3d3] text-white text-[15px] pb-2 focus:border-[#21beba] transition-colors duration-200 outline-none"
+                    className="w-full bg-transparent border-b border-[#ced3d3] text-white text-[14px] md:text-[15px] pb-2 focus:border-[#21beba] transition-colors duration-200 outline-none"
                   />
                 </div>
               </div>
 
               {/* Row 3: Şirket Tipi */}
               <div>
-                <label className="block text-[16px] font-semibold text-white mb-3">
+                <label className="block text-[13px] md:text-[16px] font-semibold text-white mb-2 md:mb-3">
                   Şirket Tipi*
                 </label>
-                <div className="flex gap-5 items-center">
+                <div className="flex flex-col md:flex-row gap-3 md:gap-5 md:items-center">
                   {["Tedarikçi", "Perakendeci", "Nakliyeci"].map((type) => (
                     <label
                       key={type}
                       className="flex items-center gap-1.5 cursor-pointer"
                     >
                       <div
-                        className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors duration-200 ${
+                        className={`w-5 h-5 md:w-6 md:h-6 rounded-full border-2 flex items-center justify-center transition-colors duration-200 shrink-0 ${
                           companyType === type
                             ? "border-[#21beba]"
                             : "border-[#ced3d3]"
@@ -156,10 +156,10 @@ export default function Contact({ variant = "dark" }: { variant?: "dark" | "ligh
                         onClick={() => setCompanyType(type)}
                       >
                         {companyType === type && (
-                          <div className="w-3 h-3 rounded-full bg-[#21beba]" />
+                          <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#21beba]" />
                         )}
                       </div>
-                      <span className="text-[16px] font-medium text-white tracking-[0.17px]">
+                      <span className="text-[14px] md:text-[16px] font-medium text-white tracking-[0.17px]">
                         {type}
                       </span>
                     </label>
@@ -169,20 +169,20 @@ export default function Contact({ variant = "dark" }: { variant?: "dark" | "ligh
 
               {/* Row 4: Açıklama */}
               <div>
-                <label className="block text-[16px] font-semibold text-white mb-3">
+                <label className="block text-[13px] md:text-[16px] font-semibold text-white mb-2 md:mb-3">
                   Açıklama*
                 </label>
                 <textarea
                   required
                   rows={4}
-                  className="w-full bg-[#eafbfa] rounded-xl p-4 text-[15px] text-[#003735] resize-none outline-none focus:ring-2 focus:ring-[#21beba] transition-all duration-200"
+                  className="w-full bg-[#eafbfa] rounded-xl p-3 md:p-4 text-[14px] md:text-[15px] text-[#003735] resize-none outline-none focus:ring-2 focus:ring-[#21beba] transition-all duration-200"
                 />
               </div>
 
               {/* Submit */}
               <button
                 type="submit"
-                className="w-full bg-[#008582] text-white text-[16px] font-bold p-4 rounded-xl hover:bg-[#006d6a] transition-colors duration-200 uppercase tracking-wide"
+                className="w-full bg-[#008582] text-white text-[14px] md:text-[16px] font-bold p-3.5 md:p-4 rounded-xl hover:bg-[#006d6a] transition-colors duration-200 uppercase tracking-wide"
               >
                 GÖNDER
               </button>
