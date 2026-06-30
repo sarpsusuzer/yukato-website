@@ -61,7 +61,7 @@ export default function StickyNarrative() {
     <div ref={containerRef} className="relative" style={{ height: "600vh" }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-white z-10">
         {/* Illustration area — video extends into notch areas */}
-        <div className="relative w-full" style={{ height: "calc(56vh + 72px)" }}>
+        <div className="relative w-full h-[45vh] md:h-[calc(56vh+72px)]">
           {/* Video container — full height including notch areas */}
           <div className="absolute inset-0 overflow-hidden">
             {sections.map((section, i) => (
@@ -107,7 +107,7 @@ export default function StickyNarrative() {
         </div>
 
         {/* Content area */}
-        <div className="relative h-[45vh] md:h-[36vh] px-6 md:px-[60px] pt-[40px] flex items-center">
+        <div className="relative h-[55vh] md:h-[36vh] px-6 md:px-[60px] pt-5 md:pt-[40px] flex items-center">
           {sections.map((section, i) => (
             <motion.div
               key={section.name}
@@ -118,22 +118,22 @@ export default function StickyNarrative() {
               transition={{ duration: 0.5, ease }}
               className="absolute inset-x-6 md:inset-x-[60px] top-0 bottom-0 flex items-center"
             >
-              <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start w-full">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-16 items-start w-full">
                 {/* Left — branding */}
                 <div className="flex-1 min-w-0 md:max-w-[380px]">
-                  <h3 className="text-[32px] font-bold leading-[60px] tracking-[-1px] text-[#008582]">
+                  <h3 className="text-[24px] md:text-[32px] font-bold leading-[1.3] md:leading-[60px] tracking-[-1px] text-[#008582]">
                     {section.name}
                     {section.nameSup && (
-                      <sup className="text-[18px]">{section.nameSup}</sup>
+                      <sup className="text-[14px] md:text-[18px]">{section.nameSup}</sup>
                     )}
                   </h3>
-                  <p className="text-[24px] font-bold leading-[32px] tracking-[-1px] text-[#21beba] max-w-[309px] whitespace-pre-line">
+                  <p className="text-[16px] md:text-[24px] font-bold leading-[1.3] md:leading-[32px] tracking-[-1px] text-[#21beba] max-w-[309px] whitespace-pre-line">
                     {section.subtitle}
                   </p>
-                  <div className="mt-3">
+                  <div className="mt-2 md:mt-3">
                     <a
                       href="#"
-                      className="inline-flex items-center justify-center h-[40px] px-4 rounded-full border border-[#3bc6bd] text-[14px] font-bold text-[#21beba] hover:bg-[#21beba]/5 transition-colors duration-200"
+                      className="inline-flex items-center justify-center h-[36px] md:h-[40px] px-4 rounded-full border border-[#3bc6bd] text-[13px] md:text-[14px] font-bold text-[#21beba] hover:bg-[#21beba]/5 transition-colors duration-200"
                     >
                       {section.cta}
                     </a>
@@ -143,11 +143,11 @@ export default function StickyNarrative() {
                 {/* Right — feature */}
                 <div className="flex-1 min-w-0 relative">
                   <div>
-                    <p className="text-[20px] font-bold leading-normal text-[#434956] mb-2">
+                    <p className="text-[15px] md:text-[20px] font-bold leading-normal text-[#434956] mb-1 md:mb-2">
                       {section.featureTitle}
                     </p>
                     {section.featureDesc && (
-                      <p className="text-[20px] font-medium leading-normal text-[#596173]">
+                      <p className="text-[14px] md:text-[20px] font-medium leading-[1.4] md:leading-normal text-[#596173]">
                         {section.featureDesc}
                       </p>
                     )}
