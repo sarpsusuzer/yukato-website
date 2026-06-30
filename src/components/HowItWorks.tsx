@@ -162,7 +162,7 @@ export default function HowItWorks() {
 function MobileHowItWorksCarousel() {
   return (
     <div
-      className="flex items-start gap-3 h-full overflow-x-auto snap-x snap-mandatory pr-6 scrollbar-hide"
+      className="flex items-stretch gap-3 h-full overflow-x-auto snap-x snap-mandatory pr-6 scrollbar-hide"
       style={{ scrollbarWidth: "none" }}
     >
       {steps.map((step) => (
@@ -170,7 +170,7 @@ function MobileHowItWorksCarousel() {
           key={step.title}
           className="snap-center shrink-0 w-[260px] bg-white/[0.12] rounded-lg p-2.5 flex flex-col gap-2.5 overflow-hidden"
         >
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-1.5 flex-1">
             <p className="text-[16px] font-bold text-white leading-normal whitespace-nowrap">
               {step.title}
             </p>
