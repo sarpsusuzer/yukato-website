@@ -21,7 +21,7 @@ export default function TextNarrative() {
 
   return (
     <div ref={containerRef} className="relative" style={{ height: "250vh" }}>
-      <div className="sticky top-0 h-screen flex items-center justify-center px-6 overflow-hidden bg-[#fafaf8] z-[5]">
+      <div className="sticky top-0 h-screen flex items-center justify-center px-6 pb-24 md:pb-0 overflow-hidden bg-[#fafaf8] z-[5]">
         <motion.div
           animate={{
             opacity: phase === 0 ? 1 : 0,
@@ -31,7 +31,7 @@ export default function TextNarrative() {
           transition={{ duration: 0.6, ease }}
           className="absolute max-w-[900px] text-center pointer-events-none px-6"
         >
-          <h2 className="text-[clamp(40px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-neutral-900">
+          <h2 className="text-[clamp(32px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-neutral-900">
             Lojistik operasyonların işleyişini yeniden inşa ettik.
           </h2>
         </motion.div>
@@ -44,7 +44,7 @@ export default function TextNarrative() {
           transition={{ duration: 0.6, ease }}
           className="absolute max-w-[900px] text-center pointer-events-none px-6"
         >
-          <h2 className="text-[clamp(40px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-neutral-900">
+          <h2 className="text-[clamp(32px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-neutral-900">
             Lojistiği tek bir canlı operasyon akışında birleştirdik.
           </h2>
         </motion.div>
