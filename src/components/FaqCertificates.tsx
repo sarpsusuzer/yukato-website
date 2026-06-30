@@ -83,7 +83,7 @@ function FaqItem({
   return (
     <div className="relative">
       <svg
-        className="absolute top-0 left-0 w-full -translate-y-[99%] z-10"
+        className="hidden md:block absolute top-0 left-0 w-full -translate-y-[99%] z-10"
         viewBox="0 0 1440 36"
         preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -91,12 +91,12 @@ function FaqItem({
         <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" fill="white" />
         <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36" fill="none" stroke="#d6dde5" strokeWidth="1.5" />
       </svg>
-      <div className="bg-white border-x border-[#d6dde5] overflow-hidden rounded-tl-[32px] rounded-br-[32px]">
+      <div className="bg-white border border-[#d6dde5] md:border-x md:border-y-0 overflow-hidden rounded-2xl md:rounded-tl-[32px] md:rounded-br-[32px] md:rounded-tr-none md:rounded-bl-none">
         <button
           onClick={onToggle}
-          className="w-full flex items-center justify-between p-8 text-left cursor-pointer"
+          className="w-full flex items-center justify-between p-5 md:p-8 text-left cursor-pointer"
         >
-          <span className="text-[16px] font-bold text-black pr-4">
+          <span className="text-[15px] md:text-[16px] font-bold text-black pr-4">
             {question}
           </span>
           <div className="shrink-0 w-6 h-6 flex items-center justify-center">
@@ -130,7 +130,7 @@ function FaqItem({
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="overflow-hidden"
             >
-              <p className="px-8 pb-8 text-[14px] font-normal text-[#565f77] leading-normal max-w-[675px]">
+              <p className="px-5 pb-5 md:px-8 md:pb-8 text-[13px] md:text-[14px] font-normal text-[#565f77] leading-normal max-w-[675px]">
                 {answer}
               </p>
             </motion.div>
@@ -138,7 +138,7 @@ function FaqItem({
         </AnimatePresence>
       </div>
       <svg
-        className="absolute bottom-0 left-0 w-full translate-y-[99%] z-10"
+        className="hidden md:block absolute bottom-0 left-0 w-full translate-y-[99%] z-10"
         viewBox="0 0 1440 36"
         preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +168,7 @@ export default function FaqCertificates() {
         </div>
 
         {/* FAQ Items */}
-        <div className="max-w-[850px] mx-auto flex flex-col gap-[48px]">
+        <div className="max-w-[850px] mx-auto flex flex-col gap-4 md:gap-[48px]">
           {faqs.map((faq, i) => (
             <FaqItem
               key={i}
