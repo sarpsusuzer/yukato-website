@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import Parallax from "./Parallax";
 
 const features = [
   {
@@ -38,55 +39,65 @@ const features = [
 
 function MockImage({ index, color }: { index: number; color: string }) {
   const patterns = [
-    <div key={0} className="w-full h-full">
-      <video
-        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/videos/gercek-zamanli-gorunurluk.mp4`}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="w-full h-full object-cover"
-      />
+    <div key={0} className="relative w-full h-full overflow-hidden">
+      <Parallax strength={32}>
+        <video
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/videos/gercek-zamanli-gorunurluk.mp4`}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        />
+      </Parallax>
     </div>,
-    <div key={1} className="w-full h-full">
-      <video
-        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/videos/dijital-dokumantasyon.mp4`}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="w-full h-full object-cover"
-      />
+    <div key={1} className="relative w-full h-full overflow-hidden">
+      <Parallax strength={32}>
+        <video
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/videos/dijital-dokumantasyon.mp4`}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        />
+      </Parallax>
     </div>,
-    <div key={2} className="w-full h-full">
-      <video
-        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/videos/akilli-raporlama.mp4`}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="w-full h-full object-cover"
-      />
+    <div key={2} className="relative w-full h-full overflow-hidden">
+      <Parallax strength={32}>
+        <video
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/videos/akilli-raporlama.mp4`}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        />
+      </Parallax>
     </div>,
-    <div key={3} className="w-full h-full">
-      <video
-        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/videos/entegrasyon-agi.mp4`}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="w-full h-full object-cover"
-      />
+    <div key={3} className="relative w-full h-full overflow-hidden">
+      <Parallax strength={32}>
+        <video
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/videos/entegrasyon-agi.mp4`}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        />
+      </Parallax>
     </div>,
-    <div key={4} className="w-full h-full">
-      <video
-        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/videos/fiziksel-teslimat.mp4`}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="w-full h-full object-cover"
-      />
+    <div key={4} className="relative w-full h-full overflow-hidden">
+      <Parallax strength={32}>
+        <video
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/videos/fiziksel-teslimat.mp4`}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        />
+      </Parallax>
     </div>,
   ];
   return patterns[index];

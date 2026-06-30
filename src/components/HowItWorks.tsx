@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import Parallax from "./Parallax";
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -190,12 +191,14 @@ function HowItWorksCards({
               </p>
             </div>
             <div className="relative w-full aspect-[399/267] rounded-lg overflow-hidden shrink-0">
-              <Image
-                src={step.image}
-                alt={step.title}
-                fill
-                className="object-cover"
-              />
+              <Parallax strength={14}>
+                <Image
+                  src={step.image}
+                  alt={step.title}
+                  fill
+                  className="object-cover"
+                />
+              </Parallax>
             </div>
           </div>
         ))}

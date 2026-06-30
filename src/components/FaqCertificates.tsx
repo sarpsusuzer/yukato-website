@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Parallax from "./Parallax";
 
 const faqs = [
   {
@@ -191,12 +192,14 @@ export default function FaqCertificates() {
                 key={i}
                 className="relative w-full aspect-[177/254] md:w-[177px] md:h-[254px] rounded-lg overflow-hidden md:shrink-0"
               >
-                <Image
-                  src={src}
-                  alt={`Sertifika ${i + 1}`}
-                  fill
-                  className="object-cover rounded-lg"
-                />
+                <Parallax strength={16}>
+                  <Image
+                    src={src}
+                    alt={`Sertifika ${i + 1}`}
+                    fill
+                    className="object-cover rounded-lg"
+                  />
+                </Parallax>
               </div>
             ))}
           </div>
