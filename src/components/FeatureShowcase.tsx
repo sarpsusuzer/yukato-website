@@ -137,6 +137,89 @@ function FeatureRevealText({
   );
 }
 
+function MobileFeatureCarousel() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const goTo = (i: number) => {
+    const clamped = Math.max(0, Math.min(features.length - 1, i));
+    slideRefs.current[clamped]?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  };
+
+  const handleScroll = () => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const center = container.scrollLeft + container.clientWidth / 2;
+    let closest = 0;
+    let closestDist = Infinity;
+    slideRefs.current.forEach((el, i) => {
+      if (!el) return;
+      const dist = Math.abs(el.offsetLeft + el.offsetWidth / 2 - center);
+      if (dist < closestDist) {
+        closestDist = dist;
+        closest = i;
+      }
+    });
+    setActiveIndex(closest);
+  };
+
+  return (
+    <div className="md:hidden">
+      <div
+        ref={scrollRef}
+        onScroll={handleScroll}
+        className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 pb-2 scrollbar-hide"
+        style={{ scrollbarWidth: "none" }}
+      >
+        {features.map((feature, i) => (
+          <div
+            key={feature.title}
+            ref={(el) => { slideRefs.current[i] = el; }}
+            className="snap-center shrink-0 w-[88%]"
+          >
+            <div className="relative h-[60vh] rounded-tr-[32px] rounded-bl-[32px] overflow-hidden">
+              <MockImage index={i} color={feature.color} />
+              <div className="absolute bottom-4 right-4 flex gap-2 z-10">
+                <button
+                  onClick={() => goTo(activeIndex - 1)}
+                  className="w-9 h-9 rounded-full bg-white/90 flex items-center justify-center text-neutral-900"
+                  aria-label="Önceki"
+                >
+                  ‹
+                </button>
+                <button
+                  onClick={() => goTo(activeIndex + 1)}
+                  className="w-9 h-9 rounded-full bg-white/90 flex items-center justify-center text-neutral-900"
+                  aria-label="Sonraki"
+                >
+                  ›
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="px-6 mt-5">
+        <h3 className="text-[22px] font-semibold leading-[1.2] tracking-[-0.02em] text-neutral-900">
+          {features[activeIndex].title}
+        </h3>
+        <div className="flex gap-1.5 mt-4">
+          {features.map((_, i) => (
+            <div
+              key={i}
+              className={`h-[3px] rounded-full transition-all duration-300 ${
+                i === activeIndex ? "w-8 bg-neutral-900" : "w-4 bg-neutral-200"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function FeatureShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -164,7 +247,10 @@ export default function FeatureShowcase() {
 
   return (
     <div className="relative bg-white z-[5]">
-      <div className="flex">
+      <div className="md:hidden py-16">
+        <MobileFeatureCarousel />
+      </div>
+      <div className="hidden md:flex">
         {/* Left — scrolling text panels with 60px padding, full width on mobile, half on desktop */}
         <div className="w-full md:w-1/2 shrink-0" style={{ padding: "0 60px" }}>
           {features.map((feature, i) => (
