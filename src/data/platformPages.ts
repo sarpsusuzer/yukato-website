@@ -85,22 +85,22 @@ export const platformPages: Record<string, PlatformPageData> = {
   surucu: {
     label: "Sürücüler için Yukato",
     title: "Teslimatları güvenle ve zamanında tamamlayın.",
-    problemsLabel: "Sürücülerin Günlük Zorlukları",
-    problemsTitle: "Belirsiz Rotalar, Kağıt Belgeler, İletişim Kopukluğu",
+    problemsLabel: "Sürücüler İçin Sahadaki Zorluklar",
+    problemsTitle: "Bitmeyen Bekleyişler, Telefon Trafiği, Fiziksel Evrak Yükü",
     problems: [
-      { title: "Rota Belirsizliği", desc: "Teslimat noktalarına en verimli rotanın bilinmemesi." },
-      { title: "Kağıt İş Yükü", desc: "Her teslimatta doldurulan formlar ve imza süreçleri." },
-      { title: "Bekleme Süreleri", desc: "Depo ve teslimat noktalarında uzun bekleme süreleri." },
-      { title: "İletişim Zorlukları", desc: "Merkez ofis ile anlık iletişim kuramamak." },
-      { title: "Randevu Takibi", desc: "Hangi saatte nerede olunması gerektiğinin takibi." },
-      { title: "Belge Kayıpları", desc: "Kağıt bazlı belgelerin kaybolma veya hasar görme riski." },
+      { title: "Kapılarda Bitmeyen Bekleyişler", desc: "Depo önlerindeki belirsiz bekleme süreleri, yolda olmanız gereken zamanı çalar ve günlük mesainizi gereksiz yere uzatır." },
+      { title: "Anlık Değişen Rotalar", desc: "Siz yoldayken planların aniden değişmesi veya adres bilgilerinin eksik iletilmesi, fazladan kilometre yapmanıza ve zaman kaybetmenize yol açar." },
+      { title: "Sürekli Çalan Telefonlar", desc: '"Neredesin?" veya "Ne zaman varırsın?" gibi bitmeyen durum sorma aramaları dikkatinizi dağıtır, sürüş güvenliğini ve konforunu olumsuz etkiler.' },
+      { title: "Fiziksel Evrak Yükü", desc: "Basılı irsaliyeler, kaybolan belgeler ve uzayan imza süreçleri, yükü teslim etseniz bile teslimat noktasından hızlıca ayrılmanızı engeller." },
+      { title: "Anında Muhatap Bulamama", desc: "Sahada veya teslimat anında bir problem yaşadığınızda, hızlıca iletişim kurup anlık onay alabileceğiniz bir kanalın olmaması işleri kilitler." },
+      { title: "Görünmeyen Efor ve Performans", desc: "Zorlu şartlarda, zamanında ve eksiksiz yaptığınız teslimatların net bir veriyle kayıt altına alınamaması, sahadaki yoğun emeğinizin görünmez kalmasına neden olur." },
     ],
     featuresLabel: "Problem Çözümü",
     featuresTitle:
       "Direksiyon Başındaki Stresli Süreçlere, Yukato ile Son Verin",
     features: [
-      { title: "Atıl Zaman Optimizasyonu", desc: "Mevcut yüklerin, konum olarak en yakındaki uygun ve doğrulanmış sürücülerle anında eşleştirilerek bekleme sürelerinin en aza indirilmesidir.", bullets: ["Sürücülerin yük beklerken geçirdikleri atıl saatleri minimum seviyeye düşürerek zaman verimliliğini artırır.", "Yakın konumdaki doğrulanmış sürücülere otomatik görev ataması yapılarak operasyonel sevkiyat süreçlerinin hızlandırır.", "Kesintisiz iş akışı sayesinde sürücülerin günlük çalışma sürelerinin daha verimli kullanılmasını ve genel kapasitenin en üst düzeye çıkarılmasını sağlar."] },
-      { title: "Dijital Dokümantasyon Yönetimi", desc: "Tüm sevkiyat evraklarının dijital ortama taşınarak eksik veya hatalı belge kaynaklı zaman kayıplarının önlenmesi ve operasyonel süreçlerin baştan uca hızlandırılmasıdır.", bullets: ["Fiziksel evrak takibini ortadan kaldırarak mal kabul ve teslimat işlemlerinin daha hızlı ve hatasız gerçekleştirilebilir.", "Eksik belge onaylarından kaynaklanan depo bekleme sürelerinin önüne geçerek kesintisiz bir iş akışı sağlar.", "Gerekli tüm dokümanları sistem üzerinde toplayarak sürücülerin ve diğer paydaşların evraklara anında erişimini mümkün kılar."] },
+      { title: "Atıl Zaman Optimizasyonu", desc: "Mevcut yüklerin, konum olarak en yakındaki uygun ve doğrulanmış sürücülerle anında eşleştirilerek bekleme sürelerinin en aza indirilmesidir.", image: "/web-gorseller/Sürücü/sürücü1.png", bullets: ["Sürücülerin yük beklerken geçirdikleri atıl saatleri minimum seviyeye düşürerek zaman verimliliğini artırır.", "Yakın konumdaki doğrulanmış sürücülere otomatik görev ataması yapılarak operasyonel sevkiyat süreçlerinin hızlandırır.", "Kesintisiz iş akışı sayesinde sürücülerin günlük çalışma sürelerinin daha verimli kullanılmasını ve genel kapasitenin en üst düzeye çıkarılmasını sağlar."] },
+      { title: "Dijital Dokümantasyon Yönetimi", desc: "Tüm sevkiyat evraklarının dijital ortama taşınarak eksik veya hatalı belge kaynaklı zaman kayıplarının önlenmesi ve operasyonel süreçlerin baştan uca hızlandırılmasıdır.", image: "/web-gorseller/Sürücü/sürücü2.png", bullets: ["Fiziksel evrak takibini ortadan kaldırarak mal kabul ve teslimat işlemlerinin daha hızlı ve hatasız gerçekleştirilebilir.", "Eksik belge onaylarından kaynaklanan depo bekleme sürelerinin önüne geçerek kesintisiz bir iş akışı sağlar.", "Gerekli tüm dokümanları sistem üzerinde toplayarak sürücülerin ve diğer paydaşların evraklara anında erişimini mümkün kılar."] },
     ],
   },
 };
