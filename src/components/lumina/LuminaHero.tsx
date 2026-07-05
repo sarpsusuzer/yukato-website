@@ -56,20 +56,19 @@ export default function LuminaHero() {
             transition={{ duration: 0.8, delay: 0.3, ease }}
             className="block"
           >
-            {"Yukato "}
             <span className="text-[#21beba]">LUMINA</span>
             <sup className="text-[0.5em]">®</sup>
-            {" ile"}
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5, ease }}
-            className="block"
-          >
-            Operasyonları Dönüştürür.
+            {" Operasyonları Dönüştürür."}
           </motion.span>
         </h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6, ease }}
+          className="mt-6 text-[18px] text-white/60 leading-[1.6]"
+        >
+          Normalde yaptığınız işlemleri saniyeler içerisinde gerçekleştirebilirsiniz.
+        </motion.p>
       </div>
     </section>
   );
