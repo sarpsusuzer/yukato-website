@@ -8,27 +8,27 @@ const features = [
   {
     title: "Belge Doğrulama",
     desc: "Yüklenen dosyaların gerçek belgeler (örneğin, faturalar, teslimat notları) mi yoksa alakasız görüntüler mi olduğunu tespit eder. Yanlış yüklemeleri önler ve temiz, güvenilir veri sağlar.",
-    image: "/web-gorseller/Yapay Zeka/ai1.png",
+    image: "/web-gorseller/Yapay%20Zeka/ai1.png",
   },
   {
     title: "Çok Sayfalı Belge Yönetimi",
     desc: "Büyük PDF'leri otomatik olarak ayrı sevkiyat belgelerine ayırır. Tekrarlayan, hata yapmaya açık manuel çalışmayı ortadan kaldırır.",
-    image: "/web-gorseller/Yapay Zeka/ai2.png",
+    image: "/web-gorseller/Yapay%20Zeka/ai2.png",
   },
   {
     title: "AI Destekli Destek",
     desc: "Entegre bir chatbot, kullanıcılara API entegrasyonları, belgeler ve genel ürün desteği konusunda yardımcı olur. Anında yanıtlar sağlar, manuel müşteri desteğine bağımlılığı azaltır.",
-    image: "/web-gorseller/Yapay Zeka/ai3.png",
+    image: "/web-gorseller/Yapay%20Zeka/ai3.png",
   },
   {
     title: "Otomatik Veri Çıkartma ve Eşleştirme",
     desc: "Ödeme belgelerini okur ve belgelerdeki ana verileri (ID, şirket, adres) çıkarır. Belgeleri doğru sevkiyata otomatik olarak eşleştirir - manuel kontrolleri tamamen ortadan kaldırır.",
-    image: "/web-gorseller/Yapay Zeka/ai4.png",
+    image: "/web-gorseller/Yapay%20Zeka/ai4.png",
   },
   {
     title: "Adres ve Şirket Çoğaltma Önleme",
     desc: "Girilen adresleri mevcut kayıtlarla benzerlik analizi kullanarak karşılaştırır. Potansiyel çift şirket kayıtlarını işaretler. Veritabanı bütünlüğünü sağlar ve maliyetli tutarsızlıkları önler.",
-    image: "/web-gorseller/Yapay Zeka/ai5.png",
+    image: "/web-gorseller/Yapay%20Zeka/ai5.png",
   },
   {
     title: "Stratejik ve İş Zekası Sistemleri",
