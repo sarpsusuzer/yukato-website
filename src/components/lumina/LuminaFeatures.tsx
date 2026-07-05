@@ -2,31 +2,37 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 
 const features = [
   {
     title: "Belge Doğrulama",
     desc: "Yüklenen dosyaların gerçek belgeler (örneğin, faturalar, teslimat notları) mi yoksa alakasız görüntüler mi olduğunu tespit eder. Yanlış yüklemeleri önler ve temiz, güvenilir veri sağlar.",
-  },
-  {
-    title: "Otomatik Veri Çıkartma ve Eşleştirme",
-    desc: "Ödeme belgelerini okur ve belgelerdeki ana verileri (ID, şirket, adres) çıkarır. Belgeleri doğru sevkiyata otomatik olarak eşleştirir - manuel kontrolleri tamamen ortadan kaldırır.",
+    image: "/web-gorseller/Yapay Zeka/ai1.png",
   },
   {
     title: "Çok Sayfalı Belge Yönetimi",
     desc: "Büyük PDF'leri otomatik olarak ayrı sevkiyat belgelerine ayırır. Tekrarlayan, hata yapmaya açık manuel çalışmayı ortadan kaldırır.",
-  },
-  {
-    title: "Adres ve Şirket Çoğaltma Önleme",
-    desc: "Girilen adresleri mevcut kayıtlarla benzerlik analizi kullanarak karşılaştırır. Potansiyel çift şirket kayıtlarını işaretler. Veritabanı bütünlüğünü sağlar ve maliyetli tutarsızlıkları önler.",
+    image: "/web-gorseller/Yapay Zeka/ai2.png",
   },
   {
     title: "AI Destekli Destek",
     desc: "Entegre bir chatbot, kullanıcılara API entegrasyonları, belgeler ve genel ürün desteği konusunda yardımcı olur. Anında yanıtlar sağlar, manuel müşteri desteğine bağımlılığı azaltır.",
+    image: "/web-gorseller/Yapay Zeka/ai3.png",
+  },
+  {
+    title: "Otomatik Veri Çıkartma ve Eşleştirme",
+    desc: "Ödeme belgelerini okur ve belgelerdeki ana verileri (ID, şirket, adres) çıkarır. Belgeleri doğru sevkiyata otomatik olarak eşleştirir - manuel kontrolleri tamamen ortadan kaldırır.",
+    image: "/web-gorseller/Yapay Zeka/ai4.png",
+  },
+  {
+    title: "Adres ve Şirket Çoğaltma Önleme",
+    desc: "Girilen adresleri mevcut kayıtlarla benzerlik analizi kullanarak karşılaştırır. Potansiyel çift şirket kayıtlarını işaretler. Veritabanı bütünlüğünü sağlar ve maliyetli tutarsızlıkları önler.",
+    image: "/web-gorseller/Yapay Zeka/ai5.png",
   },
   {
     title: "Stratejik ve İş Zekası Sistemleri",
-    desc: "Karar verme süreçlerini desteklemek için veri toplar ve analiz eder (örneğin, Power BI, Tableau, satış analitiği). BI içgörülerini uzun vadeli stratejileri yönlendirmek ve sürdürülebilir rekabet avantajı yaratmak için kullanır.",
+    desc: "Karar verme süreçlerini desteklemek için veri toplar ve analiz eder (örneğin, Power BI, Tableau, satış analitiği, dinamik fiyatlandırma, tedarik zinciri optimizasyonu). BI içgörülerini uzun vadeli stratejileri yönlendirmek ve sürdürülebilir rekabet avantajı yaratmak için kullanır.",
   },
 ];
 
@@ -66,13 +72,22 @@ export default function LuminaFeatures() {
                   </svg>
                   <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] rounded-[36px] rounded-tr-none rounded-bl-none">
                     <div className="absolute inset-0 dot-matrix opacity-30" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
-                        <span className="text-[32px] font-bold text-white/30">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
+                    {feature.image ? (
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
+                          <span className="text-[32px] font-bold text-white/30">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                   <svg
                     className="absolute bottom-0 left-0 w-full translate-y-[99%] z-10"
