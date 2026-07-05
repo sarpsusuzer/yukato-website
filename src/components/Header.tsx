@@ -252,7 +252,7 @@ export default function Header() {
         {/* Nav links — center */}
         <div className="hidden md:flex items-center">
           <div className="flex items-center gap-4">
-            {["Platform", "Ürünler"].map((item) => (
+            {["Platform"].map((item) => (
               <div
                 key={item}
                 className="relative"
