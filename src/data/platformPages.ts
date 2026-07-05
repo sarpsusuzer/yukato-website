@@ -39,15 +39,15 @@ export const platformPages: Record<string, PlatformPageData> = {
   perakendeci: {
     label: "Perakendeciler için Yukato",
     title: "Tedarik zincirinizi kesintisiz yönetin.",
-    problemsLabel: "Perakende Operasyonlarının Günlük Zorlukları",
-    problemsTitle: "Stok Belirsizliği, Geç Teslimatlar, Koordinasyon Eksikliği",
+    problemsLabel: "Mal Kabul Sürecindeki Zorluklar",
+    problemsTitle: "Belirsiz Stoklar, Aksayan Raf Yönetimi, Kayıp Satışlar",
     problems: [
-      { title: "Stok Görünürlüğü", desc: "Depo ve mağaza stok durumunu anlık takip edememe." },
-      { title: "Teslimat Gecikmeleri", desc: "Tedarikçilerden gelen ürünlerin zamanında ulaşmaması." },
-      { title: "Rampa Yoğunluğu", desc: "Depo girişlerinde oluşan araç kuyrukları ve bekleme süreleri." },
-      { title: "Belge Takibi", desc: "İrsaliye, fatura ve teslimat belgelerinin manuel takibi." },
-      { title: "Tedarikçi Koordinasyonu", desc: "Çok sayıda tedarikçi ile eş zamanlı iletişim zorluğu." },
-      { title: "Performans Ölçümü", desc: "Tedarikçi performansını objektif olarak değerlendirememe." },
+      { title: "Belirsiz Teslimatlar", desc: "Teslimatların tam olarak ne zaman yapılacağı net değildir. Operasyon ekipleri günü tahminlerle planlamak zorundadır." },
+      { title: "Geç Fark Edilen Gecikmeler", desc: "Gecikmeler çoğu zaman mal kabul anında ortaya çıkar. Bu da önceden aksiyon almayı imkânsız hale getirir." },
+      { title: "Kopuk İletişim", desc: "Tedarikçi, nakliyeci ve perakendeci farklı kanallardan ilerler. Bilgi dağınıktır ve herkes sürecin sadece bir parçasını görür." },
+      { title: "Evrak Problemleri", desc: "Eksik veya hatalı evraklar sahada zaman kaybına neden olur. Mal kabul süreçleri gereksiz şekilde uzar." },
+      { title: "Manuel Takip Yükü", desc: "Telefonlar, e-postalar ve tablolar üzerinden takip yapılır. Operasyon ekipleri gerçek işine odaklanamaz." },
+      { title: "Ölçülemeyen Performans", desc: "Teslimatlar gerçekleşir ama neden geç kaldığı bilinmez. Performans veriye değil, hissiyata dayanır." },
     ],
     featuresLabel: "Problem Çözümü",
     featuresTitle:
