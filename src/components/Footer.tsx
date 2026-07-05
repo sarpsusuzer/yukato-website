@@ -24,14 +24,6 @@ const footerNavGroups = [
     ],
   },
   {
-    title: "Ürünler",
-    links: [
-      { label: "Nexus", href: `${bp}/products/nexus/` },
-      { label: "Lighthouse", href: `${bp}/products/lighthouse/` },
-      { label: "Yard Management", href: `${bp}/products/yard-management/` },
-    ],
-  },
-  {
     title: "Şirket",
     links: [
       { label: "Yapay Zeka", href: `${bp}/lumina` },
