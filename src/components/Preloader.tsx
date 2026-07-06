@@ -10,12 +10,10 @@ export default function Preloader() {
   useEffect(() => {
     const hide = () => setVisible(false);
     if (document.readyState === "complete") {
-      // small delay so the logo is seen briefly even on fast connections
-      const t = setTimeout(hide, 600);
+      const t = setTimeout(hide, 800);
       return () => clearTimeout(t);
     }
     window.addEventListener("load", hide);
-    // fallback — never block the user more than 3s
     const fallback = setTimeout(hide, 3000);
     return () => {
       window.removeEventListener("load", hide);
@@ -27,22 +25,28 @@ export default function Preloader() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          initial={{ y: 0 }}
+          exit={{ y: "-100%" }}
+          transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
           className="fixed inset-0 z-[99999] flex items-center justify-center bg-[#0a2e2e]"
         >
           <motion.div
-            animate={{ opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+            initial={{ scale: 0.6, opacity: 0 }}
+            animate={{ scale: [0.6, 1.08, 1], opacity: [0, 1, 1] }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo-icon.svg`}
-              alt="Yukato"
-              width={52}
-              height={54}
-              priority
-            />
+            <motion.div
+              animate={{ scale: [1, 1.06, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+            >
+              <Image
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo-icon.svg`}
+                alt="Yukato"
+                width={80}
+                height={83}
+                priority
+              />
+            </motion.div>
           </motion.div>
         </motion.div>
       )}
