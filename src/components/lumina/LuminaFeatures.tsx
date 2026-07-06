@@ -60,17 +60,10 @@ export default function LuminaFeatures() {
               } gap-10 md:gap-16 items-center`}
             >
               <div className="flex-1 w-full">
-                <div className="relative">
-                  <svg
-                    className="absolute top-0 left-0 w-full -translate-y-[99%] z-10"
-                    viewBox="0 0 1440 36"
-                    preserveAspectRatio="none"
-                    fill="#1a4d4d"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" />
-                  </svg>
-                  <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] rounded-[36px] rounded-tr-none rounded-bl-none">
+                {/* Outer wrapper spans full visual area including notch tabs */}
+                <div className="relative w-full" style={{ paddingTop: 34, paddingBottom: 34 }}>
+                  {/* Card fills entire shape including notch tab areas */}
+                  <div className="absolute inset-0 overflow-hidden rounded-[36px] rounded-tr-none rounded-bl-none bg-[#1a4d4d]">
                     <div className="absolute inset-0 dot-matrix opacity-30" />
                     {feature.image ? (
                       <Image
@@ -89,11 +82,26 @@ export default function LuminaFeatures() {
                       </div>
                     )}
                   </div>
+                  {/* Top mask: section bg covers non-tab corners, tab area stays transparent → shows image */}
                   <svg
-                    className="absolute bottom-0 left-0 w-full translate-y-[99%] z-10"
+                    className="absolute top-0 left-0 w-full z-10"
+                    style={{ height: 34 }}
                     viewBox="0 0 1440 36"
                     preserveAspectRatio="none"
-                    fill="#1a4d4d"
+                    fill="#0a2e2e"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" />
+                  </svg>
+                  {/* Spacer maintains card height */}
+                  <div className="w-full h-[50vh] md:h-[70vh]" />
+                  {/* Bottom mask */}
+                  <svg
+                    className="absolute bottom-0 left-0 w-full z-10"
+                    style={{ height: 34 }}
+                    viewBox="0 0 1440 36"
+                    preserveAspectRatio="none"
+                    fill="#0a2e2e"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path d="M1440 0H760C730 0 720 0 700 8C680 20 660 36 620 36H32C14.3 36 0 21.7 0 4V0H1440Z" />
