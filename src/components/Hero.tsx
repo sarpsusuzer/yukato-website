@@ -92,9 +92,9 @@ export default function Hero() {
 
           <motion.div
             style={{ y: textY, opacity: textOpacity }}
-            className="absolute bottom-20 md:bottom-16 left-0 right-0 z-20 px-6"
+            className="absolute bottom-20 md:bottom-16 left-0 right-0 z-20 px-4"
           >
-            <div className="max-w-[1000px] mx-auto">
+            <div className="max-w-[1320px] mx-auto px-6">
               <motion.h1
                 initial={{ filter: "blur(6px)" }}
                 animate={{ filter: "blur(0px)" }}
