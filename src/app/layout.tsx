@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import PageTransition from "@/components/PageTransition";
+import Preloader from "@/components/Preloader";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -22,10 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${manrope.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-[family-name:var(--font-manrope)]">
+        <Preloader />
         <SmoothScroll />
         <PageTransition>{children}</PageTransition>
         <div className="fixed bottom-2 right-3 text-[10px] text-black/20 z-[9999] pointer-events-none">
-          v79
+          v80
         </div>
       </body>
     </html>
