@@ -2,12 +2,14 @@
 
 import { useRef, useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { useT } from "@/i18n/LocaleContext";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export default function TextNarrative() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState<0 | 1>(0);
+  const t = useT();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -32,7 +34,7 @@ export default function TextNarrative() {
           className="absolute max-w-[900px] text-center pointer-events-none px-6"
         >
           <h2 className="text-[clamp(40px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-neutral-900">
-            Sevkiyatın peşinde koşmaya son verin.
+            {t.textNarrative.phase1}
           </h2>
         </motion.div>
 
@@ -45,7 +47,7 @@ export default function TextNarrative() {
           className="absolute max-w-[900px] text-center pointer-events-none px-6"
         >
           <h2 className="text-[clamp(40px,6vw,80px)] font-semibold leading-[1.06] tracking-[-0.035em] text-neutral-900">
-            Çünkü herkes aynı akışı görüyor.
+            {t.textNarrative.phase2}
           </h2>
         </motion.div>
       </div>

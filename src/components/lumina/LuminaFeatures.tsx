@@ -2,133 +2,72 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useT } from "@/i18n/LocaleContext";
 
-const features = [
-  {
-    title: "Belge Doğrulama",
-    desc: "Yüklenen dosyaların gerçek belgeler (örneğin, faturalar, teslimat notları) mi yoksa alakasız görüntüler mi olduğunu tespit eder. Yanlış yüklemeleri önler ve temiz, güvenilir veri sağlar.",
-    image: "/web-gorseller/Yapay%20Zeka/ai1.png",
-  },
-  {
-    title: "Çok Sayfalı Belge Yönetimi",
-    desc: "Büyük PDF'leri otomatik olarak ayrı sevkiyat belgelerine ayırır. Tekrarlayan, hata yapmaya açık manuel çalışmayı ortadan kaldırır.",
-    image: "/web-gorseller/Yapay%20Zeka/ai2.png",
-  },
-  {
-    title: "AI Destekli Destek",
-    desc: "Entegre bir chatbot, kullanıcılara API entegrasyonları, belgeler ve genel ürün desteği konusunda yardımcı olur. Anında yanıtlar sağlar, manuel müşteri desteğine bağımlılığı azaltır.",
-    image: "/web-gorseller/Yapay%20Zeka/ai3.png",
-  },
-  {
-    title: "Otomatik Veri Çıkartma ve Eşleştirme",
-    desc: "Ödeme belgelerini okur ve belgelerdeki ana verileri (ID, şirket, adres) çıkarır. Belgeleri doğru sevkiyata otomatik olarak eşleştirir - manuel kontrolleri tamamen ortadan kaldırır.",
-    image: "/web-gorseller/Yapay%20Zeka/ai4.png",
-  },
-  {
-    title: "Adres ve Şirket Çoğaltma Önleme",
-    desc: "Girilen adresleri mevcut kayıtlarla benzerlik analizi kullanarak karşılaştırır. Potansiyel çift şirket kayıtlarını işaretler. Veritabanı bütünlüğünü sağlar ve maliyetli tutarsızlıkları önler.",
-    image: "/web-gorseller/Yapay%20Zeka/ai5.png",
-  },
-  {
-    title: "Stratejik ve İş Zekası Sistemleri",
-    desc: "Karar verme süreçlerini desteklemek için veri toplar ve analiz eder (örneğin, Power BI, Tableau, satış analitiği, dinamik fiyatlandırma, tedarik zinciri optimizasyonu). BI içgörülerini uzun vadeli stratejileri yönlendirmek ve sürdürülebilir rekabet avantajı yaratmak için kullanır.",
-    image: "/web-gorseller/Yapay%20Zeka/ai6.png",
-  },
+const featureImages = [
+  "/web-gorseller/Yapay%20Zeka/ai1.png",
+  "/web-gorseller/Yapay%20Zeka/ai2.png",
+  "/web-gorseller/Yapay%20Zeka/ai3.png",
+  "/web-gorseller/Yapay%20Zeka/ai4.png",
+  "/web-gorseller/Yapay%20Zeka/ai5.png",
+  "/web-gorseller/Yapay%20Zeka/ai6.png",
 ];
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export default function LuminaFeatures() {
+  const t = useT();
+  const features = t.lumina.features;
+
   return (
     <section className="relative bg-[#0a2e2e]">
-      <ParallaxHeader />
+      <ParallaxHeader heading={t.lumina.featuresHeading} />
 
       {features.map((feature, i) => {
         const isEven = i % 2 === 0;
+        const image = featureImages[i];
         return (
           <motion.div
-            key={feature.title}
+            key={i}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, ease }}
             className="h-screen flex items-center px-6 md:px-[60px]"
           >
-            <div
-              className={`max-w-[1160px] mx-auto w-full flex flex-col ${
-                isEven ? "md:flex-row" : "md:flex-row-reverse"
-              } gap-10 md:gap-16 items-center`}
-            >
+            <div className={`max-w-[1160px] mx-auto w-full flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} gap-10 md:gap-16 items-center`}>
               <div className="flex-1 w-full">
-                {feature.image ? (
+                {image ? (
                   <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden rounded-tr-[32px] rounded-bl-[32px]">
                     <img
-                      src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${feature.image}`}
+                      src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${image}`}
                       alt={feature.title}
                       className="absolute inset-0 w-full h-full object-cover"
                     />
-                    <svg
-                      className="absolute top-0 left-0 w-full z-10"
-                      viewBox="0 0 1440 36"
-                      preserveAspectRatio="none"
-                      fill="#0a2e2e"
-                      xmlns="http://www.w3.org/2000/svg"
-                      style={{ height: "36px" }}
-                    >
+                    <svg className="absolute top-0 left-0 w-full z-10" viewBox="0 0 1440 36" preserveAspectRatio="none" fill="#0a2e2e" xmlns="http://www.w3.org/2000/svg" style={{ height: "36px" }}>
                       <path d="M0 0H1440V4C1440 21.7 1425.7 36 1408 36H820C780 36 760 20 740 8C720 0 710 0 680 0H32C14.3 0 0 14.3 0 32V0Z" />
                     </svg>
-                    <svg
-                      className="absolute bottom-0 left-0 w-full z-10"
-                      viewBox="0 0 1440 36"
-                      preserveAspectRatio="none"
-                      fill="#0a2e2e"
-                      xmlns="http://www.w3.org/2000/svg"
-                      style={{ height: "36px" }}
-                    >
+                    <svg className="absolute bottom-0 left-0 w-full z-10" viewBox="0 0 1440 36" preserveAspectRatio="none" fill="#0a2e2e" xmlns="http://www.w3.org/2000/svg" style={{ height: "36px" }}>
                       <path d="M1440 36H32C14.3 36 0 21.7 0 4V0H620C660 0 680 16 700 28C720 36 730 36 760 36H1408C1425.7 36 1440 21.7 1440 4V36Z" />
                     </svg>
                   </div>
                 ) : (
                   <div className="relative">
-                    <svg
-                      className="absolute top-0 left-0 w-full -translate-y-[99%] z-10"
-                      viewBox="0 0 1440 36"
-                      preserveAspectRatio="none"
-                      fill="#1a4d4d"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" />
-                    </svg>
                     <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] rounded-[36px] rounded-tr-none rounded-bl-none">
                       <div className="absolute inset-0 dot-matrix opacity-30" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
-                          <span className="text-[32px] font-bold text-white/30">
-                            {String(i + 1).padStart(2, "0")}
-                          </span>
+                          <span className="text-[32px] font-bold text-white/30">{String(i + 1).padStart(2, "0")}</span>
                         </div>
                       </div>
                     </div>
-                    <svg
-                      className="absolute bottom-0 left-0 w-full translate-y-[99%] z-10"
-                      viewBox="0 0 1440 36"
-                      preserveAspectRatio="none"
-                      fill="#1a4d4d"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M1440 0H760C730 0 720 0 700 8C680 20 660 36 620 36H32C14.3 36 0 21.7 0 4V0H1440Z" />
-                    </svg>
                   </div>
                 )}
               </div>
 
               <div className="flex-1 w-full">
                 <div className={isEven ? "md:pl-4" : "md:pr-4"}>
-                  <ScrollRevealText
-                    number={String(i + 1).padStart(2, "0")}
-                    title={feature.title}
-                    desc={feature.desc}
-                  />
+                  <ScrollRevealText number={String(i + 1).padStart(2, "0")} title={feature.title} desc={feature.desc} />
                 </div>
               </div>
             </div>
@@ -136,34 +75,16 @@ export default function LuminaFeatures() {
         );
       })}
 
-      <svg
-        className="absolute bottom-0 left-0 w-full translate-y-[99%] z-10"
-        viewBox="0 0 1440 36"
-        preserveAspectRatio="none"
-        fill="#0a2e2e"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg className="absolute bottom-0 left-0 w-full translate-y-[99%] z-10" viewBox="0 0 1440 36" preserveAspectRatio="none" fill="#0a2e2e" xmlns="http://www.w3.org/2000/svg">
         <path d="M1440 0H760C730 0 720 0 700 8C680 20 660 36 620 36H32C14.3 36 0 21.7 0 4V0H1440Z" />
       </svg>
     </section>
   );
 }
 
-function ScrollRevealText({
-  number,
-  title,
-  desc,
-}: {
-  number: string;
-  title: string;
-  desc: string;
-}) {
+function ScrollRevealText({ number, title, desc }: { number: string; title: string; desc: string }) {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 0.85", "start 0.25"],
-  });
-
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.85", "start 0.25"] });
   const clipNumber = useTransform(scrollYProgress, [0, 0.15], [0, 100]);
   const clipTitle = useTransform(scrollYProgress, [0.1, 0.55], [0, 100]);
   const clipDesc = useTransform(scrollYProgress, [0.4, 1], [0, 100]);
@@ -171,51 +92,24 @@ function ScrollRevealText({
   return (
     <div ref={ref} className="space-y-4">
       <div className="relative">
-        <span className="text-[13px] font-medium text-white/20 block">
-          {number}
-        </span>
-        <motion.span
-          style={{ clipPath: useTransform(clipNumber, (v) => `inset(0 ${100 - v}% 0 0)`) }}
-          className="text-[13px] font-medium text-[#21beba] block absolute inset-0"
-        >
-          {number}
-        </motion.span>
+        <span className="text-[13px] font-medium text-white/20 block">{number}</span>
+        <motion.span style={{ clipPath: useTransform(clipNumber, (v) => `inset(0 ${100 - v}% 0 0)`) }} className="text-[13px] font-medium text-[#21beba] block absolute inset-0">{number}</motion.span>
       </div>
-
       <div className="relative">
-        <h3 className="text-[clamp(22px,3vw,32px)] font-bold leading-[1.2] tracking-[-0.5px] text-white/20">
-          {title}
-        </h3>
-        <motion.h3
-          style={{ clipPath: useTransform(clipTitle, (v) => `inset(0 ${100 - v}% 0 0)`) }}
-          className="text-[clamp(22px,3vw,32px)] font-bold leading-[1.2] tracking-[-0.5px] text-white absolute inset-0"
-        >
-          {title}
-        </motion.h3>
+        <h3 className="text-[clamp(22px,3vw,32px)] font-bold leading-[1.2] tracking-[-0.5px] text-white/20">{title}</h3>
+        <motion.h3 style={{ clipPath: useTransform(clipTitle, (v) => `inset(0 ${100 - v}% 0 0)`) }} className="text-[clamp(22px,3vw,32px)] font-bold leading-[1.2] tracking-[-0.5px] text-white absolute inset-0">{title}</motion.h3>
       </div>
-
       <div className="relative">
-        <p className="text-[16px] text-white/20 leading-[1.7]">
-          {desc}
-        </p>
-        <motion.p
-          style={{ clipPath: useTransform(clipDesc, (v) => `inset(0 ${100 - v}% 0 0)`) }}
-          className="text-[16px] text-white/60 leading-[1.7] absolute inset-0"
-        >
-          {desc}
-        </motion.p>
+        <p className="text-[16px] text-white/20 leading-[1.7]">{desc}</p>
+        <motion.p style={{ clipPath: useTransform(clipDesc, (v) => `inset(0 ${100 - v}% 0 0)`) }} className="text-[16px] text-white/60 leading-[1.7] absolute inset-0">{desc}</motion.p>
       </div>
     </div>
   );
 }
 
-function ParallaxHeader() {
+function ParallaxHeader({ heading }: { heading: string }) {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const dotY = useTransform(scrollYProgress, [0, 1], [-80, 80]);
 
   return (
@@ -223,7 +117,6 @@ function ParallaxHeader() {
       <motion.div style={{ y: dotY }} className="absolute inset-[-10%] pointer-events-none">
         <GlowingDotMatrix />
       </motion.div>
-
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -231,9 +124,7 @@ function ParallaxHeader() {
         transition={{ duration: 0.7, ease }}
         className="text-center max-w-[900px] relative z-10"
       >
-        <p className="text-[14px] font-bold text-[#21beba] uppercase tracking-widest mb-4">
-          Yapay Zeka Uygulamaları
-        </p>
+        <p className="text-[14px] font-bold text-[#21beba] uppercase tracking-widest mb-4">{heading}</p>
         <h2 className="text-[clamp(28px,4vw,48px)] font-medium leading-[1.2] tracking-[-1px] text-white">
           Yukato&apos;daki Dikey Yapay Zeka Uygulamaları
         </h2>
@@ -260,32 +151,9 @@ function GlowingDotMatrix() {
         <motion.div
           key={`${r}-${c}`}
           className="absolute rounded-full"
-          style={{
-            left: `${(c / cols) * 100}%`,
-            top: `${(r / rows) * 100}%`,
-            width: 4,
-            height: 4,
-            backgroundColor: willGlow ? "#21beba" : "#282c34",
-          }}
-          animate={
-            willGlow
-              ? {
-                  opacity: [0.08, 0.6, 0.08],
-                  scale: [1, 1.8, 1],
-                  boxShadow: [
-                    "0 0 0px rgba(33,190,186,0)",
-                    "0 0 12px rgba(33,190,186,0.5)",
-                    "0 0 0px rgba(33,190,186,0)",
-                  ],
-                }
-              : { opacity: [0.06, 0.12, 0.06] }
-          }
-          transition={{
-            duration,
-            delay,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          style={{ left: `${(c / cols) * 100}%`, top: `${(r / rows) * 100}%`, width: 4, height: 4, backgroundColor: willGlow ? "#21beba" : "#282c34" }}
+          animate={willGlow ? { opacity: [0.08, 0.6, 0.08], scale: [1, 1.8, 1], boxShadow: ["0 0 0px rgba(33,190,186,0)", "0 0 12px rgba(33,190,186,0.5)", "0 0 0px rgba(33,190,186,0)"] } : { opacity: [0.06, 0.12, 0.06] }}
+          transition={{ duration, delay, repeat: Infinity, ease: "easeInOut" }}
         />
       );
     }

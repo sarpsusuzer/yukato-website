@@ -4,6 +4,8 @@ import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useT, useLocale } from "@/i18n/LocaleContext";
 
 function ChevronDown({ flipped }: { flipped?: boolean }) {
   return (
@@ -27,32 +29,8 @@ function ChevronDown({ flipped }: { flipped?: boolean }) {
 
 type DropdownItem = { title: string; desc: string; href: string };
 
-const dropdownMenus: Record<string, DropdownItem[]> = {
-  Platform: [
-    {
-      title: "Tedarikçiler için Yukato",
-      desc: "Sürecinizi dijitalleştirin, ürünlerinizi güvenle sevk edin.",
-      href: "/platform/tedarikci/",
-    },
-    {
-      title: "Perakendeciler için Yukato",
-      desc: "Tedarik zincirinizi kesintisiz yönetin.",
-      href: "/platform/perakendeci/",
-    },
-    {
-      title: "Nakliyeciler için Yukato",
-      desc: "Taşıma operasyonlarınızda verimliliğinizi artırın.",
-      href: "/platform/nakliyeci/",
-    },
-    {
-      title: "Sürücüler için Yukato",
-      desc: "Teslimatları güvenle ve zamanında tamamlayın.",
-      href: "/platform/surucu/",
-    },
-  ],
-};
-
-function DropdownMenu({ items }: { items: DropdownItem[] }) {
+function DropdownMenu({ items, locale }: { items: DropdownItem[]; locale: string }) {
+  const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
   return (
     <motion.div
       initial={{ opacity: 0, y: 8, scale: 0.97 }}
@@ -64,7 +42,7 @@ function DropdownMenu({ items }: { items: DropdownItem[] }) {
       {items.map((item) => (
         <Link
           key={item.title}
-          href={item.href}
+          href={`${bp}/${locale}${item.href}`}
           className="p-4 rounded-xl hover:bg-[#faf8f6] transition-colors duration-150 group"
         >
           <span className="text-[16px] font-bold text-[#008582] group-hover:text-[#006d6a] transition-colors duration-150">
@@ -112,8 +90,10 @@ function MenuIcon({ open }: { open: boolean }) {
   );
 }
 
-function MobileMenu({ onClose }: { onClose: () => void }) {
+function MobileMenu({ onClose, locale }: { onClose: () => void; locale: string }) {
   const [openSection, setOpenSection] = useState<string | null>(null);
+  const t = useT();
+  const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   return (
     <motion.div
@@ -123,45 +103,42 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
       transition={{ duration: 0.2, ease }}
       className="md:hidden mt-2 bg-[rgba(40,40,40,0.97)] backdrop-blur-xl rounded-3xl shadow-lg p-4 max-h-[75vh] overflow-y-auto"
     >
-      {Object.entries(dropdownMenus).map(([key, items]) => (
-        <div key={key} className="border-b border-white/10 last:border-b-0">
-          <button
-            onClick={() => setOpenSection(openSection === key ? null : key)}
-            className="w-full flex items-center justify-between px-3 py-3 text-[15px] font-bold text-white"
-          >
-            {key}
-            <ChevronDown flipped={openSection === key} />
-          </button>
-          <AnimatePresence>
-            {openSection === key && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="overflow-hidden"
-              >
-                {items.map((item) => (
-                  <Link
-                    key={item.title}
-                    href={item.href}
-                    onClick={onClose}
-                    className="block px-3 py-2 mb-1 rounded-xl hover:bg-white/10 transition-colors duration-150"
-                  >
-                    <span className="text-[14px] font-bold text-[#21beba] block">
-                      {item.title}
-                    </span>
-                    <p className="text-[13px] text-white/60 leading-[1.4] mt-0.5">
-                      {item.desc}
-                    </p>
-                  </Link>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      ))}
-      {[{ label: "Yapay Zeka", href: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/lumina` }, { label: "Hakkımızda", href: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hakkimizda` }].map((item) => (
+      <div className="border-b border-white/10">
+        <button
+          onClick={() => setOpenSection(openSection === "Platform" ? null : "Platform")}
+          className="w-full flex items-center justify-between px-3 py-3 text-[15px] font-bold text-white"
+        >
+          {t.nav.platform}
+          <ChevronDown flipped={openSection === "Platform"} />
+        </button>
+        <AnimatePresence>
+          {openSection === "Platform" && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="overflow-hidden"
+            >
+              {t.platformDropdown.map((item) => (
+                <Link
+                  key={item.title}
+                  href={`${bp}/${locale}${item.href}`}
+                  onClick={onClose}
+                  className="block px-3 py-2 mb-1 rounded-xl hover:bg-white/10 transition-colors duration-150"
+                >
+                  <span className="text-[14px] font-bold text-[#21beba] block">{item.title}</span>
+                  <p className="text-[13px] text-white/60 leading-[1.4] mt-0.5">{item.desc}</p>
+                </Link>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+      {[
+        { label: t.nav.ai, href: `${bp}/${locale}/lumina` },
+        { label: t.nav.about, href: `${bp}/${locale}/hakkimizda` },
+      ].map((item) => (
         <a
           key={item.label}
           href={item.href}
@@ -176,9 +153,42 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         onClick={onClose}
         className="block px-3 py-3 text-[15px] font-bold text-[#21beba]"
       >
-        Giriş Yap
+        {t.nav.login}
       </a>
     </motion.div>
+  );
+}
+
+function LocaleSwitcher({ locale }: { locale: string }) {
+  const pathname = usePathname();
+  const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+  function getLocalePath(newLocale: string) {
+    // Replace /[locale]/ segment with new locale
+    const withoutBp = pathname.replace(bp, "") || "/";
+    const parts = withoutBp.split("/").filter(Boolean);
+    if (parts[0] === "tr" || parts[0] === "en") {
+      parts[0] = newLocale;
+    } else {
+      parts.unshift(newLocale);
+    }
+    return `${bp}/${parts.join("/")}`;
+  }
+
+  const otherLocale = locale === "tr" ? "en" : "tr";
+  const otherLabel = locale === "tr" ? "EN" : "TR";
+
+  return (
+    <div className="hidden md:flex items-center gap-1 text-[14px] font-semibold text-white whitespace-nowrap">
+      <span className="text-white/50">{locale.toUpperCase()}</span>
+      <span className="text-white/30">/</span>
+      <Link
+        href={getLocalePath(otherLocale)}
+        className="text-[#21beba] hover:text-[#3bc6bd] transition-colors duration-200"
+      >
+        {otherLabel}
+      </Link>
+    </div>
   );
 }
 
@@ -187,6 +197,9 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const t = useT();
+  const locale = useLocale();
+  const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -204,9 +217,7 @@ export default function Header() {
   };
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center px-4 pt-3 animate-[headerIn_0.8s_0.2s_both_cubic-bezier(0.16,1,0.3,1)]"
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center px-4 pt-3 animate-[headerIn_0.8s_0.2s_both_cubic-bezier(0.16,1,0.3,1)]">
       <nav
         className={`relative flex w-full max-w-[1320px] items-center justify-between rounded-full px-6 py-2 transition-all duration-500 ${
           scrolled
@@ -215,16 +226,16 @@ export default function Header() {
         }`}
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
+        <Link href={`${bp}/${locale}`} className="flex items-center gap-2 shrink-0">
           <Image
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo-icon.svg`}
+            src={`${bp}/logo-icon.svg`}
             alt=""
             width={30}
             height={31}
             className="h-[31px] w-auto"
           />
           <Image
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo-text.svg`}
+            src={`${bp}/logo-text.svg`}
             alt="Yukato"
             width={105}
             height={22}
@@ -232,34 +243,32 @@ export default function Header() {
           />
         </Link>
 
-        {/* Nav links — absolutely centered in navbar */}
+        {/* Nav links — absolutely centered */}
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center">
           <div className="flex items-center gap-4">
-            {["Platform"].map((item) => (
-              <div
-                key={item}
-                className="relative"
-                onMouseEnter={() => handleEnter(item)}
-                onMouseLeave={handleLeave}
+            <div
+              className="relative"
+              onMouseEnter={() => handleEnter("Platform")}
+              onMouseLeave={handleLeave}
+            >
+              <button
+                className={`flex items-center gap-0.5 px-3 py-2 text-[14px] font-bold text-white transition-all duration-200 rounded-full whitespace-nowrap ${
+                  openDropdown === "Platform" ? "bg-white/15" : "hover:text-white/80"
+                }`}
               >
-                <button
-                  className={`flex items-center gap-0.5 px-3 py-2 text-[14px] font-bold text-white transition-all duration-200 rounded-full whitespace-nowrap ${
-                    openDropdown === item
-                      ? "bg-white/15"
-                      : "hover:text-white/80"
-                  }`}
-                >
-                  {item}
-                  <ChevronDown flipped={openDropdown === item} />
-                </button>
-                <AnimatePresence>
-                  {openDropdown === item && dropdownMenus[item] && (
-                    <DropdownMenu items={dropdownMenus[item]} />
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
-            {[{ label: "Yapay Zeka", href: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/lumina` }, { label: "Hakkımızda", href: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hakkimizda` }].map((item) => (
+                {t.nav.platform}
+                <ChevronDown flipped={openDropdown === "Platform"} />
+              </button>
+              <AnimatePresence>
+                {openDropdown === "Platform" && (
+                  <DropdownMenu items={t.platformDropdown} locale={locale} />
+                )}
+              </AnimatePresence>
+            </div>
+            {[
+              { label: t.nav.ai, href: `${bp}/${locale}/lumina` },
+              { label: t.nav.about, href: `${bp}/${locale}/hakkimizda` },
+            ].map((item) => (
               <a
                 key={item.label}
                 href={item.href}
@@ -277,18 +286,15 @@ export default function Header() {
             href="#"
             className="hidden sm:inline-block px-3 py-2 text-[14px] font-bold text-[#00a29d] hover:text-[#21beba] transition-colors duration-200 whitespace-nowrap"
           >
-            Giriş Yap
+            {t.nav.login}
           </a>
           <a
             href="#contact"
             className="bg-[#21beba] border border-[#3bc6bd] text-white text-[14px] font-bold px-4 py-2.5 rounded-full hover:bg-[#1aaba8] transition-colors duration-200 whitespace-nowrap"
           >
-            Demo Talebi
+            {t.nav.demo}
           </a>
-          <button className="hidden md:flex items-center gap-0.5 text-[14px] font-semibold text-white whitespace-nowrap">
-            TR
-            <ChevronDown />
-          </button>
+          <LocaleSwitcher locale={locale} />
           <button
             onClick={() => setMobileOpen((v) => !v)}
             className="md:hidden flex items-center justify-center w-9 h-9 rounded-full text-white hover:bg-white/15 transition-colors duration-200"
@@ -301,7 +307,7 @@ export default function Header() {
       <AnimatePresence>
         {mobileOpen && (
           <div className="w-full max-w-[1320px]">
-            <MobileMenu onClose={() => setMobileOpen(false)} />
+            <MobileMenu onClose={() => setMobileOpen(false)} locale={locale} />
           </div>
         )}
       </AnimatePresence>
