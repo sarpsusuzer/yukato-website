@@ -58,7 +58,7 @@ function StepCard({
     >
       <div className="flex flex-col gap-2.5">
         <motion.p
-          animate={{ fontSize: isActive ? 16 : 12 }}
+          animate={{ fontSize: isActive ? 20 : 14 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="font-bold text-white leading-normal whitespace-nowrap"
         >
@@ -182,7 +182,7 @@ function HowItWorksCards({
             className="w-[300px] h-[380px] bg-white/[0.12] rounded-lg p-2.5 flex flex-col gap-2.5 shrink-0 overflow-hidden"
           >
             <div className="flex flex-col gap-2.5 flex-1">
-              <p className="text-[16px] font-bold text-white leading-normal whitespace-nowrap">
+              <p className="text-[20px] font-bold text-white leading-normal whitespace-nowrap">
                 {step.title}
               </p>
               <p className="text-[16px] font-medium text-white leading-normal">
