@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Parallax from "./Parallax";
 
 const features = [
@@ -290,18 +290,9 @@ export default function FeatureShowcase() {
           <div className="relative h-full p-5">
             <div className="absolute inset-5 overflow-hidden rounded-tr-[32px] rounded-bl-[32px]">
               <div className="relative w-full h-full">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeIndex}
-                    initial={{ opacity: 0, scale: 0.97 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.97 }}
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full h-full overflow-hidden"
-                  >
-                    <MockImage index={activeIndex} color={features[activeIndex].color} />
-                  </motion.div>
-                </AnimatePresence>
+                <div className="w-full h-full overflow-hidden">
+                  <MockImage index={activeIndex} color={features[activeIndex].color} />
+                </div>
                 <svg
                   className="absolute top-0 left-0 w-full z-10"
                   viewBox="0 0 1440 36"
