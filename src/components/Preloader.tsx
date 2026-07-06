@@ -28,7 +28,7 @@ export default function Preloader() {
           initial={{ y: 0 }}
           exit={{ y: "-100%" }}
           transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[99999] flex items-center justify-center bg-[#0a2e2e]"
+          className="fixed inset-0 z-[99999] flex items-center justify-center bg-[#0a2e2e] rounded-bl-[32px] rounded-br-[32px]"
         >
           <motion.div
             initial={{ scale: 0.6, opacity: 0 }}
