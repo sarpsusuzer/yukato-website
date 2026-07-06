@@ -74,7 +74,7 @@ export default function LuminaFeatures() {
                     <div className="absolute inset-0 dot-matrix opacity-30" />
                     {feature.image ? (
                       <Image
-                        src={feature.image}
+                        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${feature.image}`}
                         alt={feature.title}
                         fill
                         className="object-cover"
