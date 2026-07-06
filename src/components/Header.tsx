@@ -50,23 +50,6 @@ const dropdownMenus: Record<string, DropdownItem[]> = {
       href: "/platform/surucu/",
     },
   ],
-  Ürünler: [
-    {
-      title: "Nexus",
-      desc: "Sipariş, sevkiyat ve teslimat süreçlerini uçtan uca yönetin.",
-      href: "/products/nexus/",
-    },
-    {
-      title: "Lighthouse",
-      desc: "Sevkiyatlarınızı anlık takip edin, görünürlüğü artırın.",
-      href: "/products/lighthouse/",
-    },
-    {
-      title: "Yard Management",
-      desc: "Depo sahası, rampa ve randevu süreçlerini optimize edin.",
-      href: "/products/yard-management/",
-    },
-  ],
 };
 
 function DropdownMenu({ items }: { items: DropdownItem[] }) {
