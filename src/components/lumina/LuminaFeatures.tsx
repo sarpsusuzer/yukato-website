@@ -33,6 +33,7 @@ const features = [
   {
     title: "Stratejik ve İş Zekası Sistemleri",
     desc: "Karar verme süreçlerini desteklemek için veri toplar ve analiz eder (örneğin, Power BI, Tableau, satış analitiği, dinamik fiyatlandırma, tedarik zinciri optimizasyonu). BI içgörülerini uzun vadeli stratejileri yönlendirmek ve sürdürülebilir rekabet avantajı yaratmak için kullanır.",
+    image: "/web-gorseller/Yapay%20Zeka/ai6.png",
   },
 ];
 
