@@ -7,57 +7,56 @@ import Parallax from "./Parallax";
 
 const faqs = [
   {
-    question:
-      "Sevkiyatlarımı Yukato üzerinden hangi aşamalarda ve nasıl takip edebilirim?",
-    answer:
-      "Yukato, sevkiyat sürecinizin her adımını tek ekranda görmenizi sağlar. Araç çıkışı, varış, teslimat ve evrak yüklemeleri dahil tüm aşamaları anlık olarak takip edebilir, gecikme veya aksaklıklarda bildirim alabilirsiniz.",
+    question: "Yukato üzerinden sevkiyatlarımı hangi aşamalarda ve nasıl takip edebilirim?",
+    answer: "Yukato ile sevkiyat sürecinizi sipariş/work order oluşturma aşamasından başlayarak sevkiyat planlama, taşıma, teslimat, mal kabul ve teslimat dokümanlarının tamamlanmasına kadar uçtan uca takip edebilirsiniz. Platform üzerinden sevkiyat durumu, tahmini varış zamanı, randevu bilgileri, teslimat kanıtları ve operasyonel güncellemeler tek bir ekrandan izlenebilir.",
   },
   {
-    question:
-      "Alıcı nokta Yukato kullanmıyorsa yine de sevkiyat hakkında bilgi alabilir miyim?",
-    answer: "",
+    question: "Teslimat yapılacak lokasyon Yukato kullanmıyorsa yine de sevkiyat hakkında bilgi alabilir miyim?",
+    answer: "Evet. Teslimat yapılacak lokasyon Yukato kullanmasa bile sevkiyat sürecine ait bilgiler platform üzerinden takip edilebilir. Taşıyıcı, tedarikçi veya ilgili operasyon ekipleri tarafından girilen bilgiler sayesinde sevkiyatın mevcut durumu, teslimat süreci ve gerekli dokümanlar görünür hale gelir.",
   },
   {
-    question:
-      "Anlaşmalı alıcı noktası kendi teslimat evraklarını sisteme yükleyebilir mi?",
-    answer: "",
+    question: "Anlaşmalı teslimat noktası kendi teslimat dokümanlarını sisteme yükleyebilir mi?",
+    answer: "Evet. Yetkilendirilmiş teslimat noktaları, kendilerine ait teslimat dokümanlarını Yukato'ya yükleyebilir. Böylece irsaliye, teslimat kanıtı, imza, kaşe veya ilgili operasyonel belgeler dijital olarak saklanır ve ilgili taraflar tarafından erişilebilir hale gelir.",
   },
   {
-    question:
-      "Yukato'yu mevcut ERP veya TMS sistemlerimle entegre edebilir miyim?",
-    answer: "",
+    question: "Yukato'yu mevcut ERP veya TMS sistemlerimle entegre edebilir miyim?",
+    answer: "Evet. Yukato, mevcut ERP, TMS veya diğer operasyonel sistemlerle entegre çalışabilecek şekilde tasarlanmıştır. Entegrasyon sayesinde sipariş, sevkiyat, randevu, teslimat ve doküman verileri sistemler arasında manuel iş yükü oluşturmadan aktarılabilir.",
   },
   {
-    question:
-      "Manuel olarak bir iş emrini sisteme nasıl girebilirim?",
-    answer: "",
+    question: "Sisteme manuel olarak iş emri nasıl girebilirim?",
+    answer: "Yukato üzerinden manuel iş emri oluşturmak için platformdaki iş emri veya sevkiyat oluşturma ekranını kullanabilirsiniz. Gerekli teslimat, alıcı, gönderici, ürün, tarih ve operasyon bilgileri girildikten sonra iş emri sisteme kaydedilir ve ilgili taraflarla takip edilebilir hale gelir.",
   },
   {
-    question:
-      "Yukato üzerinden operasyonel raporlar alabilir miyim?",
-    answer: "",
+    question: "Yukato üzerinden operasyonel raporlar alabilir miyim?",
+    answer: "Evet. Yukato, sevkiyat ve teslimat süreçlerinize ilişkin operasyonel raporlar sunar. Gecikmeler, teslimat performansı, işlem süreleri, randevu durumu, doküman tamamlama oranı ve operasyonel verimlilik gibi metrikler üzerinden süreçlerinizi analiz edebilirsiniz.",
   },
   {
-    question: "Kullanıcı yetkilendirmelerini nasıl yapabilirim?",
-    answer: "",
+    question: "Kullanıcı yetkilendirmeleri tanımlayabilir miyim?",
+    answer: "Evet. Yukato'da farklı kullanıcı rolleri ve yetkileri tanımlanabilir. Böylece ekip üyeleri, tedarikçiler, taşıyıcılar veya teslimat noktaları yalnızca kendileriyle ilgili verilere ve işlemlere erişebilir. Bu yapı hem operasyonel güvenliği hem de süreç yönetimini kolaylaştırır.",
   },
   {
-    question:
-      "Geçmiş kayıtlarım Yukato'da ne kadar süre saklanıyor?",
-    answer: "",
+    question: "Geçmiş kayıtlarım Yukato'da ne kadar süreyle saklanır?",
+    answer: "Yukato, sevkiyat, teslimat, iş emri ve doküman kayıtlarınızı dijital olarak saklar. Saklama süresi, kullanılan paket, şirket ihtiyaçları ve yasal gerekliliklere göre belirlenebilir. Böylece geçmiş operasyonlara gerektiğinde kolayca erişebilir ve denetim süreçlerinde kayıtlarınızı kullanabilirsiniz.",
   },
   {
-    question: "Deneme sürümü talebinde bulunabilir miyim?",
-    answer: "",
+    question: "Deneme sürümü talep edebilir miyim?",
+    answer: "Evet. Yukato'yu daha yakından tanımak ve operasyonlarınıza uygunluğunu değerlendirmek için deneme sürümü veya demo talep edebilirsiniz. Yukato ekibi, ihtiyaçlarınızı analiz ederek size en uygun kullanım senaryosunu gösterebilir.",
   },
   {
     question: "Yukato'nun fiyatı nedir?",
-    answer: "",
+    answer: "Yukato'nun fiyatlandırması şirketinizin operasyon hacmine, kullanıcı sayısına, ihtiyaç duyulan modüllere, entegrasyon kapsamına ve kullanım senaryosuna göre değişebilir. Size en uygun fiyatlandırma için Yukato ekibiyle iletişime geçerek ihtiyaçlarınıza özel teklif alabilirsiniz.",
   },
   {
-    question:
-      "Çalıştığım tüm firmalarla olan iş süreçlerimi tek platformda Yukato üzerinden yönetebilir miyim?",
-    answer: "",
+    question: "Yukato üzerinden çalıştığım tüm şirketlerle iş süreçlerimi tek platformda yönetebilir miyim?",
+    answer: "Evet. Yukato, tedarikçiler, taşıyıcılar, teslimat noktaları ve operasyon ekipleri arasındaki süreçleri tek bir platformda toplar. Böylece farklı şirketlerle yürütülen sevkiyat, teslimat, randevu, doküman ve takip süreçleri merkezi şekilde yönetilebilir.",
+  },
+  {
+    question: "Bir tedarikçi veya perakende şirketiyim. Bir perakendeci benden Yukato'ya dahil olmamı istedi. Herhangi bir ödeme yapmam gerekiyor mu?",
+    answer: "Yukato'ya davet edilme şeklinize ve kullanım kapsamınıza göre ödeme modeli değişebilir. Bazı senaryolarda platforma davet edilen iş ortakları yalnızca kendilerine tanımlanan süreçleri kullanır ve ek ödeme yapmaları gerekmez. Net bilgi için sizi davet eden şirketin kullanım modeli veya Yukato ekibiyle iletişime geçmeniz önerilir.",
+  },
+  {
+    question: "Büyük ölçekli bir kurumsal şirketim ve halihazırda TMS kullanıyorum. Yukato benim için uygun mu?",
+    answer: "Evet. Yukato, mevcut TMS'inizi değiştirmek zorunda kalmadan tamamlayıcı bir görünürlük ve iş birliği katmanı olarak kullanılabilir. TMS'iniz operasyonun ana planlama sistemi olarak çalışmaya devam ederken Yukato; tedarikçi, taşıyıcı, teslimat noktası, randevu, doküman ve teslimat görünürlüğünü merkezi bir yapıda birleştirebilir.",
   },
 ];
 
