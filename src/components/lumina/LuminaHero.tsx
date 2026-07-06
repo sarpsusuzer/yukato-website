@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useT } from "@/i18n/LocaleContext";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -36,6 +37,7 @@ export default function LuminaHero() {
     offset: ["start start", "end start"],
   });
   const patternY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const t = useT();
 
   return (
     <section
@@ -58,7 +60,7 @@ export default function LuminaHero() {
           >
             <span className="text-[#21beba]">LUMINA</span>
             <sup className="text-[0.5em]">®</sup>
-            {" Operasyonları Dönüştürür."}
+            {t.lumina.heroTitle}
           </motion.span>
         </h1>
         <motion.p
@@ -67,7 +69,7 @@ export default function LuminaHero() {
           transition={{ duration: 0.8, delay: 0.6, ease }}
           className="mt-6 text-[18px] text-white/60 leading-[1.6]"
         >
-          Normalde yaptığınız işlemleri saniyeler içerisinde gerçekleştirebilirsiniz.
+          {t.lumina.heroSubtitle}
         </motion.p>
       </div>
     </section>
