@@ -91,7 +91,7 @@ function FaqItem({
       >
         <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" fill="white" />
       </svg>
-      <div className="bg-white border border-[#d6dde5] md:border-x md:border-y-0 overflow-hidden rounded-2xl md:rounded-tl-[32px] md:rounded-br-[32px] md:rounded-tr-none md:rounded-bl-none">
+      <div className="bg-white border border-[#d6dde5] overflow-hidden rounded-2xl md:rounded-tl-[32px] md:rounded-br-[32px] md:rounded-tr-none md:rounded-bl-none">
         <button
           onClick={onToggle}
           className="w-full flex items-center justify-between p-5 md:p-8 text-left cursor-pointer"
