@@ -210,8 +210,8 @@ export default function Header() {
       <nav
         className={`relative flex w-full max-w-[1320px] items-center justify-between rounded-full px-6 py-2 transition-all duration-500 ${
           scrolled
-            ? "bg-[rgba(40,40,40,0.85)] backdrop-blur-xl shadow-lg"
-            : "bg-[rgba(68,68,68,0.5)] backdrop-blur-md"
+            ? "bg-[rgba(40,40,40,0.6)] backdrop-blur-xl shadow-lg"
+            : "bg-[rgba(68,68,68,0.6)] backdrop-blur-xl"
         }`}
       >
         {/* Logo */}
