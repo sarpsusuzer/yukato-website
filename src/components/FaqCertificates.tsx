@@ -166,7 +166,7 @@ export default function FaqCertificates() {
         </div>
 
         {/* FAQ Items */}
-        <div className="max-w-[850px] mx-auto flex flex-col gap-4 md:gap-[48px]">
+        <div className="max-w-[850px] mx-auto flex flex-col gap-4 md:gap-[20px]">
           {faqs.map((faq, i) => (
             <FaqItem
               key={i}
