@@ -249,8 +249,8 @@ export default function Header() {
           />
         </Link>
 
-        {/* Nav links — center */}
-        <div className="hidden md:flex items-center">
+        {/* Nav links — absolutely centered in navbar */}
+        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center">
           <div className="flex items-center gap-4">
             {["Platform"].map((item) => (
               <div
