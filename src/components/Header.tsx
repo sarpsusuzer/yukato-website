@@ -42,7 +42,7 @@ function DropdownMenu({ items, locale }: { items: DropdownItem[]; locale: string
       {items.map((item) => (
         <Link
           key={item.title}
-          href={`${bp}/${locale}${item.href}`}
+          href={`/${locale}${item.href}`}
           className="p-4 rounded-xl hover:bg-[#faf8f6] transition-colors duration-150 group"
         >
           <span className="text-[16px] font-bold text-[#008582] group-hover:text-[#006d6a] transition-colors duration-150">
@@ -123,7 +123,7 @@ function MobileMenu({ onClose, locale }: { onClose: () => void; locale: string }
               {t.platformDropdown.map((item) => (
                 <Link
                   key={item.title}
-                  href={`${bp}/${locale}${item.href}`}
+                  href={`/${locale}${item.href}`}
                   onClick={onClose}
                   className="block px-3 py-2 mb-1 rounded-xl hover:bg-white/10 transition-colors duration-150"
                 >
@@ -172,7 +172,7 @@ function LocaleSwitcher({ locale }: { locale: string }) {
     } else {
       parts.unshift(newLocale);
     }
-    return `${bp}/${parts.join("/")}`;
+    return `/${parts.join("/")}`;
   }
 
   const otherLocale = locale === "tr" ? "en" : "tr";
@@ -226,7 +226,7 @@ export default function Header() {
         }`}
       >
         {/* Logo */}
-        <Link href={`${bp}/${locale}`} className="flex items-center gap-2 shrink-0">
+        <Link href={`/${locale}`} className="flex items-center gap-2 shrink-0">
           <Image
             src={`${bp}/logo-icon.svg`}
             alt=""
