@@ -56,7 +56,7 @@ export default function Footer() {
       </svg>
       <div className="max-w-[1160px] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-10 mb-12 md:mb-16">
-          <Link href={`${bp}/${locale}`} className="flex items-center gap-2 shrink-0">
+          <Link href={`/${locale}`} className="flex items-center gap-2 shrink-0">
             <Image
               src={`${bp}/logo-icon.svg`}
               alt=""
