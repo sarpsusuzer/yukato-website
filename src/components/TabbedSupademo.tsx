@@ -174,7 +174,7 @@ export default function TabbedSupademo({ tabs, sections, variant = "dark" }: Pro
         {/* Tab bar */}
         <div
           ref={scrollRef}
-          className="flex gap-1 overflow-x-auto flex-1 min-w-0"
+          className={`flex gap-1 overflow-x-auto flex-1 min-w-0 ${!canScrollLeft && !canScrollRight ? "justify-center" : ""}`}
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {currentTabs.map((tab, i) => (
