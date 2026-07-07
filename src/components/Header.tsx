@@ -6,6 +6,56 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useT, useLocale } from "@/i18n/LocaleContext";
+import TabbedSupademo, { SupademoTab } from "./TabbedSupademo";
+
+const DEMO_TABS: SupademoTab[] = [
+  { label: "Gönderici - Kullanıcı Yaratma", id: "cmlp598dc0v65egrdu4tmjd68" },
+];
+
+function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, onClose]);
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 z-[200] flex items-center justify-center p-4 md:p-8"
+          onClick={onClose}
+        >
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, y: 12 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.96, y: 12 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="relative z-10 w-full max-w-[1100px] bg-[#0a2e2e] rounded-3xl p-6 md:p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors duration-150"
+              aria-label="Kapat"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 2L12 12M12 2L2 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </button>
+            <TabbedSupademo tabs={DEMO_TABS} />
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
 
 function ChevronDown({ flipped }: { flipped?: boolean }) {
   return (
@@ -196,6 +246,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [demoOpen, setDemoOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const t = useT();
   const locale = useLocale();
@@ -217,6 +268,7 @@ export default function Header() {
   };
 
   return (
+    <>
     <header className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center px-4 pt-3 animate-[headerIn_0.8s_0.2s_both_cubic-bezier(0.16,1,0.3,1)]">
       <nav
         className={`relative flex w-full max-w-[1320px] items-center justify-between rounded-full px-6 py-2 transition-all duration-500 ${
@@ -289,7 +341,7 @@ export default function Header() {
             {t.nav.login}
           </a>
           <button
-            onClick={() => (window as any).Supademo?.open(locale === "en" ? "cmku6dlaw00dl2y0i0lz7gz84" : "cmlzay10h004hxa0idvb1cbk4", { type: "showcase" })}
+            onClick={() => setDemoOpen(true)}
             className="bg-[#21beba] border border-[#3bc6bd] text-white text-[14px] font-bold px-4 py-2.5 rounded-full hover:bg-[#1aaba8] transition-colors duration-200 whitespace-nowrap"
           >
             {t.nav.demo}
@@ -312,5 +364,7 @@ export default function Header() {
         )}
       </AnimatePresence>
     </header>
+    <DemoModal open={demoOpen} onClose={() => setDemoOpen(false)} />
+    </>
   );
 }

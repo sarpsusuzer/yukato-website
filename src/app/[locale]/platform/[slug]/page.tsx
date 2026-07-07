@@ -40,13 +40,8 @@ export default async function PlatformPage({
           sectionTitle={page.featuresTitle}
           features={page.features}
         />
-        {page.supademoEmbed && (
-          <SupademoShowcase
-            id={page.supademoEmbed.id}
-            title={page.supademoEmbed.title}
-            aspectRatio={page.supademoEmbed.aspectRatio}
-            variant="light"
-          />
+        {page.supademoTabs && (
+          <SupademoShowcase tabs={page.supademoTabs} variant="light" />
         )}
         <Contact variant="light" />
       </main>

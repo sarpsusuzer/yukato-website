@@ -1,20 +1,17 @@
-const localeConfigs: Record<string, { id: string; title: string; aspectRatio: string }> = {
-  tr: { id: "cmlzay10h004hxa0idvb1cbk4", title: "Yukato Ürün Tanıtımı", aspectRatio: "1.75" },
-  en: { id: "cmku6dlaw00dl2y0i0lz7gz84", title: "Yukato Product Tour", aspectRatio: "1.84" },
-};
+import TabbedSupademo, { SupademoTab } from "./TabbedSupademo";
+
+// Placeholder tabs — replace with real demo IDs when ready
+const PLACEHOLDER_TABS: SupademoTab[] = [
+  { label: "Gönderici - Kullanıcı Yaratma", id: "cmlp598dc0v65egrdu4tmjd68" },
+];
 
 type Props =
-  | { locale: string; id?: never; title?: never; aspectRatio?: never; variant?: "dark" | "light" }
-  | { id: string; title: string; aspectRatio: string; locale?: never; variant?: "dark" | "light" };
+  | { locale: string; tabs?: SupademoTab[]; id?: never; title?: never; aspectRatio?: never; variant?: "dark" | "light" }
+  | { id?: never; title?: never; aspectRatio?: never; locale?: never; tabs?: SupademoTab[]; variant?: "dark" | "light" };
 
-export default function SupademoShowcase(props: Props) {
-  const config = props.id
-    ? { id: props.id, title: props.title, aspectRatio: props.aspectRatio }
-    : (localeConfigs[props.locale!] ?? localeConfigs.tr);
-
-  const isLight = props.variant === "light";
-  const bg = isLight ? "#ffffff" : "#1a4d4d";
-  // Notch fill matches the surrounding sections' background
+export default function SupademoShowcase({ tabs, variant }: { tabs?: SupademoTab[]; variant?: "dark" | "light" }) {
+  const resolvedTabs = tabs ?? PLACEHOLDER_TABS;
+  const isLight = variant === "light";
   const notchFill = isLight ? "#fafaf8" : "#1a4d4d";
 
   return (
@@ -24,20 +21,12 @@ export default function SupademoShowcase(props: Props) {
         <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" />
       </svg>
 
-      <section style={{ backgroundColor: bg }} className="w-full px-6 md:px-[60px] pt-[52px] pb-16">
+      <section
+        className="w-full px-6 md:px-[60px] pt-[52px] pb-16"
+        style={{ backgroundColor: isLight ? "#ffffff" : "#1a4d4d" }}
+      >
         <div className="max-w-[1160px] mx-auto">
-          <div style={{ position: "relative", boxSizing: "content-box", aspectRatio: config.aspectRatio, maxHeight: "80vh", width: "100%", padding: "40px 0" }}>
-            <iframe
-              data-version="2"
-              src={`https://app.supademo.com/showcase/embed/${config.id}?embed_v=2&utm_source=embed`}
-              loading="lazy"
-              title={config.title}
-              allow="clipboard-write"
-              frameBorder="0"
-              allowFullScreen
-              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", borderRadius: "32px" }}
-            />
-          </div>
+          <TabbedSupademo tabs={resolvedTabs} />
         </div>
       </section>
 
