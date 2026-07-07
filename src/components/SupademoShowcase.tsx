@@ -6,7 +6,7 @@ const configs: Record<string, { id: string; title: string; aspectRatio: string }
 export default function SupademoShowcase({ locale }: { locale: string }) {
   const { id, title, aspectRatio } = configs[locale] ?? configs.tr;
   return (
-    <section className="w-full px-6 md:px-[60px] py-16">
+    <section className="w-full px-6 md:px-[60px] py-16 bg-[#1a4d4d]">
       <div className="max-w-[1160px] mx-auto">
         <div style={{ position: "relative", boxSizing: "content-box", aspectRatio, maxHeight: "80vh", width: "100%", padding: "40px 0" }}>
           <iframe
