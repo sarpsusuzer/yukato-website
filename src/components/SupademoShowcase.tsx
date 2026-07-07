@@ -52,7 +52,10 @@ export default function SupademoShowcase({ tabs, sections, variant }: { tabs?: S
         className="w-full px-6 md:px-[60px] pt-[52px] pb-16"
         style={{ backgroundColor: isLight ? "#fafaf8" : "#1a4d4d" }}
       >
-        <div className="max-w-[1160px] mx-auto">
+        <div className="max-w-[1160px] mx-auto flex flex-col gap-6">
+          <h2 className={`text-[28px] md:text-[36px] font-bold ${isLight ? "text-[#003735]" : "text-white"}`}>
+            Yukato&apos;yu deneyimleyin
+          </h2>
           {content}
         </div>
       </section>
