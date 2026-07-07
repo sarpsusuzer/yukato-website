@@ -106,11 +106,11 @@ export default function TabbedSupademo({ tabs, sections, variant = "dark" }: Pro
   const dropdownItemActive = isLight ? "bg-[#21beba]/10 text-[#008582] font-bold" : "bg-[#21beba]/20 text-[#21beba] font-bold";
   const dropdownItemHover = isLight ? "hover:bg-black/5 text-[#003735]" : "hover:bg-white/10 text-white";
 
-  const pillBase = "shrink-0 transition-all duration-200 whitespace-nowrap";
-  const tabActive = "text-[#21beba] font-bold";
+  const pillBase = "shrink-0 transition-all duration-200 whitespace-nowrap px-4 py-2 rounded-full text-[13px] border";
+  const tabActive = "bg-[#21beba] border-[#21beba] text-white font-bold shadow-sm";
   const tabInactive = isLight
-    ? "text-[#003735]/50 hover:text-[#003735]/80 font-semibold"
-    : "text-white/40 hover:text-white/70 font-semibold";
+    ? "bg-black/5 border-black/15 text-[#003735]/70 hover:bg-black/10 hover:text-[#003735] font-semibold"
+    : "bg-white/10 border-white/20 text-white/70 hover:bg-white/20 hover:text-white font-semibold";
 
   const chevronCls = isLight
     ? "text-[#003735]/40 hover:enabled:text-[#003735] disabled:opacity-20 disabled:cursor-not-allowed"
@@ -181,7 +181,7 @@ export default function TabbedSupademo({ tabs, sections, variant = "dark" }: Pro
             <button
               key={i}
               onClick={() => setActiveTab(i)}
-              className={`${pillBase} px-3 py-2 text-[13px] rounded-full ${
+              className={`${pillBase} ${
                 activeTab === i ? tabActive : tabInactive
               }`}
             >
