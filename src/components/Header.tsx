@@ -22,11 +22,20 @@ const DEMO_SECTIONS: SupademoSection[] = [
   },
   {
     label: "Nakliyeci",
-    tabs: [{ label: "Yakında", id: "cmlp598dc0v65egrdu4tmjd68" }],
+    tabs: [
+      { label: "Nakliyeci - Sürücü Atama", id: "cmltbx4jx0vc7d2ntkd66zwfa" },
+      { label: "Nakliyeci - Araç Talep Saatine Göre Sürücü Ataması Yapmak", id: "cmltc0xd80vlld2nt8ppax1l2" },
+    ],
   },
   {
     label: "Perakendeci",
-    tabs: [{ label: "Yakında", id: "cmlp598dc0v65egrdu4tmjd68" }],
+    tabs: [
+      { label: "Alıcı - Teslimat Randevusu Atama", id: "cmluk7eef2zzpd2nt74wltfq1" },
+      { label: "Alıcı - Mal Kabul ve İrsaliye İşlemleri", id: "cmlukh8b130jad2ntxzzi14zl" },
+      { label: "Alıcı - Canlı İzleme", id: "cmlukqosy31iod2ntr146m0ah" },
+      { label: "Alıcı - Sipariş Kontrol", id: "cmlz2xktt1ob014352872u8tq" },
+      { label: "Alıcı - Kapı Kayıt", id: "cmlukjs9m30uqd2nthjt78ffm" },
+    ],
   },
 ];
 
