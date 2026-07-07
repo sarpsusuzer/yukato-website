@@ -66,6 +66,13 @@ const platformPagesTr: Record<string, PlatformPageData> = {
       { title: "Gecikme ve Anomali Tespiti", desc: "Planlanan ve gerçekleşen verileri sürekli analiz eden erken uyarı sistemimiz, olası gecikmeleri anında tespit ederek ekiplerinize hızlı müdahale şansı sunar.", image: "/web-gorseller/Perakendeci/perakendeci4.png", bullets: ["Planlanan teslimat tarihi ile gerçekleşen teslimat otomatik olarak karşılaştırılır.", "Gecikmeler, olağan dışı durumlar ve sapmalar sistem tarafından tespit edilir.", "Operasyon ekipleri sorunu teslim anında değil, öncesinde görür."] },
       { title: "Bildirim ve Bilgilendirme", desc: "Süreçlerinizdeki iletişim karmaşasına son verin. Kritik anlarda doğru ekipleri anında bilgilendiren akıllı altyapımızla manuel takip yükünü ortadan kaldırın ve koordinasyonu güçlendirin.", image: "/web-gorseller/Perakendeci/perakendeci5.png", bullets: ["Kritik durumlarda ilgili ekipler otomatik olarak bilgilendirilir.", "Manuel takip ihtiyacı azalır, bilgi herkes için aynı anda ve aynı kaynaktan gelir.", "Operasyonel iletişim sadeleşir, telefon ve e-posta trafiği düşer."] },
     ],
+    supademoTabs: [
+      { label: "Alıcı - Teslimat Randevusu Atama", id: "cmluk7eef2zzpd2nt74wltfq1" },
+      { label: "Alıcı - Mal Kabul ve İrsaliye İşlemleri", id: "cmlukh8b130jad2ntxzzi14zl" },
+      { label: "Alıcı - Canlı İzleme", id: "cmlukqosy31iod2ntr146m0ah" },
+      { label: "Alıcı - Sipariş Kontrol", id: "cmlz2xktt1ob014352872u8tq" },
+      { label: "Alıcı - Kapı Kayıt", id: "cmlukjs9m30uqd2nthjt78ffm" },
+    ],
   },
   nakliyeci: {
     label: "Nakliyeciler için Yukato",
@@ -106,6 +113,10 @@ const platformPagesTr: Record<string, PlatformPageData> = {
     features: [
       { title: "Atıl Zaman Optimizasyonu", desc: "Mevcut yüklerin, konum olarak en yakındaki uygun ve doğrulanmış sürücülerle anında eşleştirilerek bekleme sürelerinin en aza indirilmesidir.", image: "/web-gorseller/Sürücü/sürücü1.png", bullets: ["Sürücülerin yük beklerken geçirdikleri atıl saatleri minimum seviyeye düşürerek zaman verimliliğini artırır.", "Yakın konumdaki doğrulanmış sürücülere otomatik görev ataması yapılarak operasyonel sevkiyat süreçlerinin hızlandırır.", "Kesintisiz iş akışı sayesinde sürücülerin günlük çalışma sürelerinin daha verimli kullanılmasını ve genel kapasitenin en üst düzeye çıkarılmasını sağlar."] },
       { title: "Dijital Dokümantasyon Yönetimi", desc: "Tüm sevkiyat evraklarının dijital ortama taşınarak eksik veya hatalı belge kaynaklı zaman kayıplarının önlenmesi ve operasyonel süreçlerin baştan uca hızlandırılmasıdır.", image: "/web-gorseller/Sürücü/sürücü2.png", bullets: ["Fiziksel evrak takibini ortadan kaldırarak mal kabul ve teslimat işlemlerinin daha hızlı ve hatasız gerçekleştirilebilir.", "Eksik belge onaylarından kaynaklanan depo bekleme sürelerinin önüne geçerek kesintisiz bir iş akışı sağlar.", "Gerekli tüm dokümanları sistem üzerinde toplayarak sürücülerin ve diğer paydaşların evraklara anında erişimini mümkün kılar."] },
+    ],
+    supademoTabs: [
+      { label: "Nakliyeci - Sürücü Atama", id: "cmltbx4jx0vc7d2ntkd66zwfa" },
+      { label: "Nakliyeci - Araç Talep Saatine Göre Sürücü Ataması Yapmak", id: "cmltc0xd80vlld2nt8ppax1l2" },
     ],
   },
 };
