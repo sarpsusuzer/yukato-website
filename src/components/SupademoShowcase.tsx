@@ -27,7 +27,7 @@ export default function SupademoShowcase({ tabs, variant }: { tabs?: SupademoTab
 
       <section
         className="w-full px-6 md:px-[60px] pt-[52px] pb-16"
-        style={{ backgroundColor: isLight ? "#ffffff" : "#1a4d4d" }}
+        style={{ backgroundColor: isLight ? "#fafaf8" : "#1a4d4d" }}
       >
         <div className="max-w-[1160px] mx-auto">
           <TabbedSupademo tabs={resolvedTabs} variant={variant} />
