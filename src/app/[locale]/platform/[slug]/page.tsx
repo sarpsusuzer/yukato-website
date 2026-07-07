@@ -45,6 +45,7 @@ export default async function PlatformPage({
             id={page.supademoEmbed.id}
             title={page.supademoEmbed.title}
             aspectRatio={page.supademoEmbed.aspectRatio}
+            variant="light"
           />
         )}
         <Contact variant="light" />
