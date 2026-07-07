@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -23,8 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${manrope.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-[family-name:var(--font-manrope)]">
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script src="https://script.supademo.com/supademo.js"></script>
+        <Script src="https://script.supademo.com/supademo.js" strategy="afterInteractive" />
         <Preloader />
         <SmoothScroll />
         <PageTransition>{children}</PageTransition>
