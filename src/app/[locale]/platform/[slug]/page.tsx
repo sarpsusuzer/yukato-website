@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import PlatformHero from "@/components/platform/PlatformHero";
 import PlatformProblems from "@/components/platform/PlatformProblems";
 import PlatformFeatures from "@/components/platform/PlatformFeatures";
+import SupademoShowcase from "@/components/SupademoShowcase";
 import { getPlatformPages } from "@/data/platformPages";
 import { notFound } from "next/navigation";
 import { locales } from "@/i18n";
@@ -39,6 +40,13 @@ export default async function PlatformPage({
           sectionTitle={page.featuresTitle}
           features={page.features}
         />
+        {page.supademoEmbed && (
+          <SupademoShowcase
+            id={page.supademoEmbed.id}
+            title={page.supademoEmbed.title}
+            aspectRatio={page.supademoEmbed.aspectRatio}
+          />
+        )}
         <Contact variant="light" />
       </main>
       <Footer />
