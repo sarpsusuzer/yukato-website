@@ -1,8 +1,12 @@
 import TabbedSupademo, { SupademoTab } from "./TabbedSupademo";
 
-// Placeholder tabs — replace with real demo IDs when ready
-const PLACEHOLDER_TABS: SupademoTab[] = [
-  { label: "Gönderici - Kullanıcı Yaratma", id: "cmlp598dc0v65egrdu4tmjd68" },
+const HOMEPAGE_TABS: SupademoTab[] = [
+  { label: "Gönderici - Adres Oluşturma ve Düzenleme", id: "cmls17pzy1hmx11890pdwgwm1" },
+  { label: "Gönderici - Manuel Sevkiyat Oluşturma", id: "cmls1aix21i221189k5j2oazm" },
+  { label: "Gönderici - İrsaliye Yükleme ve Görüntüleme", id: "cmls1w7b71jhu1189mulkyut0" },
+  { label: "Gönderici - Kapı Kayıt", id: "cmls2p9691m5h1189d20xeg0m" },
+  { label: "Gönderici - Canlı İzleme", id: "cmlsj58ln2kj91189lzgtpkhd" },
+  { label: "Gönderici - Yüklemeye Gelen Sevkiyatları Görüntüleme ve Randevu Atama", id: "cmlsjqbhp2lsw1189xb6vy36d" },
 ];
 
 type Props =
@@ -10,7 +14,7 @@ type Props =
   | { id?: never; title?: never; aspectRatio?: never; locale?: never; tabs?: SupademoTab[]; variant?: "dark" | "light" };
 
 export default function SupademoShowcase({ tabs, variant }: { tabs?: SupademoTab[]; variant?: "dark" | "light" }) {
-  const resolvedTabs = tabs ?? PLACEHOLDER_TABS;
+  const resolvedTabs = tabs ?? HOMEPAGE_TABS;
   const isLight = variant === "light";
   const notchFill = isLight ? "#fafaf8" : "#1a4d4d";
 
