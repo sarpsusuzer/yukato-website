@@ -94,6 +94,10 @@ const platformPagesTr: Record<string, PlatformPageData> = {
       { title: "Sevkiyat Birleştirme", desc: "Farklı şirketlere ait ve ayrı ayrı oluşturulmuş ancak aynı arabada taşınacak olan gönderileri seçerek, tek bir sevkiyat altında birleştirilebilir.", image: "/web-gorseller/Nakliyeci/nakliyeci2.png", bullets: ["Gönderici firmalara doğru bilgi akışı sağlanır.", "Perakende firmalarının mal kabulcülerinin işlemlerini doğru bir şekilde yapabilmesini mümkün kılar."] },
       { title: "Verimli Rota Planlaması", desc: "Araçların daha dolu çalışması sağlanarak daha iyi rota verimliliği elde edilir. Ek olarak, dışarıdan kiralanan araç ihtiyacında haftalık ortalama %20 düşüş görülür.", image: "/web-gorseller/Nakliyeci/nakliyeci3.png", bullets: ["Mevcut araçların boş kapasitelerinin değerlendirilerek her seferde maksimum doluluk oranıyla çalışmasını sağlar.", "Dışarıdan kiralanan ek araçlara olan operasyonel bağımlılığı düşürerek doğrudan maliyet tasarrufu elde edilir.", "Daha az sayıda araçla daha fazla nakliye işlemini yöneterek genel lojistik süreçlerinde zaman ve kaynak verimliliğini artırır."] },
     ],
+    supademoTabs: [
+      { label: "Nakliyeci - Sürücü Atama", id: "cmltbx4jx0vc7d2ntkd66zwfa" },
+      { label: "Nakliyeci - Araç Talep Saatine Göre Sürücü Ataması Yapmak", id: "cmltc0xd80vlld2nt8ppax1l2" },
+    ],
   },
   surucu: {
     label: "Sürücüler için Yukato",
@@ -189,6 +193,10 @@ const platformPagesEn: Record<string, PlatformPageData> = {
       { title: "Reduction in Empty Kilometers", desc: "By matching vehicles returning after delivery with supplier pickups along their routes, a 30% reduction in empty kilometer rates can be achieved system-wide.", image: "/web-gorseller/Nakliyeci/nakliyeci1.png", bullets: ["30% reduction in empty kilometer rates.", "Contributes to environmental sustainability by reducing CO2 emissions by preventing unnecessary trips.", "Maximizes capacity utilization by minimizing idle time for drivers and the fleet on the road."] },
       { title: "Shipment Consolidation", desc: "Shipments belonging to different companies that were created separately but will be transported in the same vehicle can be consolidated under a single shipment.", image: "/web-gorseller/Nakliyeci/nakliyeci2.png", bullets: ["Accurate information flow is provided to the sending companies.", "Enables retail companies' goods receivers to perform their operations correctly."] },
       { title: "Efficient Route Planning", desc: "Better route efficiency is achieved by ensuring vehicles work fuller. Additionally, a weekly average reduction of 20% is seen in the need for externally rented vehicles.", image: "/web-gorseller/Nakliyeci/nakliyeci3.png", bullets: ["Enables maximum occupancy rates on each trip by utilizing the empty capacities of existing vehicles.", "Achieves direct cost savings by reducing operational dependency on additional externally rented vehicles.", "Increases time and resource efficiency in overall logistics processes by managing more transport operations with fewer vehicles."] },
+    ],
+    supademoTabs: [
+      { label: "Carrier - Driver Assignment", id: "cmltbx4jx0vc7d2ntkd66zwfa" },
+      { label: "Carrier - Driver Assignment by Vehicle Request Time", id: "cmltc0xd80vlld2nt8ppax1l2" },
     ],
   },
   surucu: {
