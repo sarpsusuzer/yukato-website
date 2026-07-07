@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 
 export type SupademoTab = { label: string; id: string };
 
-const ASPECT_RATIO = "1.84";
+const ASPECT_RATIO = "1.75";
 
 export default function TabbedSupademo({ tabs }: { tabs: SupademoTab[] }) {
   const [active, setActive] = useState(0);
