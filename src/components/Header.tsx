@@ -6,10 +6,28 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useT, useLocale } from "@/i18n/LocaleContext";
-import TabbedSupademo, { SupademoTab } from "./TabbedSupademo";
+import TabbedSupademo, { SupademoSection } from "./TabbedSupademo";
 
-const DEMO_TABS: SupademoTab[] = [
-  { label: "Gönderici - Kullanıcı Yaratma", id: "cmlp598dc0v65egrdu4tmjd68" },
+const DEMO_SECTIONS: SupademoSection[] = [
+  {
+    label: "Tedarikçi",
+    tabs: [
+      { label: "Adres Oluşturma ve Düzenleme", id: "cmls17pzy1hmx11890pdwgwm1" },
+      { label: "Manuel Sevkiyat Oluşturma", id: "cmls1aix21i221189k5j2oazm" },
+      { label: "İrsaliye Yükleme ve Görüntüleme", id: "cmls1w7b71jhu1189mulkyut0" },
+      { label: "Kapı Kayıt", id: "cmls2p9691m5h1189d20xeg0m" },
+      { label: "Canlı İzleme", id: "cmlsj58ln2kj91189lzgtpkhd" },
+      { label: "Yüklemeye Gelen Sevkiyatları Görüntüleme ve Randevu Atama", id: "cmlsjqbhp2lsw1189xb6vy36d" },
+    ],
+  },
+  {
+    label: "Nakliyeci",
+    tabs: [{ label: "Yakında", id: "cmlp598dc0v65egrdu4tmjd68" }],
+  },
+  {
+    label: "Perakendeci",
+    tabs: [{ label: "Yakında", id: "cmlp598dc0v65egrdu4tmjd68" }],
+  },
 ];
 
 function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -49,7 +67,7 @@ function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
                 <path d="M2 2L12 12M12 2L2 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
               </svg>
             </button>
-            <TabbedSupademo tabs={DEMO_TABS} />
+            <TabbedSupademo sections={DEMO_SECTIONS} />
           </motion.div>
         </motion.div>
       )}
