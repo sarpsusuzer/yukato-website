@@ -23,8 +23,9 @@ function ChevronRight() {
   );
 }
 
-export default function TabbedSupademo({ tabs }: { tabs: SupademoTab[] }) {
+export default function TabbedSupademo({ tabs, variant = "dark" }: { tabs: SupademoTab[]; variant?: "dark" | "light" }) {
   const [active, setActive] = useState(0);
+  const isLight = variant === "light";
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -65,7 +66,7 @@ export default function TabbedSupademo({ tabs }: { tabs: SupademoTab[] }) {
         <button
           onClick={() => scrollBy(-1)}
           disabled={!canScrollLeft}
-          className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center border border-white/20 text-white transition-all duration-150 disabled:opacity-20 disabled:cursor-not-allowed hover:enabled:bg-white/15"
+          className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-150 disabled:opacity-20 disabled:cursor-not-allowed ${isLight ? "border-black/20 text-[#003735] hover:enabled:bg-black/5" : "border-white/20 text-white hover:enabled:bg-white/15"}`}
           aria-label="Sola kaydır"
         >
           <ChevronLeft />
@@ -83,7 +84,9 @@ export default function TabbedSupademo({ tabs }: { tabs: SupademoTab[] }) {
               className={`shrink-0 px-4 py-2 rounded-full text-[13px] font-semibold transition-all duration-200 whitespace-nowrap border ${
                 active === i
                   ? "bg-[#21beba] border-[#21beba] text-white shadow-sm"
-                  : "bg-white/10 border-white/20 text-white/70 hover:bg-white/20 hover:text-white"
+                  : isLight
+                    ? "bg-black/5 border-black/15 text-[#003735]/70 hover:bg-black/10 hover:text-[#003735]"
+                    : "bg-white/10 border-white/20 text-white/70 hover:bg-white/20 hover:text-white"
               }`}
             >
               {tab.label}
@@ -94,7 +97,7 @@ export default function TabbedSupademo({ tabs }: { tabs: SupademoTab[] }) {
         <button
           onClick={() => scrollBy(1)}
           disabled={!canScrollRight}
-          className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center border border-white/20 text-white transition-all duration-150 disabled:opacity-20 disabled:cursor-not-allowed hover:enabled:bg-white/15"
+          className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-150 disabled:opacity-20 disabled:cursor-not-allowed ${isLight ? "border-black/20 text-[#003735] hover:enabled:bg-black/5" : "border-white/20 text-white hover:enabled:bg-white/15"}`}
           aria-label="Sağa kaydır"
         >
           <ChevronRight />
