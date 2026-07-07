@@ -17,7 +17,7 @@ export default function SupademoShowcase({ locale }: { locale: string }) {
             allow="clipboard-write"
             frameBorder="0"
             allowFullScreen
-            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", borderRadius: "32px" }}
           />
         </div>
       </div>
