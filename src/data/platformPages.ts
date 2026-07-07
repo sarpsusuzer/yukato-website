@@ -35,7 +35,14 @@ const platformPagesTr: Record<string, PlatformPageData> = {
       { title: "Anlık Teslimat Onayı Görüntüleme", desc: "Teslimatlarınızın durumunu gerçek zamanlı takip edin, her siparişin başarıyla tamamlanıp tamamlanmadığını anında görün.", image: "/web-gorseller/Tedarikçi/tedarikçi6.png", bullets: ["Teslimatlarınızın durumu gerçek zamanlı takip edilir.", "Araç depoya gelmeden önce, irsaliyelerin ve siparişlerin doğruluğu burada kontrol edilir."] },
       { title: "Yüklemeye Gelen Araca Randevu Atama", desc: "Araç girişlerini randevu sistemiyle planlayın, saha trafiğini düzenleyip bekleme sürelerini minimuma indirin.", image: "/web-gorseller/Tedarikçi/tedarikçi7.png", bullets: ["Tüm yükleme sevkiyatları burada listelenir.", "Kullanıcı, sevkiyatın genel durumunu buradan takip eder ve gerekli güncellemeleri yapabilir.", "Yapılan rampa ve zaman ataması, sürücünün mobil uygulamasına bildirim olarak gönderilir.", "Kullanıcı, rampaları ve zaman planlamasını gerektiği takdirde güncelleyebilir."] },
     ],
-    supademoTabs: [{ label: "Gönderici - Kullanıcı Yaratma", id: "cmlp598dc0v65egrdu4tmjd68" }],
+    supademoTabs: [
+      { label: "Gönderici - Adres Oluşturma ve Düzenleme", id: "cmls17pzy1hmx11890pdwgwm1" },
+      { label: "Gönderici - Manuel Sevkiyat Oluşturma", id: "cmls1aix21i221189k5j2oazm" },
+      { label: "Gönderici - İrsaliye Yükleme ve Görüntüleme", id: "cmls1w7b71jhu1189mulkyut0" },
+      { label: "Gönderici - Kapı Kayıt", id: "cmls2p9691m5h1189d20xeg0m" },
+      { label: "Gönderici - Canlı İzleme", id: "cmlsj58ln2kj91189lzgtpkhd" },
+      { label: "Gönderici - Yüklemeye Gelen Sevkiyatları Görüntüleme ve Randevu Atama", id: "cmlsjqbhp2lsw1189xb6vy36d" },
+    ],
   },
   perakendeci: {
     label: "Perakendeciler için Yukato",
