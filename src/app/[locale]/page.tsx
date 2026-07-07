@@ -4,6 +4,7 @@ import TextNarrative from "@/components/TextNarrative";
 import FeatureShowcase from "@/components/FeatureShowcase";
 import StickyNarrative from "@/components/StickyNarrative";
 import HowItWorks from "@/components/HowItWorks";
+import SupademoShowcase from "@/components/SupademoShowcase";
 import Contact from "@/components/Contact";
 import FaqCertificates from "@/components/FaqCertificates";
 import Footer from "@/components/Footer";
@@ -18,6 +19,7 @@ export default function Home() {
         <FeatureShowcase />
         <StickyNarrative />
         <HowItWorks />
+        <SupademoShowcase />
         <Contact />
         <FaqCertificates />
       </main>
