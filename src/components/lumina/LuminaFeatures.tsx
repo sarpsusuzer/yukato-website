@@ -5,12 +5,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useT } from "@/i18n/LocaleContext";
 
 const featureImages = [
-  "/web-gorseller/Yapay%20Zeka/ai1.png",
-  "/web-gorseller/Yapay%20Zeka/ai2.png",
-  "/web-gorseller/Yapay%20Zeka/ai3.png",
-  "/web-gorseller/Yapay%20Zeka/ai4.png",
-  "/web-gorseller/Yapay%20Zeka/ai5.png",
-  "/web-gorseller/Yapay%20Zeka/ai6.png",
+  "/web-gorseller/Lumina/lumina1.png",
+  "/web-gorseller/Lumina/lumina2.png",
+  "/web-gorseller/Lumina/lumina3.png",
+  "/web-gorseller/Lumina/lumina4.png",
+  "/web-gorseller/Lumina/lumina5.png",
+  "/web-gorseller/Lumina/lumina6.png",
 ];
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
