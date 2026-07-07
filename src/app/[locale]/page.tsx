@@ -9,8 +9,7 @@ import Contact from "@/components/Contact";
 import FaqCertificates from "@/components/FaqCertificates";
 import Footer from "@/components/Footer";
 
-export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+export default function Home() {
   return (
     <>
       <Header />
@@ -20,7 +19,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <FeatureShowcase />
         <StickyNarrative />
         <HowItWorks />
-        <SupademoShowcase locale={locale} />
+        <SupademoShowcase />
         <Contact />
         <FaqCertificates />
       </main>
