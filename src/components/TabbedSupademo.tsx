@@ -106,7 +106,7 @@ export default function TabbedSupademo({ tabs }: { tabs: SupademoTab[] }) {
         {/* Spacer matching left chevron */}
         <div className="shrink-0 w-8" />
 
-        <div className="flex-1" style={{ position: "relative", boxSizing: "content-box", aspectRatio: ASPECT_RATIO, maxHeight: "80vh", width: "100%" }}>
+        <div className="flex-1 min-w-0" style={{ position: "relative", boxSizing: "content-box", aspectRatio: ASPECT_RATIO, maxHeight: "80vh" }}>
           <iframe
             key={tabs[active]?.id}
             src={`https://app.supademo.com/embed/${tabs[active]?.id}?embed_v=2&utm_source=embed`}
