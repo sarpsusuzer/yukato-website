@@ -7,7 +7,7 @@ export const en: Translations = {
     ai: "AI",
     about: "About",
     login: "Log In",
-    demo: "Request Demo",
+    demo: "Experience Yukato",
     lang: "EN",
   },
   platformDropdown: [
@@ -141,6 +141,7 @@ export const en: Translations = {
     heroTitle: " Transforms Operations.",
     heroSubtitle: "Perform operations that normally take minutes in just seconds.",
     featuresHeading: "AI Features",
+    featuresSubtitle: "Vertical AI Applications in Yukato",
     benefits: [
       { title: "Reduce errors in shipping documents", desc: "Fewer mismatched or missing delivery notes; reduce incorrect and irrelevant document uploads." },
       { title: "Speed up document processing by up to 90%", desc: "From minutes of manual work to seconds with AI." },

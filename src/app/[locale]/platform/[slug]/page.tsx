@@ -4,12 +4,12 @@ import Footer from "@/components/Footer";
 import PlatformHero from "@/components/platform/PlatformHero";
 import PlatformProblems from "@/components/platform/PlatformProblems";
 import PlatformFeatures from "@/components/platform/PlatformFeatures";
-import { platformPages } from "@/data/platformPages";
+import { getPlatformPages } from "@/data/platformPages";
 import { notFound } from "next/navigation";
 import { locales } from "@/i18n";
 
 export function generateStaticParams() {
-  const slugs = Object.keys(platformPages);
+  const slugs = Object.keys(getPlatformPages("tr"));
   return locales.flatMap((locale) =>
     slugs.map((slug) => ({ locale, slug }))
   );
@@ -20,8 +20,8 @@ export default async function PlatformPage({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
-  const page = platformPages[slug];
+  const { locale, slug } = await params;
+  const page = getPlatformPages(locale)[slug];
   if (!page) notFound();
 
   return (
