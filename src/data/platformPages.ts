@@ -7,6 +7,7 @@ export type PlatformPageData = {
   featuresLabel: string;
   featuresTitle: string;
   features: { title: string; desc: string; image?: string; bullets?: string[] }[];
+  supademoEmbed?: { id: string; title: string; aspectRatio: string };
 };
 
 const platformPagesTr: Record<string, PlatformPageData> = {
@@ -34,6 +35,7 @@ const platformPagesTr: Record<string, PlatformPageData> = {
       { title: "Anlık Teslimat Onayı Görüntüleme", desc: "Teslimatlarınızın durumunu gerçek zamanlı takip edin, her siparişin başarıyla tamamlanıp tamamlanmadığını anında görün.", image: "/web-gorseller/Tedarikçi/tedarikçi6.png", bullets: ["Teslimatlarınızın durumu gerçek zamanlı takip edilir.", "Araç depoya gelmeden önce, irsaliyelerin ve siparişlerin doğruluğu burada kontrol edilir."] },
       { title: "Yüklemeye Gelen Araca Randevu Atama", desc: "Araç girişlerini randevu sistemiyle planlayın, saha trafiğini düzenleyip bekleme sürelerini minimuma indirin.", image: "/web-gorseller/Tedarikçi/tedarikçi7.png", bullets: ["Tüm yükleme sevkiyatları burada listelenir.", "Kullanıcı, sevkiyatın genel durumunu buradan takip eder ve gerekli güncellemeleri yapabilir.", "Yapılan rampa ve zaman ataması, sürücünün mobil uygulamasına bildirim olarak gönderilir.", "Kullanıcı, rampaları ve zaman planlamasını gerektiği takdirde güncelleyebilir."] },
     ],
+    supademoEmbed: { id: "cmrac888901mqvy0jtvwjs2bg", title: "Tedarikçiler İçin Yukato", aspectRatio: "1.78" },
   },
   perakendeci: {
     label: "Perakendeciler için Yukato",
