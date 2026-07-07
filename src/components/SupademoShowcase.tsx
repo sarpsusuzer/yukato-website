@@ -1,22 +1,40 @@
-import TabbedSupademo, { SupademoTab } from "./TabbedSupademo";
+import TabbedSupademo, { SupademoTab, SupademoSection } from "./TabbedSupademo";
 
-const HOMEPAGE_TABS: SupademoTab[] = [
-  { label: "Gönderici - Adres Oluşturma ve Düzenleme", id: "cmls17pzy1hmx11890pdwgwm1" },
-  { label: "Gönderici - Manuel Sevkiyat Oluşturma", id: "cmls1aix21i221189k5j2oazm" },
-  { label: "Gönderici - İrsaliye Yükleme ve Görüntüleme", id: "cmls1w7b71jhu1189mulkyut0" },
-  { label: "Gönderici - Kapı Kayıt", id: "cmls2p9691m5h1189d20xeg0m" },
-  { label: "Gönderici - Canlı İzleme", id: "cmlsj58ln2kj91189lzgtpkhd" },
-  { label: "Gönderici - Yüklemeye Gelen Sevkiyatları Görüntüleme ve Randevu Atama", id: "cmlsjqbhp2lsw1189xb6vy36d" },
+const HOMEPAGE_SECTIONS: SupademoSection[] = [
+  {
+    label: "Tedarikçi",
+    tabs: [
+      { label: "Adres Oluşturma ve Düzenleme", id: "cmls17pzy1hmx11890pdwgwm1" },
+      { label: "Manuel Sevkiyat Oluşturma", id: "cmls1aix21i221189k5j2oazm" },
+      { label: "İrsaliye Yükleme ve Görüntüleme", id: "cmls1w7b71jhu1189mulkyut0" },
+      { label: "Kapı Kayıt", id: "cmls2p9691m5h1189d20xeg0m" },
+      { label: "Canlı İzleme", id: "cmlsj58ln2kj91189lzgtpkhd" },
+      { label: "Yüklemeye Gelen Sevkiyatları Görüntüleme ve Randevu Atama", id: "cmlsjqbhp2lsw1189xb6vy36d" },
+    ],
+  },
+  {
+    label: "Nakliyeci",
+    tabs: [
+      { label: "Yakında", id: "cmlp598dc0v65egrdu4tmjd68" },
+    ],
+  },
+  {
+    label: "Perakendeci",
+    tabs: [
+      { label: "Yakında", id: "cmlp598dc0v65egrdu4tmjd68" },
+    ],
+  },
 ];
 
-type Props =
-  | { locale: string; tabs?: SupademoTab[]; id?: never; title?: never; aspectRatio?: never; variant?: "dark" | "light" }
-  | { id?: never; title?: never; aspectRatio?: never; locale?: never; tabs?: SupademoTab[]; variant?: "dark" | "light" };
-
-export default function SupademoShowcase({ tabs, variant }: { tabs?: SupademoTab[]; variant?: "dark" | "light" }) {
-  const resolvedTabs = tabs ?? HOMEPAGE_TABS;
+export default function SupademoShowcase({ tabs, sections, variant }: { tabs?: SupademoTab[]; sections?: SupademoSection[]; variant?: "dark" | "light" }) {
   const isLight = variant === "light";
   const notchFill = isLight ? "#fafaf8" : "#1a4d4d";
+
+  const content = sections
+    ? <TabbedSupademo sections={sections} variant={variant} />
+    : tabs
+      ? <TabbedSupademo tabs={tabs} variant={variant} />
+      : <TabbedSupademo sections={HOMEPAGE_SECTIONS} variant={variant} />;
 
   return (
     <div className="relative">
@@ -30,7 +48,7 @@ export default function SupademoShowcase({ tabs, variant }: { tabs?: SupademoTab
         style={{ backgroundColor: isLight ? "#fafaf8" : "#1a4d4d" }}
       >
         <div className="max-w-[1160px] mx-auto">
-          <TabbedSupademo tabs={resolvedTabs} variant={variant} />
+          {content}
         </div>
       </section>
 
