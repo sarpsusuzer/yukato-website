@@ -5,7 +5,7 @@ export const tr = {
     ai: "Yapay Zeka",
     about: "Hakkımızda",
     login: "Giriş Yap",
-    demo: "Demo Talebi",
+    demo: "Yukato'yu Deneyimle",
     lang: "TR",
   },
   platformDropdown: [
@@ -139,6 +139,7 @@ export const tr = {
     heroTitle: " Operasyonları Dönüştürür.",
     heroSubtitle: "Normalde yaptığınız işlemleri saniyeler içerisinde gerçekleştirebilirsiniz.",
     featuresHeading: "Yapay Zeka Özellikleri",
+    featuresSubtitle: "Yukato'daki Dikey Yapay Zeka Uygulamaları",
     benefits: [
       { title: "Sevkiyat belgelerinde hata azaltma", desc: "Daha az eşleşmeyen veya kaybolan teslimat notları; yanlış ve alakasız belge yüklemelerini azaltma." },
       { title: "Belge işleme süresini %90'a kadar hızlandırma", desc: "Dakikalarca süren manuel çalışmadan AI ile saniyelere." },

@@ -23,6 +23,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${manrope.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-[family-name:var(--font-manrope)]">
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="https://script.supademo.com/supademo.js"></script>
         <Preloader />
         <SmoothScroll />
         <PageTransition>{children}</PageTransition>

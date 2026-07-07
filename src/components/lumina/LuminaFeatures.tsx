@@ -21,7 +21,7 @@ export default function LuminaFeatures() {
 
   return (
     <section className="relative bg-[#0a2e2e]">
-      <ParallaxHeader heading={t.lumina.featuresHeading} />
+      <ParallaxHeader heading={t.lumina.featuresHeading} subtitle={t.lumina.featuresSubtitle} />
 
       {features.map((feature, i) => {
         const isEven = i % 2 === 0;
@@ -107,7 +107,7 @@ function ScrollRevealText({ number, title, desc }: { number: string; title: stri
   );
 }
 
-function ParallaxHeader({ heading }: { heading: string }) {
+function ParallaxHeader({ heading, subtitle }: { heading: string; subtitle: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const dotY = useTransform(scrollYProgress, [0, 1], [-80, 80]);
@@ -126,7 +126,7 @@ function ParallaxHeader({ heading }: { heading: string }) {
       >
         <p className="text-[14px] font-bold text-[#21beba] uppercase tracking-widest mb-4">{heading}</p>
         <h2 className="text-[clamp(28px,4vw,48px)] font-medium leading-[1.2] tracking-[-1px] text-white">
-          Yukato&apos;daki Dikey Yapay Zeka Uygulamaları
+          {subtitle}
         </h2>
       </motion.div>
     </div>

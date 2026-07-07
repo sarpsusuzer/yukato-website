@@ -288,12 +288,12 @@ export default function Header() {
           >
             {t.nav.login}
           </a>
-          <a
-            href="#contact"
+          <button
+            onClick={() => (window as any).Supademo?.open('cmlzay10h004hxa0idvb1cbk4', { type: 'showcase' })}
             className="bg-[#21beba] border border-[#3bc6bd] text-white text-[14px] font-bold px-4 py-2.5 rounded-full hover:bg-[#1aaba8] transition-colors duration-200 whitespace-nowrap"
           >
             {t.nav.demo}
-          </a>
+          </button>
           <LocaleSwitcher locale={locale} />
           <button
             onClick={() => setMobileOpen((v) => !v)}
