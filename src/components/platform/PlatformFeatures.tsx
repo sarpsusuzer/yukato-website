@@ -40,7 +40,7 @@ export default function PlatformFeatures({
               {/* Image */}
               <div className="flex-1 w-full">
                 {feature.image ? (
-                  <div className={`relative w-full h-[40vh] md:h-[70vh] overflow-hidden ${isEven ? "rounded-tr-[32px] rounded-bl-[32px]" : "rounded-tl-[32px] rounded-br-[32px]"}`}>
+                  <div className={`relative w-full h-[40vh] md:h-[70vh] overflow-hidden ${isEven ? "rounded-tl-[32px] rounded-br-[32px]" : "rounded-tr-[32px] rounded-bl-[32px]"}`}>
                     <Parallax strength={36}>
                       <img
                         src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${feature.image}`}
@@ -61,7 +61,7 @@ export default function PlatformFeatures({
                   </div>
                 ) : (
                   <div className="relative">
-                    <div className={`relative w-full h-[40vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] ${isEven ? "rounded-tr-[32px] rounded-bl-[32px]" : "rounded-tl-[32px] rounded-br-[32px]"}`}>
+                    <div className={`relative w-full h-[40vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] ${isEven ? "rounded-tl-[32px] rounded-br-[32px]" : "rounded-tr-[32px] rounded-bl-[32px]"}`}>
                       <div className="absolute inset-0 dot-matrix opacity-30" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
