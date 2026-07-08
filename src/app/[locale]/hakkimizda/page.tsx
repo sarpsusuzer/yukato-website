@@ -59,7 +59,11 @@ export default function HakkimizdaPage() {
               <RevealText><p className="text-[18px] leading-[1.8] text-neutral-600">{a.p1}</p></RevealText>
               <RevealText><p className="text-[18px] leading-[1.8] text-neutral-600">{a.p2}</p></RevealText>
               <RevealText><p className="text-[18px] leading-[1.8] text-neutral-600">{a.p3}</p></RevealText>
-              <RevealText><p className="text-[20px] leading-[1.8] text-neutral-900 font-semibold">{a.p4}</p></RevealText>
+              <RevealText>
+                <blockquote className="border-l-4 border-[#21beba] pl-6 text-[20px] leading-[1.7] text-neutral-900 font-semibold italic">
+                  {a.p4}
+                </blockquote>
+              </RevealText>
             </div>
 
             <RevealText className="mb-6">
@@ -69,21 +73,45 @@ export default function HakkimizdaPage() {
             </RevealText>
             <div className="space-y-6 mb-20">
               <RevealText><p className="text-[18px] leading-[1.8] text-neutral-600">{a.why1}</p></RevealText>
-              <RevealText><p className="text-[20px] leading-[1.8] text-neutral-900 font-semibold">{a.why2}</p></RevealText>
+              <RevealText>
+                <blockquote className="border-l-4 border-[#21beba] pl-6 text-[20px] leading-[1.7] text-neutral-900 font-semibold italic">
+                  {a.why2}
+                </blockquote>
+              </RevealText>
               <RevealText><p className="text-[18px] leading-[1.8] text-neutral-600">{a.why3}</p></RevealText>
-              <RevealText><p className="text-[18px] leading-[1.8] text-neutral-600">{a.why4}</p></RevealText>
             </div>
 
             <RevealText className="mb-6">
               <h2 className="text-[clamp(28px,4vw,44px)] font-semibold leading-[1.12] tracking-[-0.02em] text-neutral-900">
-                {a.whatTitle}
+                {a.aiTitle}
               </h2>
             </RevealText>
             <div className="space-y-6 mb-20">
-              <RevealText><p className="text-[18px] leading-[1.8] text-neutral-600">{a.what1}</p></RevealText>
-              <RevealText><p className="text-[18px] leading-[1.8] text-neutral-600">{a.what2}</p></RevealText>
-              <RevealText><p className="text-[18px] leading-[1.8] text-neutral-600">{a.what3}</p></RevealText>
+              <RevealText><p className="text-[18px] leading-[1.8] text-neutral-600">{a.ai1}</p></RevealText>
+              <RevealText><p className="text-[18px] leading-[1.8] text-neutral-600">{a.ai2}</p></RevealText>
+              <RevealText><p className="text-[18px] leading-[1.8] text-neutral-600">{a.ai3}</p></RevealText>
+              <RevealText>
+                <blockquote className="border-l-4 border-[#21beba] pl-6 text-[20px] leading-[1.7] text-neutral-900 font-semibold italic">
+                  {a.ai4}
+                </blockquote>
+              </RevealText>
             </div>
+
+            <RevealText className="mb-6">
+              <h2 className="text-[clamp(28px,4vw,44px)] font-semibold leading-[1.12] tracking-[-0.02em] text-neutral-900">
+                {a.visionTitle}
+              </h2>
+            </RevealText>
+            <div className="space-y-6 mb-20">
+              <RevealText><p className="text-[18px] leading-[1.8] text-neutral-600">{a.vision1}</p></RevealText>
+              <RevealText><p className="text-[18px] leading-[1.8] text-neutral-600">{a.vision2}</p></RevealText>
+            </div>
+
+            <RevealText>
+              <blockquote className="border-l-4 border-[#21beba] pl-6 text-[20px] leading-[1.7] text-neutral-900 font-semibold italic mb-20">
+                {a.closing}
+              </blockquote>
+            </RevealText>
           </div>
         </section>
         <Contact variant="light" />
