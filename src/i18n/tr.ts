@@ -5,7 +5,7 @@ export const tr = {
     ai: "Yapay Zeka",
     about: "Hakkımızda",
     login: "Giriş Yap",
-    demo: "Yukato'yu Deneyimle",
+    demo: "Demo'yu İncele",
     lang: "TR",
   },
   platformDropdown: [
