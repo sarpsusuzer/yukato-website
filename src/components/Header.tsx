@@ -371,7 +371,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <a
             href="#"
-            className="hidden sm:inline-block px-3 py-2 text-[14px] font-bold text-[#00a29d] hover:text-[#21beba] transition-colors duration-200 whitespace-nowrap"
+            className="hidden sm:inline-block px-4 py-2 text-[14px] font-bold text-white border border-white/40 rounded-full hover:border-white hover:bg-white/10 transition-colors duration-200 whitespace-nowrap"
           >
             {t.nav.login}
           </a>
