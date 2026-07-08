@@ -9,7 +9,7 @@ const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 function getFrameSrc(index: number) {
   const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const num = String(index + 1).padStart(3, "0");
-  return `${bp}/hero-frames/frame_${num}.jpg`;
+  return `${bp}/hero-frames/frame_${num}.webp`;
 }
 
 export default function Hero() {

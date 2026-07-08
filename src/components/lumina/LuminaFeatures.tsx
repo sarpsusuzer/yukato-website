@@ -5,12 +5,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useT } from "@/i18n/LocaleContext";
 
 const featureImages = [
-  "/web-gorseller/Lumina/lumina1.png",
-  "/web-gorseller/Lumina/lumina2.png",
-  "/web-gorseller/Lumina/lumina3.png",
-  "/web-gorseller/Lumina/lumina4.png",
-  "/web-gorseller/Lumina/lumina5.png",
-  "/web-gorseller/Lumina/lumina6.png",
+  "/web-gorseller/Lumina/lumina1.webp",
+  "/web-gorseller/Lumina/lumina2.webp",
+  "/web-gorseller/Lumina/lumina3.webp",
+  "/web-gorseller/Lumina/lumina4.webp",
+  "/web-gorseller/Lumina/lumina5.webp",
+  "/web-gorseller/Lumina/lumina6.webp",
 ];
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];

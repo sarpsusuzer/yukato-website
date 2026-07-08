@@ -8,10 +8,10 @@ import { useT } from "@/i18n/LocaleContext";
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const certificates = [
-  `${bp}/cert-1.png`,
-  `${bp}/cert-2.png`,
-  `${bp}/cert-3.png`,
-  `${bp}/cert-4.png`,
+  `${bp}/cert-1.webp`,
+  `${bp}/cert-2.webp`,
+  `${bp}/cert-3.webp`,
+  `${bp}/cert-4.webp`,
 ];
 
 function FaqItem({

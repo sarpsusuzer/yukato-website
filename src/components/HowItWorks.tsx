@@ -9,11 +9,11 @@ import { useT } from "@/i18n/LocaleContext";
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const stepImages = [
-  `${bp}/hiw-1.jpg`,
-  `${bp}/hiw-1.jpg`,
-  `${bp}/hiw-2.jpg`,
-  `${bp}/hiw-3.jpg`,
-  `${bp}/hiw-4.jpg`,
+  `${bp}/hiw-1.webp`,
+  `${bp}/hiw-1.webp`,
+  `${bp}/hiw-2.webp`,
+  `${bp}/hiw-3.webp`,
+  `${bp}/hiw-4.webp`,
 ];
 
 export default function HowItWorks() {
