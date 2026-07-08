@@ -167,7 +167,7 @@ function MenuIcon({ open }: { open: boolean }) {
   );
 }
 
-function MobileMenu({ onClose, locale }: { onClose: () => void; locale: string }) {
+function MobileMenu({ onClose, locale, onDemoOpen }: { onClose: () => void; locale: string; onDemoOpen: () => void }) {
   const [openSection, setOpenSection] = useState<string | null>(null);
   const t = useT();
   const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -232,6 +232,14 @@ function MobileMenu({ onClose, locale }: { onClose: () => void; locale: string }
       >
         {t.nav.login}
       </a>
+      <div className="pt-2">
+        <button
+          onClick={() => { onClose(); onDemoOpen(); }}
+          className="w-full bg-[#21beba] border border-[#3bc6bd] text-white text-[15px] font-bold px-4 py-3 rounded-2xl hover:bg-[#1aaba8] transition-colors duration-200"
+        >
+          {t.nav.demo}
+        </button>
+      </div>
     </motion.div>
   );
 }
@@ -369,7 +377,7 @@ export default function Header() {
           </a>
           <button
             onClick={() => setDemoOpen(true)}
-            className="bg-[#21beba] border border-[#3bc6bd] text-white text-[14px] font-bold px-4 py-2.5 rounded-full hover:bg-[#1aaba8] transition-colors duration-200 whitespace-nowrap"
+            className="hidden md:inline-block bg-[#21beba] border border-[#3bc6bd] text-white text-[14px] font-bold px-4 py-2.5 rounded-full hover:bg-[#1aaba8] transition-colors duration-200 whitespace-nowrap"
           >
             {t.nav.demo}
           </button>
@@ -386,7 +394,7 @@ export default function Header() {
       <AnimatePresence>
         {mobileOpen && (
           <div className="w-full max-w-[1320px]">
-            <MobileMenu onClose={() => setMobileOpen(false)} locale={locale} />
+            <MobileMenu onClose={() => setMobileOpen(false)} locale={locale} onDemoOpen={() => setDemoOpen(true)} />
           </div>
         )}
       </AnimatePresence>
