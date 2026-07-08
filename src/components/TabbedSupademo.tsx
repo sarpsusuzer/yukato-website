@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
 export type SupademoTab = { label: string; id: string };
 export type SupademoSection = { label: string; tabs: SupademoTab[] };
@@ -46,28 +46,31 @@ export default function TabbedSupademo({ tabs, sections, variant = "dark" }: Pro
   const [activeSection, setActiveSection] = useState(0);
   const [activeTab, setActiveTab] = useState(0);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [tabDropdownOpen, setTabDropdownOpen] = useState(false);
   const isLight = variant === "light";
 
   const currentTabs = resolvedSections[activeSection]?.tabs ?? [];
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const tabDropdownRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
-  const updateScrollState = () => {
+  const updateScrollState = useCallback(() => {
     const el = scrollRef.current;
     if (!el) return;
     setCanScrollLeft(el.scrollLeft > 4);
     setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
-  };
+  }, []);
 
   useEffect(() => {
     setActiveTab(0);
     setDropdownOpen(false);
+    setTabDropdownOpen(false);
     if (scrollRef.current) scrollRef.current.scrollLeft = 0;
     setTimeout(updateScrollState, 50);
-  }, [activeSection]);
+  }, [activeSection, updateScrollState]);
 
   useEffect(() => {
     updateScrollState();
@@ -77,7 +80,7 @@ export default function TabbedSupademo({ tabs, sections, variant = "dark" }: Pro
     const ro = new ResizeObserver(updateScrollState);
     ro.observe(el);
     return () => { el.removeEventListener("scroll", updateScrollState); ro.disconnect(); };
-  }, [currentTabs]);
+  }, [currentTabs, updateScrollState]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -86,7 +89,7 @@ export default function TabbedSupademo({ tabs, sections, variant = "dark" }: Pro
     btn?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
   }, [activeTab]);
 
-  // Close dropdown on outside click
+  // Close section dropdown on outside click
   useEffect(() => {
     if (!dropdownOpen) return;
     const handler = (e: MouseEvent) => {
@@ -97,6 +100,18 @@ export default function TabbedSupademo({ tabs, sections, variant = "dark" }: Pro
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
   }, [dropdownOpen]);
+
+  // Close tab dropdown on outside click
+  useEffect(() => {
+    if (!tabDropdownOpen) return;
+    const handler = (e: MouseEvent) => {
+      if (tabDropdownRef.current && !tabDropdownRef.current.contains(e.target as Node)) {
+        setTabDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [tabDropdownOpen]);
 
   const scrollBy = (dir: -1 | 1) => {
     scrollRef.current?.scrollBy({ left: dir * SCROLL_AMOUNT, behavior: "smooth" });
@@ -161,40 +176,66 @@ export default function TabbedSupademo({ tabs, sections, variant = "dark" }: Pro
           </>
         )}
 
-        {/* Left chevron */}
+        {/* Mobile: tab dropdown */}
+        <div className="md:hidden relative flex-1 min-w-0" ref={tabDropdownRef}>
+          <button
+            onClick={() => setTabDropdownOpen((v) => !v)}
+            className={`w-full flex items-center justify-between gap-2 px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
+              isLight
+                ? "bg-black/5 border border-black/15 text-[#003735]"
+                : "bg-white/10 border border-white/20 text-white"
+            }`}
+          >
+            <span className="truncate">{currentTabs[activeTab]?.label}</span>
+            <ChevronDown open={tabDropdownOpen} />
+          </button>
+          {tabDropdownOpen && (
+            <div className={`absolute top-full left-0 right-0 mt-2 rounded-2xl border overflow-hidden z-50 py-1 ${dropdownBg}`}>
+              {currentTabs.map((tab, i) => (
+                <button
+                  key={i}
+                  onClick={() => { setActiveTab(i); setTabDropdownOpen(false); }}
+                  className={`w-full text-left px-4 py-2.5 text-[13px] transition-colors duration-150 ${
+                    activeTab === i ? dropdownItemActive : dropdownItemHover
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Desktop: left chevron + scrollable tab pills + right chevron */}
         <button
           onClick={() => scrollBy(-1)}
           disabled={!canScrollLeft}
-          className={`shrink-0 w-7 h-7 flex items-center justify-center transition-all duration-150 ${chevronCls}`}
+          className={`hidden md:flex shrink-0 w-7 h-7 items-center justify-center transition-all duration-150 ${chevronCls}`}
           aria-label="Sola kaydır"
         >
           <ChevronLeft />
         </button>
 
-        {/* Tab bar */}
         <div
           ref={scrollRef}
-          className={`flex gap-1 overflow-x-auto flex-1 min-w-0 ${!canScrollLeft && !canScrollRight ? "justify-center" : ""}`}
+          className={`hidden md:flex gap-1 overflow-x-auto flex-1 min-w-0 ${!canScrollLeft && !canScrollRight ? "justify-center" : ""}`}
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {currentTabs.map((tab, i) => (
             <button
               key={i}
               onClick={() => setActiveTab(i)}
-              className={`${pillBase} ${
-                activeTab === i ? tabActive : tabInactive
-              }`}
+              className={`${pillBase} ${activeTab === i ? tabActive : tabInactive}`}
             >
               {tab.label}
             </button>
           ))}
         </div>
 
-        {/* Right chevron */}
         <button
           onClick={() => scrollBy(1)}
           disabled={!canScrollRight}
-          className={`shrink-0 w-7 h-7 flex items-center justify-center transition-all duration-150 ${chevronCls}`}
+          className={`hidden md:flex shrink-0 w-7 h-7 items-center justify-center transition-all duration-150 ${chevronCls}`}
           aria-label="Sağa kaydır"
         >
           <ChevronRight />
