@@ -33,12 +33,12 @@ export default function LuminaFeatures() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, ease }}
-            className="h-screen flex items-center px-6 md:px-[60px]"
+            className="min-h-screen py-20 md:py-0 md:h-screen flex items-center px-6 md:px-[60px]"
           >
             <div className={`max-w-[1160px] mx-auto w-full flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} gap-10 md:gap-16 items-center`}>
               <div className="flex-1 w-full">
                 {image ? (
-                  <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden rounded-tr-[32px] rounded-bl-[32px]">
+                  <div className="relative w-full h-[40vh] md:h-[70vh] overflow-hidden rounded-tr-[32px] rounded-bl-[32px]">
                     <img
                       src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${image}`}
                       alt={feature.title}
@@ -53,7 +53,7 @@ export default function LuminaFeatures() {
                   </div>
                 ) : (
                   <div className="relative">
-                    <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] rounded-[36px] rounded-tr-none rounded-bl-none">
+                    <div className="relative w-full h-[40vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] rounded-[36px] rounded-tr-none rounded-bl-none">
                       <div className="absolute inset-0 dot-matrix opacity-30" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">

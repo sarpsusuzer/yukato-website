@@ -30,7 +30,7 @@ export default function PlatformFeatures({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, ease }}
-            className={`h-screen flex items-center px-6 md:px-[60px]`}
+            className={`min-h-screen py-20 md:py-0 md:h-screen flex items-center px-6 md:px-[60px]`}
           >
             <div
               className={`max-w-[1160px] mx-auto w-full flex flex-col ${
@@ -40,7 +40,7 @@ export default function PlatformFeatures({
               {/* Image */}
               <div className="flex-1 w-full">
                 {feature.image ? (
-                  <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden rounded-tr-[32px] rounded-bl-[32px]">
+                  <div className="relative w-full h-[40vh] md:h-[70vh] overflow-hidden rounded-tr-[32px] rounded-bl-[32px]">
                     <Parallax strength={36}>
                       <img
                         src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${feature.image}`}
@@ -80,7 +80,7 @@ export default function PlatformFeatures({
                     >
                       <path d="M0 36H680C710 36 720 36 740 28C760 16 780 0 820 0H1408C1425.7 0 1440 14.3 1440 32V36H0Z" />
                     </svg>
-                    <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] rounded-[36px] rounded-tr-none rounded-bl-none">
+                    <div className="relative w-full h-[40vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] rounded-[36px] rounded-tr-none rounded-bl-none">
                       <div className="absolute inset-0 dot-matrix opacity-30" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
