@@ -38,22 +38,26 @@ export default function LuminaFeatures() {
             <div className={`max-w-[1160px] mx-auto w-full flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} gap-10 md:gap-16 items-center`}>
               <div className="flex-1 w-full">
                 {image ? (
-                  <div className="relative w-full h-[40vh] md:h-[70vh] overflow-hidden rounded-tr-[32px] rounded-bl-[32px]">
+                  <div className={`relative w-full h-[40vh] md:h-[70vh] overflow-hidden ${isEven ? "rounded-tr-[32px] rounded-bl-[32px]" : "rounded-tl-[32px] rounded-br-[32px]"}`}>
                     <img
                       src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${image}`}
                       alt={feature.title}
                       className="absolute inset-0 w-full h-full object-cover"
                     />
                     <svg className="absolute top-0 left-0 w-full z-10" viewBox="0 0 1440 36" preserveAspectRatio="none" fill="#0a2e2e" xmlns="http://www.w3.org/2000/svg" style={{ height: "36px" }}>
-                      <path d="M0 0H1440V4C1440 21.7 1425.7 36 1408 36H820C780 36 760 20 740 8C720 0 710 0 680 0H32C14.3 0 0 14.3 0 32V0Z" />
+                      {isEven
+                        ? <path d="M0 0H1440V4C1440 21.7 1425.7 36 1408 36H820C780 36 760 20 740 8C720 0 710 0 680 0H32C14.3 0 0 14.3 0 32V0Z" />
+                        : <path d="M1440 0H0V4C0 21.7 14.3 36 32 36H620C660 36 680 20 700 8C720 0 730 0 760 0H1408C1425.7 0 1440 14.3 1440 32V0Z" />}
                     </svg>
                     <svg className="absolute bottom-0 left-0 w-full z-10" viewBox="0 0 1440 36" preserveAspectRatio="none" fill="#0a2e2e" xmlns="http://www.w3.org/2000/svg" style={{ height: "36px" }}>
-                      <path d="M1440 36H32C14.3 36 0 21.7 0 4V0H620C660 0 680 16 700 28C720 36 730 36 760 36H1408C1425.7 36 1440 21.7 1440 4V36Z" />
+                      {isEven
+                        ? <path d="M1440 36H32C14.3 36 0 21.7 0 4V0H620C660 0 680 16 700 28C720 36 730 36 760 36H1408C1425.7 36 1440 21.7 1440 4V36Z" />
+                        : <path d="M0 36H1408C1425.7 36 1440 21.7 1440 4V0H820C780 0 760 16 740 28C720 36 710 36 680 36H32C14.3 36 0 21.7 0 4V36Z" />}
                     </svg>
                   </div>
                 ) : (
                   <div className="relative">
-                    <div className="relative w-full h-[40vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] rounded-[36px] rounded-tr-none rounded-bl-none">
+                    <div className={`relative w-full h-[40vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] ${isEven ? "rounded-tr-[32px] rounded-bl-[32px]" : "rounded-tl-[32px] rounded-br-[32px]"}`}>
                       <div className="absolute inset-0 dot-matrix opacity-30" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
