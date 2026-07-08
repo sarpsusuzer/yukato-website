@@ -27,21 +27,16 @@ export default function Hero() {
   const videoProgress = useTransform(scrollYProgress, [0, 0.7], [0, 1], { clamp: true });
 
   useEffect(() => {
-    let loadedCount = 0;
-    const images: HTMLImageElement[] = [];
+    const images: HTMLImageElement[] = Array(TOTAL_FRAMES).fill(null).map(() => new Image());
+
+    images[0].onload = () => {
+      imagesRef.current = images;
+      setLoaded(true);
+      drawFrame(0);
+    };
 
     for (let i = 0; i < TOTAL_FRAMES; i++) {
-      const img = new Image();
-      img.src = getFrameSrc(i);
-      img.onload = () => {
-        loadedCount++;
-        if (loadedCount === TOTAL_FRAMES) {
-          imagesRef.current = images;
-          setLoaded(true);
-          drawFrame(0);
-        }
-      };
-      images.push(img);
+      images[i].src = getFrameSrc(i);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
