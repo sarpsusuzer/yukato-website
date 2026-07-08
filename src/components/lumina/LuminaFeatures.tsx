@@ -38,7 +38,7 @@ export default function LuminaFeatures() {
             <div className={`max-w-[1160px] mx-auto w-full flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} gap-10 md:gap-16 items-center`}>
               <div className="flex-1 w-full">
                 {image ? (
-                  <div className={`relative w-full h-[40vh] md:h-[70vh] overflow-hidden ${isEven ? "rounded-tl-[32px] rounded-br-[32px]" : "rounded-tr-[32px] rounded-bl-[32px]"}`}>
+                  <div className={`relative w-full h-[40vh] md:h-[70vh] overflow-hidden ${isEven ? "rounded-tr-[32px] rounded-bl-[32px]" : "rounded-tl-[32px] rounded-br-[32px]"}`}>
                     <img
                       src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${image}`}
                       alt={feature.title}
@@ -57,7 +57,7 @@ export default function LuminaFeatures() {
                   </div>
                 ) : (
                   <div className="relative">
-                    <div className={`relative w-full h-[40vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] ${isEven ? "rounded-tl-[32px] rounded-br-[32px]" : "rounded-tr-[32px] rounded-bl-[32px]"}`}>
+                    <div className={`relative w-full h-[40vh] md:h-[70vh] overflow-hidden bg-[#1a4d4d] ${isEven ? "rounded-tr-[32px] rounded-bl-[32px]" : "rounded-tl-[32px] rounded-br-[32px]"}`}>
                       <div className="absolute inset-0 dot-matrix opacity-30" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
