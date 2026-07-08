@@ -154,7 +154,7 @@ export const en: Translations = {
     features: [
       { title: "Document Validation", desc: "Detects whether uploaded files are real documents (e.g., invoices, delivery notes) or irrelevant images. Prevents incorrect uploads and provides clean, reliable data." },
       { title: "Multi-Page Document Management", desc: "Automatically splits large PDFs into separate shipping documents. Eliminates repetitive, error-prone manual work." },
-      { title: "Integrated Chatbot Support", desc: "An integrated chatbot helps users with API integrations, documentation, and general product support. Provides instant answers, reducing dependence on manual customer support." },
+      { title: "Instant Response and Support", desc: "An integrated chatbot helps users with API integrations, documentation, and general product support. Provides instant answers, reducing dependence on manual customer support." },
       { title: "Automatic Data Extraction and Matching", desc: "Reads payment documents and extracts key data (ID, company, address). Automatically matches documents to the correct shipment — completely eliminating manual checks." },
       { title: "Address and Company Deduplication", desc: "Compares entered addresses with existing records using similarity analysis. Flags potential duplicate company records. Ensures database integrity and prevents costly inconsistencies." },
       { title: "Strategic and Business Intelligence Systems", desc: "Collects and analyzes data to support decision-making processes. Uses BI insights to guide long-term strategies and create sustainable competitive advantage." },
