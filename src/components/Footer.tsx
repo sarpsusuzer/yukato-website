@@ -39,7 +39,7 @@ export default function Footer() {
     ? "© 2025 Yukato / her hakkı saklıdır."
     : "© 2025 Yukato / all rights reserved.";
   const policiesLabel = locale === "tr" ? "Politikalar" : "Policies";
-  const policiesHref = locale === "tr" ? "/politikalar" : "/en/politikalar";
+  const policiesHref = `${bp}/${locale}/politikalar`;
   const ukLabel = locale === "tr" ? "İngiltere" : "United Kingdom";
   const trLabel = locale === "tr" ? "Türkiye" : "Turkey";
 
@@ -130,9 +130,9 @@ export default function Footer() {
             {copyright}
           </p>
           <div className="flex gap-8">
-            <a href={policiesHref} className="text-[13px] md:text-[14px] font-bold text-white hover:text-[#6aded3] transition-colors duration-200">
+            <Link href={policiesHref} className="text-[13px] md:text-[14px] font-bold text-white hover:text-[#6aded3] transition-colors duration-200">
               {policiesLabel}
-            </a>
+            </Link>
           </div>
         </div>
       </div>
