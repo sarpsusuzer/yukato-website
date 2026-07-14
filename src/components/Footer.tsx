@@ -39,7 +39,7 @@ export default function Footer() {
     ? "© 2025 Yukato / her hakkı saklıdır."
     : "© 2025 Yukato / all rights reserved.";
   const policiesLabel = locale === "tr" ? "Politikalar" : "Policies";
-  const policiesHref = `${bp}/${locale}/politikalar`;
+  const policiesHref = `/${locale}/politikalar`;
   const ukLabel = locale === "tr" ? "İngiltere" : "United Kingdom";
   const trLabel = locale === "tr" ? "Türkiye" : "Turkey";
 
